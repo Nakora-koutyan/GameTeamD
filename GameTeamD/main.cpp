@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<DxLib.h>
+#include"title.h"
 
 /**************************************
 *　列挙型の宣言
@@ -69,7 +70,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	SetLoopSamplePosSoundMem(371945, gMainbgm);
 	SetLoopSamplePosSoundMem(109696, gTitlebgm);
-	PlaySoundMem(gMainbgm, DX_PLAYTYPE_LOOP);
+
+	TITLE title;
+
+	title.print();
 
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != CLOSE && !(gKeyFlg & PAD_INPUT_START)) {
