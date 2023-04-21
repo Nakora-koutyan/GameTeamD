@@ -19,25 +19,11 @@ enum mode {
 *　変数の宣言
 ***************************************/
 // 画面領域の大きさ
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
 
-// 自機の初期値の定数
-const int PLAYER_POS_X = SCREEN_WIDTH / 2;
-const int PLAYER_POS_Y = SCREEN_HEIGHT - 100;
-const int PLAYER_WIDTH = 20;//63
-const int PLAYER_HEIGHT = 60;//120
-const int PLAYER_SPEED = 5;
-const int PLAYER_HP = 1000;
-const int PLAYER_FUEL = 20000;
-const int PLAYER_BARRIER = 3;
-const int PLAYER_BARRIERUP = 10;
-
-// 敵機の最大数
-const int ENEMY_MAX = 8;
-
-// アイテムの最大値
-const int ITEM_MAX = 3;
+// リンゴの最大数
+const int APPLE_MAX = 20;
 
 /**************************************
 *　変数の宣言(グローバル変数)
@@ -49,26 +35,12 @@ int gKeyFlg;           // 入力キー情報
 int gGameMode = TITLE;    // ゲームモード
 
 int gTitleImg;         // タイトル画像
-int gTitlebgm;
-int gMenuImg;          // メニュー画像
-int gConeImg;          // メニューカーソル画像
+
+int gTitlebgm;         // 
 
 int gScore = 0;        // スコア
-int gRankingImg;       // ランキング画面背景
 
-int gItemImg[2];       // アイテム画像
-
-int gWaitTime = 0;      // 待ち時間
-int gEndImg;            // エンド画像
-
-int gMileage;          // 走行距離
-int gEnemyCount[4];    // 敵カウント
-int gEnemyImg[4];      // 敵キャラ画像
-
-int gStageImg;         // ステージ画像(道路)
-
-int gCarImg;           // 車の画像
-int gBarrierImg;       // バリアの画像
+int gItemImg[4];       // アイテム画像
 
 /**************************************
 *　プログラムの開始
