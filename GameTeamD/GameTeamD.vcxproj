@@ -153,9 +153,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="title.cpp" />
+    <ClCompile Include="bgm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="title.h" />
+    <ClInclude Include="bgm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
