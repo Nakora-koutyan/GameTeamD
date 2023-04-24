@@ -68,8 +68,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	gTitlebgm = LoadSoundMem("Sounds/Title.wav");
 	int gMainbgm = LoadSoundMem("Sounds/Main.wav");
 
-	SetLoopSamplePosSoundMem(371945, gMainbgm);
-	SetLoopSamplePosSoundMem(109696, gTitlebgm);
+	SetLoopSamplePosSoundMem(371945, gMainbgm); //
+	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
 	TITLE title;
 
