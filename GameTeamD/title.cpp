@@ -2,7 +2,7 @@
 #include<DxLib.h>
 #include"title.h"
 
-int gMainbgm
+int gMainbgm;
 
 void TITLE::print()
 {
