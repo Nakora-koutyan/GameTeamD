@@ -151,26 +151,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Apple.cpp" />
-    <ClCompile Include="Credit.cpp" />
-    <ClCompile Include="DrawRanking.cpp" />
-    <ClCompile Include="End.cpp" />
-    <ClCompile Include="FpsController.cpp" />
-    <ClCompile Include="GameMain.cpp" />
-    <ClCompile Include="Help.cpp" />
-    <ClCompile Include="PadInput.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="collision.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Ranking.cpp" />
-    <ClCompile Include="Result.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Stage.cpp" />
-    <ClCompile Include="title.cpp" />
+    <ClCompile Include="リソースファイル\Apple.cpp" />
+    <ClCompile Include="リソースファイル\Credit.cpp" />
+    <ClCompile Include="リソースファイル\DrawRanking.cpp" />
+    <ClCompile Include="リソースファイル\End.cpp" />
+    <ClCompile Include="リソースファイル\FpsController.cpp" />
+    <ClCompile Include="リソースファイル\GameMain.cpp" />
+    <ClCompile Include="リソースファイル\Help.cpp" />
+    <ClCompile Include="リソースファイル\PadInput.cpp" />
+    <ClCompile Include="リソースファイル\Player.cpp" />
+    <ClCompile Include="リソースファイル\collision.cpp" />
+    <ClCompile Include="リソースファイル\main.cpp" />
+    <ClCompile Include="リソースファイル\Ranking.cpp" />
+    <ClCompile Include="リソースファイル\Result.cpp" />
+    <ClCompile Include="リソースファイル\SceneManager.cpp" />
+    <ClCompile Include="リソースファイル\Stage.cpp" />
+    <ClCompile Include="リソースファイル\title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="title.h" />
+    <ClInclude Include="ヘッダーファイル\AbstractScene.h" />
+    <ClInclude Include="ヘッダーファイル\Apple.h" />
+    <ClInclude Include="ヘッダーファイル\Collision.h" />
+    <ClInclude Include="ヘッダーファイル\Credit.h" />
+    <ClInclude Include="ヘッダーファイル\DrawRanking.h" />
+    <ClInclude Include="ヘッダーファイル\End.h" />
+    <ClInclude Include="ヘッダーファイル\FpsController.h" />
+    <ClInclude Include="ヘッダーファイル\GameMain.h" />
+    <ClInclude Include="ヘッダーファイル\Help.h" />
+    <ClInclude Include="ヘッダーファイル\PadInput.h" />
+    <ClInclude Include="ヘッダーファイル\Player.h" />
+    <ClInclude Include="ヘッダーファイル\Ranking.h" />
+    <ClInclude Include="ヘッダーファイル\Result.h" />
+    <ClInclude Include="ヘッダーファイル\Stage.h" />
+    <ClInclude Include="ヘッダーファイル\title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
