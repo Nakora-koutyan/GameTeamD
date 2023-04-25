@@ -170,6 +170,14 @@
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="Apple.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Credit.h" />
+    <ClInclude Include="DrawRanking.h" />
+    <ClInclude Include="End.h" />
+    <ClInclude Include="FpsController.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
