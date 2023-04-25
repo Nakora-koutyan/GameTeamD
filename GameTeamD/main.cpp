@@ -6,15 +6,15 @@
 *　列挙型の宣言
 ***************************************/
 enum mode {
-	TITLE,
-	INIT,
-	MAIN,
-	RANKING,
-	HELP,
-	INPUTNAME,
-	RESULT,
-	END,
-	CLOSE
+	E_TITLE,
+	E_INIT,
+	E_MAIN,
+	E_RANKING,
+	E_HELP,
+	E_INPUTNAME,
+	E_RESULT,
+	E_END,
+	E_CLOSE
 };
 /**************************************
 *　変数の宣言
@@ -33,7 +33,7 @@ int gOldKey;           // 前回の入力キー
 int gNowKey;           // 今回の入力キー
 int gKeyFlg;           // 入力キー情報
 
-int gGameMode = TITLE;    // ゲームモード
+int gGameMode = E_TITLE;    // ゲームモード
 
 int gTitleImg;         // タイトル画像
 
@@ -71,12 +71,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
-	TITLE title;
+    TITLE title;
 
 	title.print();
 
 	// ゲームループ
-	while (ProcessMessage() == 0 && gGameMode != CLOSE && !(gKeyFlg & PAD_INPUT_START)) {
+	while (ProcessMessage() == 0 && gGameMode != E_CLOSE && !(gKeyFlg & PAD_INPUT_START)) {
 
 
 		// 画面の初期化
