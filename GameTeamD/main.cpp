@@ -1,6 +1,20 @@
 #include<stdio.h>
 #include<DxLib.h>
-#include"../GameTeamD/Title/title.h"
+#include"../GameTeamD/Title/Title.h"
+#include"../GameTeamD/GameMain/GameMain.h"
+#include"../GameTeamD/GameMain/Stage.h"
+#include"../GameTeamD/GameMain/Player.h"
+#include"../GameTeamD/GameMain/Apple.h"
+#include"../GameTeamD/GameMain/Result.h"
+#include"../GameTeamD/Ranking/DrawRanking.h"
+#include"../GameTeamD/Ranking/Ranking.h"
+#include"../GameTeamD/Help/Help.h"
+#include"../GameTeamD/End/Credit.h"
+#include"../GameTeamD/End/End.h"
+#include"../GameTeamD/System/FpsController.h"
+#include"../GameTeamD/System/PadInput.h"
+#include"../GameTeamD/System/Collision.h"
+#include"../GameTeamD/System/AbstractScene.h"
 
 /**************************************
 *@—ñ‹“Œ^‚ÌéŒ¾

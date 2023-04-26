@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<DxLib.h>
-#include"title.h"
+#include"Title.h"
 
 int gMainbgm;
 

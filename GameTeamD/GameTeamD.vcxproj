@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="End\Credit.cpp" />
+    <ClCompile Include="End\End.cpp" />
     <ClCompile Include="GameMain\Apple.cpp" />
     <ClCompile Include="GameMain\GameMain.cpp" />
     <ClCompile Include="GameMain\Player.cpp" />
@@ -160,29 +162,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ranking\DrawRanking.cpp" />
     <ClCompile Include="Ranking\Ranking.cpp" />
-    <ClCompile Include="System\collision.cpp" />
+    <ClCompile Include="System\Collision.cpp" />
     <ClCompile Include="System\FpsController.cpp" />
     <ClCompile Include="System\PadInput.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
-    <ClCompile Include="Title\title.cpp" />
-    <ClCompile Include="リソースファイル\Apple.cpp" />
-    <ClCompile Include="リソースファイル\Credit.cpp" />
-    <ClCompile Include="リソースファイル\DrawRanking.cpp" />
-    <ClCompile Include="リソースファイル\End.cpp" />
-    <ClCompile Include="リソースファイル\FpsController.cpp" />
-    <ClCompile Include="リソースファイル\GameMain.cpp" />
-    <ClCompile Include="リソースファイル\Help.cpp" />
-    <ClCompile Include="リソースファイル\PadInput.cpp" />
-    <ClCompile Include="リソースファイル\Player.cpp" />
-    <ClCompile Include="リソースファイル\collision.cpp" />
-    <ClCompile Include="リソースファイル\main.cpp" />
-    <ClCompile Include="リソースファイル\Ranking.cpp" />
-    <ClCompile Include="リソースファイル\Result.cpp" />
-    <ClCompile Include="リソースファイル\SceneManager.cpp" />
-    <ClCompile Include="リソースファイル\Stage.cpp" />
-    <ClCompile Include="リソースファイル\title.cpp" />
+    <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="End\Credit.h" />
+    <ClInclude Include="End\End.h" />
     <ClInclude Include="GameMain\Apple.h" />
     <ClInclude Include="GameMain\GameMain.h" />
     <ClInclude Include="GameMain\Player.h" />
@@ -195,22 +183,18 @@
     <ClInclude Include="System\Collision.h" />
     <ClInclude Include="System\FpsController.h" />
     <ClInclude Include="System\PadInput.h" />
-    <ClInclude Include="Title\title.h" />
-    <ClInclude Include="ヘッダーファイル\AbstractScene.h" />
-    <ClInclude Include="ヘッダーファイル\Apple.h" />
-    <ClInclude Include="ヘッダーファイル\Collision.h" />
-    <ClInclude Include="ヘッダーファイル\Credit.h" />
-    <ClInclude Include="ヘッダーファイル\DrawRanking.h" />
-    <ClInclude Include="ヘッダーファイル\End.h" />
-    <ClInclude Include="ヘッダーファイル\FpsController.h" />
-    <ClInclude Include="ヘッダーファイル\GameMain.h" />
-    <ClInclude Include="ヘッダーファイル\Help.h" />
-    <ClInclude Include="ヘッダーファイル\PadInput.h" />
-    <ClInclude Include="ヘッダーファイル\Player.h" />
-    <ClInclude Include="ヘッダーファイル\Ranking.h" />
-    <ClInclude Include="ヘッダーファイル\Result.h" />
-    <ClInclude Include="ヘッダーファイル\Stage.h" />
-    <ClInclude Include="ヘッダーファイル\title.h" />
+    <ClInclude Include="Title\Title.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Material\Sounds\BGM\GameMain.wav" />
+    <Media Include="Material\Sounds\BGM\Title.wav" />
+    <Media Include="Material\Sounds\SE\Finish.wav" />
+    <Media Include="Material\Sounds\SE\warning1.wav" />
+    <Media Include="Material\Sounds\SE\パワーアップ.wav" />
+    <Media Include="Material\Sounds\SE\毒状態.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Material\Images\Title.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
