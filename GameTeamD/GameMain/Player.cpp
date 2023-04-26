@@ -4,9 +4,8 @@
 
 void C_PLAYER::input()
 {
-	if (gPlayer.flg == TRUE) {
-		if (gNowKey & PAD_INPUT_LEFT)gPlayer.x -= gPlayer.speed;
-		if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
-	}
+	if (gNowKey & PAD_INPUT_LEFT)gPlayer_x--;
+	if (gNowKey & PAD_INPUT_RIGHT)gPlayer_x++;
 
+	DrawGraph(gPlayer_x,)
 }
