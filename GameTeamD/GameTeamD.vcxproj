@@ -164,6 +164,7 @@
     <ClCompile Include="Ranking\Ranking.cpp" />
     <ClCompile Include="System\Collision.cpp" />
     <ClCompile Include="System\FpsController.cpp" />
+    <ClCompile Include="System\Image.cpp" />
     <ClCompile Include="System\PadInput.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
@@ -194,7 +195,10 @@
     <Media Include="Material\Sounds\SE\毒状態.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Material\Images\characterWalk02.png" />
+    <Image Include="Material\Images\Dash.png" />
     <Image Include="Material\Images\Title.png" />
+    <Image Include="Material\Images\Walk.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
