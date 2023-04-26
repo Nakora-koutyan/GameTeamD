@@ -1,0 +1,3 @@
+Gamemain:371945
+Title:109696
+SetLoopSamplePosSoundMem(ループポイント,BGM名前);
