@@ -77,12 +77,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// •`‰ææ‰æ–Ê‚ğ— ‚É‚·‚é
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	gTitleImg = LoadGraph("Material/Images/Title.png");
-
-	gTitlebgm = LoadSoundMem("Sounds/Title.wav");
-	int gMainbgm = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
-
-	SetLoopSamplePosSoundMem(371945, gMainbgm); //
+	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
     TITLE title;
@@ -95,8 +90,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// ‰æ–Ê‚Ì‰Šú‰»
 		ClearDrawScreen();
-
-		DrawGraph(0, 0, gTitleImg, 0);
 
 		title.print();
 
