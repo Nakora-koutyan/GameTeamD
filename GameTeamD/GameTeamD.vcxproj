@@ -151,6 +151,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameMain\Apple.cpp" />
+    <ClCompile Include="GameMain\GameMain.cpp" />
+    <ClCompile Include="GameMain\Player.cpp" />
+    <ClCompile Include="GameMain\Result.cpp" />
+    <ClCompile Include="GameMain\Stage.cpp" />
+    <ClCompile Include="Help\Help.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ranking\DrawRanking.cpp" />
+    <ClCompile Include="Ranking\Ranking.cpp" />
+    <ClCompile Include="System\collision.cpp" />
+    <ClCompile Include="System\FpsController.cpp" />
+    <ClCompile Include="System\PadInput.cpp" />
+    <ClCompile Include="System\SceneManager.cpp" />
+    <ClCompile Include="Title\title.cpp" />
     <ClCompile Include="リソースファイル\Apple.cpp" />
     <ClCompile Include="リソースファイル\Credit.cpp" />
     <ClCompile Include="リソースファイル\DrawRanking.cpp" />
@@ -169,6 +183,19 @@
     <ClCompile Include="リソースファイル\title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameMain\Apple.h" />
+    <ClInclude Include="GameMain\GameMain.h" />
+    <ClInclude Include="GameMain\Player.h" />
+    <ClInclude Include="GameMain\Result.h" />
+    <ClInclude Include="GameMain\Stage.h" />
+    <ClInclude Include="Help\Help.h" />
+    <ClInclude Include="Ranking\DrawRanking.h" />
+    <ClInclude Include="Ranking\Ranking.h" />
+    <ClInclude Include="System\AbstractScene.h" />
+    <ClInclude Include="System\Collision.h" />
+    <ClInclude Include="System\FpsController.h" />
+    <ClInclude Include="System\PadInput.h" />
+    <ClInclude Include="Title\title.h" />
     <ClInclude Include="ヘッダーファイル\AbstractScene.h" />
     <ClInclude Include="ヘッダーファイル\Apple.h" />
     <ClInclude Include="ヘッダーファイル\Collision.h" />
