@@ -77,17 +77,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	gTitleImg = LoadGraph("images/Title.png");
+	gTitleImg = LoadGraph("Material/Images/Title.png");
 
 	gTitlebgm = LoadSoundMem("Sounds/Title.wav");
-	int gMainbgm = LoadSoundMem("Sounds/Main.wav");
+	int gMainbgm = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
 
 	SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
     TITLE title;
 
-	title.print();
+	
 
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE && !(gKeyFlg & PAD_INPUT_START)) {
@@ -97,6 +97,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		ClearDrawScreen();
 
 		DrawGraph(0, 0, gTitleImg, 0);
+
+		title.print();
 
 		// 裏画面の内容を表画面に反映する
 		ScreenFlip();

@@ -159,7 +159,7 @@
     <ClCompile Include="GameMain\Result.cpp" />
     <ClCompile Include="GameMain\Stage.cpp" />
     <ClCompile Include="Help\Help.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Ranking\DrawRanking.cpp" />
     <ClCompile Include="Ranking\Ranking.cpp" />
     <ClCompile Include="System\Collision.cpp" />
