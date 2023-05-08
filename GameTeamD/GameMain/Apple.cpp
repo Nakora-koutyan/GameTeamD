@@ -1,14 +1,13 @@
-#include<stdio.h>
-#include"DxLib.h"
 #include"Apple.h"
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) 
+int  RINGO()
 {
-	DrawCircle(30, 30, 10, 0xff0000, TRUE);
-	DrawCircle(30, 30, 10, 0x00ff00, TRUE);
-	DrawCircle(30, 30, 10, 0xffd700, TRUE);
-	DrawCircle(30, 30, 10, 0xff00ff, TRUE);
+	DrawCircle(0, 0, 80, 0xff0000, TRUE);
+	DrawCircle(100, 100, 80, 0x00ff00, TRUE);
+	DrawCircle(200, 200, 80, 0xffd700, TRUE);
+	DrawCircle(300, 300, 80, 0xff00ff, TRUE);
 
+	return 0;
 }
 
 

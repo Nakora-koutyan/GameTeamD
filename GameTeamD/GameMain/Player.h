@@ -23,9 +23,9 @@ private:
 public:
 	C_PLAYER()
 	{
-		gOldKey = 0;
-		gNowKey = 0;
-		gKeyFlg = 0;
+		//gOldKey = 0;
+		//gNowKey = 0;
+		//gKeyFlg = 0;
 
 		gPlayer_x = 640;
 		gPlayerimages = LoadGraph("Material/Images/characterWalk02.png");
