@@ -1,39 +1,57 @@
 #pragma once
-#include "DxLib.h"
+#include "../System/Collision.h"
 
 #define BUTTONS 16
+#define WALK_SPEED 3
+#define DASH_SPEED 7
+#define ANIMATION_INTERVAL 10
 
-//スティック
-struct Stick
-{
-	short ThumbX;	//横軸値
+enum class PLAYER_STATE {
+	IDOL = 0,
+	WALK,
+	DASH
 };
 
-class C_PLAYER
+class Player :public Collision
 {
 private:
-	int gOldKey[BUTTONS];           // 前回の入力キー
-	int gNowKey;           // 今回の入力キー
-	int gKeyFlg;           // 入力キー情報
+	bool TurnFlag;
+	bool stickRollFlag;
+	PLAYER_STATE PlayerState; //プレイヤーの現在の状態を制御
+
+	int ImageStand;		//画像用変数
+	int ImageDamage;	//画像用変数
+	int ImageDash[6];	//画像用配列
+	int ImageWalk[8];	//画像用配列
+	int Image;
+	int AnimTimer;		//画像切り替え用タイマー
+	int AnimInterval;	//アニメーション切り替えの間隔
+
+	float Speed;
 
 
-	int gPlayer_x;
+	int GuideFont;
+	int DamageSE;
+	int WalkSE;
+	int DashSE;
 
-	int gPlayerimages;
+private:
+	void DashAnimation();
+	void WalkAnimation();
+	bool DamageAnimation();
+
 public:
-	C_PLAYER()
-	{
-		//gOldKey = 0;
-		//gNowKey = 0;
-		//gKeyFlg = 0;
+	//コンストラクタ
+	Player();
 
-		gPlayer_x = 640;
-		gPlayerimages = LoadGraph("Material/Images/characterWalk02.png");
-	}
-	~C_PLAYER()
-	{
+	//デストラクタ
+	~Player();
 
-	}
-	void Update();
-	void Draw() const;
+	//更新
+	void UpDate();
+
+	//描画
+	void Draw()const;
+
+	void Reset();
 };

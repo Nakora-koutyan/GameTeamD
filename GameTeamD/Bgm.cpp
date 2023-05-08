@@ -1,2 +1,2 @@
 #include<stdio.h>
-#include"DxLib.h"
+#include<DxLib.h>
