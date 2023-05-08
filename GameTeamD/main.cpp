@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<DxLib.h>
+#include"DxLib.h"
 #include"Title/Title.h"
 #include"GameMain/GameMain.h"
 #include"GameMain/Stage.h"
@@ -15,6 +15,8 @@
 #include"System/PadInput.h"
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
+#include"System/Input.h"
+
 
 /**************************************
 *　列挙型の宣言
@@ -45,7 +47,7 @@ const int APPLE_MAX = 20;
 ***************************************/
 int gGameMode = E_TITLE;    // ゲームモード
 
-int gTitleImg;         // タイトル画像
+int gBackScreen;         // タイトル画像
 
 int gTitlebgm;         // 
 
@@ -76,9 +78,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
-    TITLE title;
+    G_INPUT input;
 
-	C_PLAYER* player = new C_PLAYER;
+	//C_PLAYER* player = new C_PLAYER;
 	
 
 	// ゲームループ
@@ -88,17 +90,19 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// 画面の初期化
 		ClearDrawScreen();
 
+		DrawGraph(0, 0, gBackScreen, 0);
+
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		//title.print();
 
-		player->Draw();
+		//player->Draw();
 
 		// 裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
 
-	delete player;
+	//delete player;
 
 	// DXライブラリ使用の終了処理
 	DxLib_End();
