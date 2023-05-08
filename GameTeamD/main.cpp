@@ -1,20 +1,20 @@
 #include<stdio.h>
 #include<DxLib.h>
-#include"../GameTeamD/Title/Title.h"
-#include"../GameTeamD/GameMain/GameMain.h"
-#include"../GameTeamD/GameMain/Stage.h"
-#include"../GameTeamD/GameMain/Player.h"
-#include"../GameTeamD/GameMain/Apple.h"
-#include"../GameTeamD/GameMain/Result.h"
-#include"../GameTeamD/Ranking/DrawRanking.h"
-#include"../GameTeamD/Ranking/Ranking.h"
-#include"../GameTeamD/Help/Help.h"
-#include"../GameTeamD/End/Credit.h"
-#include"../GameTeamD/End/End.h"
-#include"../GameTeamD/System/FpsController.h"
-#include"../GameTeamD/System/PadInput.h"
-#include"../GameTeamD/System/Collision.h"
-#include"../GameTeamD/System/AbstractScene.h"
+#include"Title/Title.h"
+#include"GameMain/GameMain.h"
+#include"GameMain/Stage.h"
+#include"GameMain/Player.h"
+#include"GameMain/Apple.h"
+#include"GameMain/Result.h"
+#include"Ranking/DrawRanking.h"
+#include"Ranking/Ranking.h"
+#include"Help/Help.h"
+#include"End/Credit.h"
+#include"End/End.h"
+#include"System/FpsController.h"
+#include"System/PadInput.h"
+#include"System/Collision.h"
+#include"System/AbstractScene.h"
 
 /**************************************
 *　列挙型の宣言
@@ -43,10 +43,6 @@ const int APPLE_MAX = 20;
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
-int gOldKey;           // 前回の入力キー
-int gNowKey;           // 今回の入力キー
-int gKeyFlg;           // 入力キー情報
-
 int gGameMode = E_TITLE;    // ゲームモード
 
 int gTitleImg;         // タイトル画像
@@ -77,32 +73,32 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	gTitleImg = LoadGraph("Material/Images/Title.png");
-
-	gTitlebgm = LoadSoundMem("Sounds/Title.wav");
-	int gMainbgm = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
-
-	SetLoopSamplePosSoundMem(371945, gMainbgm); //
+	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
     TITLE title;
 
+	C_PLAYER* player = new C_PLAYER;
 	
 
 	// ゲームループ
-	while (ProcessMessage() == 0 && gGameMode != E_CLOSE && !(gKeyFlg & PAD_INPUT_START)) {
+	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
 
-		DrawGraph(0, 0, gTitleImg, 0);
+		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
-		title.print();
+		//title.print();
+
+		player->Draw();
 
 		// 裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
+
+	delete player;
 
 	// DXライブラリ使用の終了処理
 	DxLib_End();

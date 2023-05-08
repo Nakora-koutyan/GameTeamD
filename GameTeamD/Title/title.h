@@ -2,7 +2,8 @@
 class TITLE
 {
 public:
-	int mainbgm;
+	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	int gBackScreen = LoadGraph("Material/Images/Title.png");
 
 
 	void print();

@@ -63,6 +63,9 @@
     <ClCompile Include="End\End.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="System\Image.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameMain\Apple.h">
@@ -133,6 +136,15 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Material\Images\Title.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\characterWalk02.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Dash.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Walk.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
