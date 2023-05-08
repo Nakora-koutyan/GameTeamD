@@ -1,5 +1,5 @@
 #pragma once
-class G_INPUT
+class M_INPUT
 {
 public:
 	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");

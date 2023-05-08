@@ -76,11 +76,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
-    G_INPUT input;
+    M_INPUT M;
 
 	//C_PLAYER* player = new C_PLAYER;
 	
-	input.Input();
+	M.Input();
 	// ÉQÅ[ÉÄÉãÅ[Év
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
@@ -88,7 +88,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// âÊñ ÇÃèâä˙âª
 		ClearDrawScreen();
 
-		DrawGraph(0, 0, input.gBackScreen, 0);
+		DrawGraph(0, 0, M.gBackScreen, 0);
 
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
