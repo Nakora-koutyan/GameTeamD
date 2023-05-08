@@ -156,7 +156,6 @@
     <ClCompile Include="End\End.cpp" />
     <ClCompile Include="GameMain\Apple.cpp" />
     <ClCompile Include="GameMain\GameMain.cpp" />
-    <ClCompile Include="GameMain\Player.cpp" />
     <ClCompile Include="GameMain\Result.cpp" />
     <ClCompile Include="GameMain\Stage.cpp" />
     <ClCompile Include="Help\Help.cpp" />
@@ -165,8 +164,7 @@
     <ClCompile Include="Ranking\Ranking.cpp" />
     <ClCompile Include="System\Collision.cpp" />
     <ClCompile Include="System\FpsController.cpp" />
-    <ClCompile Include="System\Image.cpp" />
-    <ClCompile Include="System\PadInput.cpp" />
+    <ClCompile Include="System\Input.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
@@ -176,7 +174,6 @@
     <ClInclude Include="End\End.h" />
     <ClInclude Include="GameMain\Apple.h" />
     <ClInclude Include="GameMain\GameMain.h" />
-    <ClInclude Include="GameMain\Player.h" />
     <ClInclude Include="GameMain\Result.h" />
     <ClInclude Include="GameMain\Stage.h" />
     <ClInclude Include="Help\Help.h" />
@@ -185,7 +182,7 @@
     <ClInclude Include="System\AbstractScene.h" />
     <ClInclude Include="System\Collision.h" />
     <ClInclude Include="System\FpsController.h" />
-    <ClInclude Include="System\PadInput.h" />
+    <ClInclude Include="System\Input.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<DxLib.h>
+#include"DxLib.h"
 #include"Title/Title.h"
 #include"GameMain/GameMain.h"
 #include"GameMain/Stage.h"
@@ -15,6 +15,8 @@
 #include"System/PadInput.h"
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
+#include"System/Input.h"
+
 
 /**************************************
 *　列挙型の宣言
@@ -45,8 +47,6 @@ const int APPLE_MAX = 20;
 ***************************************/
 int gGameMode = E_TITLE;    // ゲームモード
 
-int gTitleImg;         // タイトル画像
-
 int gTitlebgm;         // 
 
 int gScore = 0;        // スコア
@@ -76,11 +76,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
-    TITLE title;
+    M_INPUT M;
 
-	C_PLAYER* player = new C_PLAYER;
+	//C_PLAYER* player = new C_PLAYER;
 	
-
+	M.Input();
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
@@ -88,17 +88,19 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// 画面の初期化
 		ClearDrawScreen();
 
+		DrawGraph(0, 0, M.gBackScreen, 0);
+
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		//title.print();
 
-		player->Draw();
+		//player->Draw();
 
 		// 裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
 
-	delete player;
+	//delete player;
 
 	// DXライブラリ使用の終了処理
 	DxLib_End();
