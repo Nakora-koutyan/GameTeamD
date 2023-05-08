@@ -2,7 +2,7 @@
 class M_INPUT
 {
 public:
-	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	int gMainBGM; /*LoadSoundMem("Material/Sounds/BGM/GameMain.wav");*/
 	int gBackScreen;
 
 
