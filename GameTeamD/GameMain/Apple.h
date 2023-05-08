@@ -12,3 +12,4 @@ public:
 	int RINGO(int red, int blue, int gold, int poison);
 
 };
+

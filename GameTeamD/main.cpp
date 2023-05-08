@@ -91,10 +91,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
-		DrawCircle(100, 200, 40, 0xff0000, TRUE);
-		DrawCircle(200, 200, 40, 0x00ff00, TRUE);
-		DrawCircle(300, 200, 40, 0xffd700, TRUE);
-		DrawCircle(400, 200, 40, 0xff00ff, TRUE);
+		
 
 		//title.print();
 
