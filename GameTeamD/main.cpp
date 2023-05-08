@@ -47,8 +47,6 @@ const int APPLE_MAX = 20;
 ***************************************/
 int gGameMode = E_TITLE;    // ゲームモード
 
-int gBackScreen;         // タイトル画像
-
 int gTitlebgm;         // 
 
 int gScore = 0;        // スコア
@@ -82,7 +80,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//C_PLAYER* player = new C_PLAYER;
 	
-
+	input.Input();
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
@@ -90,7 +88,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// 画面の初期化
 		ClearDrawScreen();
 
-		DrawGraph(0, 0, gBackScreen, 0);
+		DrawGraph(0, 0, input.gBackScreen, 0);
 
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
