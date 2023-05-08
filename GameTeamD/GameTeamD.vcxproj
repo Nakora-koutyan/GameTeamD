@@ -151,13 +151,54 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="title.cpp" />
-    <ClCompile Include="bgm.cpp" />
+    <ClCompile Include="End\Credit.cpp" />
+    <ClCompile Include="End\End.cpp" />
+    <ClCompile Include="GameMain\Apple.cpp" />
+    <ClCompile Include="GameMain\GameMain.cpp" />
+    <ClCompile Include="GameMain\Player.cpp" />
+    <ClCompile Include="GameMain\Result.cpp" />
+    <ClCompile Include="GameMain\Stage.cpp" />
+    <ClCompile Include="Help\Help.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Ranking\DrawRanking.cpp" />
+    <ClCompile Include="Ranking\Ranking.cpp" />
+    <ClCompile Include="System\Collision.cpp" />
+    <ClCompile Include="System\FpsController.cpp" />
+    <ClCompile Include="System\Image.cpp" />
+    <ClCompile Include="System\PadInput.cpp" />
+    <ClCompile Include="System\SceneManager.cpp" />
+    <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="title.h" />
-    <ClInclude Include="bgm.h" />
+    <ClInclude Include="End\Credit.h" />
+    <ClInclude Include="End\End.h" />
+    <ClInclude Include="GameMain\Apple.h" />
+    <ClInclude Include="GameMain\GameMain.h" />
+    <ClInclude Include="GameMain\Player.h" />
+    <ClInclude Include="GameMain\Result.h" />
+    <ClInclude Include="GameMain\Stage.h" />
+    <ClInclude Include="Help\Help.h" />
+    <ClInclude Include="Ranking\DrawRanking.h" />
+    <ClInclude Include="Ranking\Ranking.h" />
+    <ClInclude Include="System\AbstractScene.h" />
+    <ClInclude Include="System\Collision.h" />
+    <ClInclude Include="System\FpsController.h" />
+    <ClInclude Include="System\PadInput.h" />
+    <ClInclude Include="Title\Title.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Material\Sounds\BGM\GameMain.wav" />
+    <Media Include="Material\Sounds\BGM\Title.wav" />
+    <Media Include="Material\Sounds\SE\Finish.wav" />
+    <Media Include="Material\Sounds\SE\warning1.wav" />
+    <Media Include="Material\Sounds\SE\パワーアップ.wav" />
+    <Media Include="Material\Sounds\SE\毒状態.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Material\Images\characterWalk02.png" />
+    <Image Include="Material\Images\Dash.png" />
+    <Image Include="Material\Images\Title.png" />
+    <Image Include="Material\Images\Walk.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
