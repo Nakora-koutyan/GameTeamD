@@ -116,9 +116,6 @@
     <ClInclude Include="End\Credit.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="bgm.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Material\Sounds\BGM\GameMain.wav">

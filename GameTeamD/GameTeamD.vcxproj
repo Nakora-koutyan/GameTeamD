@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bgm.cpp" />
     <ClCompile Include="End\Credit.cpp" />
     <ClCompile Include="End\End.cpp" />
     <ClCompile Include="GameMain\Apple.cpp" />
