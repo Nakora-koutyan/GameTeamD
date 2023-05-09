@@ -83,6 +83,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	APPLE apple;
 	
 	M.Input();
+
+	TITLE title;
+
+	
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
@@ -97,7 +101,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// リンゴ表示確認用
 		apple.RINGO();
 
-		//title.print();
+		title.print();
 
 		//player->Draw();
 

@@ -13,4 +13,5 @@ int M_INPUT::Input() {
 	if ((gApple[3] = LoadGraph("Material/Images/Apple_Poison.png")) == -1) return -1;
 
 	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
+	if ((gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav")) == -1) return -1;
 }

@@ -1,9 +1,9 @@
 #pragma once
+
 class TITLE
 {
 public:
-	int gMainBGM;
-
+	int i = 0;
 
 	void print();
 };
