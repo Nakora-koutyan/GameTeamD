@@ -13,8 +13,8 @@ void TITLE::print()
 
 		M.Input();
 
-		SetLoopSamplePosSoundMem(109696, M.gTitleBGM);
-		PlaySoundMem(M.gTitleBGM, DX_PLAYTYPE_LOOP);
+		SetLoopSamplePosSoundMem(109696, M.gTitle);   //再生するBGMのループ箇所に指定
+		PlaySoundMem(M.gTitleBGM, DX_PLAYTYPE_LOOP);  //BGMを再生＋ループ
 
 		i++;
 	};
