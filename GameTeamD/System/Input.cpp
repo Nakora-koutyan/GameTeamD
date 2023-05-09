@@ -4,11 +4,13 @@
 
 int M_INPUT::Input() {
 
+	// îwåiì«çû
 	if ((gBackScreen = LoadGraph("Material/Images/Title.png")) == -1) return -1;
-	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
 	/* ÉäÉìÉSÇÃâÊëúì«çû */
-	if ((gRedApple = LoadGraph("Material/Images/Apple5.png")) == -1) return -1;
-	if ((gBlueApple = LoadGraph("Material/Images/Apple03.png")) == -1) return -1;
-	if ((gGoldApple = LoadGraph("Material/Images/Apple01.png")) == -1) return -1;
-	if ((gPoisonApple = LoadGraph("Material/Images/Apple02.png")) == -1) return -1;
+	if ((gApple[0] = LoadGraph("Material/Images/Apple_Red.png")) == -1) return -1;
+	if ((gApple[1] = LoadGraph("Material/Images/Apple_Green.png")) == -1) return -1;
+	if ((gApple[2] = LoadGraph("Material/Images/Apple_Gold.png")) == -1) return -1;
+	if ((gApple[3] = LoadGraph("Material/Images/Apple_Poison.png")) == -1) return -1;
+
+	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
 }
