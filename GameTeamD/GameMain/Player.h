@@ -15,14 +15,14 @@ enum class PLAYER_STATE {
 class Player :public Collision
 {
 private:
-	bool TurnFlag;
+	bool TrunFlag;
 	bool stickRollFlag;
 	PLAYER_STATE PlayerState; //プレイヤーの現在の状態を制御
 
 	int ImageStand;		//画像用変数
 	int ImageDamage;	//画像用変数
-	int ImageDash[6];	//画像用配列
-	int ImageWalk[8];	//画像用配列
+	int ImagesDash[6];	//画像用配列
+	int ImagesWalk[8];	//画像用配列
 	int Image;
 	int AnimTimer;		//画像切り替え用タイマー
 	int AnimInterval;	//アニメーション切り替えの間隔
