@@ -6,10 +6,10 @@ int APPLE::RINGO()
 
 	M.Input();
 
-	DrawGraph(100, 200, M.gRedApple, FALSE);
-	DrawGraph(200, 200, M.gBlueApple, FALSE);
-	DrawGraph(300, 200, M.gGoldApple, FALSE);
-	DrawGraph(400, 200, M.gPoisonApple, FALSE);
+	DrawGraph(100, 200, M.gApple[0], FALSE);
+	DrawGraph(200, 200, M.gApple[1], FALSE);
+	DrawGraph(300, 200, M.gApple[2], FALSE);
+	DrawGraph(400, 200, M.gApple[3], FALSE);
 
 
 	/*int red, blue, gold, poison;
