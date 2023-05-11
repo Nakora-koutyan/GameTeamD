@@ -6,11 +6,14 @@
 class APPLE
 {
 private:
+
 	
 
 public:
-	int apple;
-	int RINGO();
+
+	int RINGO();              // ƒŠƒ“ƒS‚Ì‰æ‘œ•\¦ˆ—
+	void AppleControl(void); // ƒŠƒ“ƒS‚ÌˆÚ“®ˆ—
+	int CreateApple(void);   // ƒŠƒ“ƒS‚Ì¶¬ˆ—
 
 };
 
