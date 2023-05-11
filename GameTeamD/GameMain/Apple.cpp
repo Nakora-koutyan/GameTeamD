@@ -1,6 +1,6 @@
 #include"Apple.h"
 #include"../System/Input.h"
-#include "../main.cpp"
+#define APPLE_MAX 20
 
 struct RINGO {
 	int flg;         // 使用フラグ
@@ -12,12 +12,13 @@ struct RINGO {
 
 };
 
+struct RINGO gEnemy[APPLE_MAX];
 struct RINGO lApple00 = { TRUE,0,0,0,-50,63,120,0,1 };
 struct RINGO lAppleCn = { TRUE,4,0,0,-50,18,18,0,1 };
 
 
 
-int APPLE::RINGO()
+int APPLE::IMAGES_RINGO()
 {
 	M_INPUT M;
 
@@ -36,6 +37,7 @@ int APPLE::RINGO()
 	poison = DrawCircle(300, 300, 80, 0xff00ff, TRUE);
 	*/
 
+	AppleControl();
 	
 	return 0;
 }
@@ -43,6 +45,9 @@ int APPLE::RINGO()
 
 void APPLE::AppleControl()
 {
+
+	
+
 	struct RINGO lApple[APPLE_MAX];
 
 	// リンゴの初期設定
@@ -51,7 +56,7 @@ void APPLE::AppleControl()
 	}
 
 	for (int i = 0; i < APPLE_MAX; i++) {
-		if (lApple[i].flg = TRUE) {
+		if (lApple[i].flg == TRUE) {
 
 			// リンゴの表示
 			DrawRotaGraph(lApple[i].x, lApple[i].y, 1.0f, 0, lApple[i].img, TRUE, FALSE);
@@ -69,13 +74,18 @@ void APPLE::AppleControl()
 
 int APPLE::CreateApple()
 {
+
+	M_INPUT M;
+
+	M.Input();
+
 	struct RINGO lApple [APPLE_MAX];
 
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (lApple[i].flg == FALSE) {
 			lApple[i] = lApple00;
 			lApple[i].type = GetRand(2);
-			lApple[i].img = gItemImg[lApple[i].type];
+			lApple[i].img = M.gApple[lApple[i].type];
 			lApple[i].x = GetRand(4) * 105 + 40;
 			lApple[i].speed = lApple[i].type * 2;
 			// 成功

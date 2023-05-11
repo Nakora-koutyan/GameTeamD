@@ -4,5 +4,5 @@
 class PLAYER
 {
 private:
-	const int
+	//const int
 };

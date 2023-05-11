@@ -11,7 +11,10 @@ private:
 
 public:
 
-	int RINGO();              // リンゴの画像表示処理
+	int gItemImg[4];       // アイテム画像
+
+
+	int IMAGES_RINGO();              // リンゴの画像表示処理
 	void AppleControl(void); // リンゴの移動処理
 	int CreateApple(void);   // リンゴの生成処理
 

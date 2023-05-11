@@ -39,8 +39,6 @@ enum mode {
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-// リンゴの最大数
-const int APPLE_MAX = 20;
 
 /**************************************
 *　変数の宣言(グローバル変数)
@@ -51,7 +49,7 @@ int gTitlebgm;         //
 
 int gScore = 0;        // スコア
 
-int gItemImg[4];       // アイテム画像
+
 
 /**************************************
 *　プログラムの開始
@@ -95,7 +93,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
-		//apple.RINGO();
+		apple.IMAGES_RINGO();
 
 		//title.print();
 
