@@ -64,8 +64,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ウィンドウモードで起動
 	ChangeWindowMode(TRUE);
 
-	// ウィンドウサイズ設定
-	SetWindowSize(1280, 720);
+	// ウィンドウサイズ設定	
+	SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT,32);
 
 	// DXライブラリの初期化処理
 	if (DxLib_Init() == -1)return -1;
@@ -78,7 +78,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     M_INPUT M;
 
-	//C_PLAYER* player = new C_PLAYER;
+	G_PLAYER Box;
 
 	APPLE apple;
 	
@@ -99,9 +99,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		//title.print();
 
-		//player->Draw();
+		Box.PlayerImages();
 
-		// 裏画面の内容を表画面に反映する
+		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
 
