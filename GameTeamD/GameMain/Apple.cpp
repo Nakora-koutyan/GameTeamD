@@ -13,6 +13,7 @@ struct RINGO {
 };
 
 struct RINGO gEnemy[APPLE_MAX];
+struct RINGO lApple[APPLE_MAX];
 struct RINGO lApple00 = { TRUE,0,0,0,-50,63,120,0,1 };
 struct RINGO lAppleCn = { TRUE,4,0,0,-50,18,18,0,1 };
 
@@ -48,7 +49,7 @@ void APPLE::AppleControl()
 
 	
 
-	struct RINGO lApple[APPLE_MAX];
+	/*struct RINGO lApple[APPLE_MAX];*/
 
 	// ÉäÉìÉSÇÃèâä˙ê›íË
 	for (int i = 0; i < APPLE_MAX; i++) {
@@ -79,7 +80,7 @@ int APPLE::CreateApple()
 
 	M.Input();
 
-	struct RINGO lApple [APPLE_MAX];
+	/*struct RINGO lApple [APPLE_MAX];*/
 
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (lApple[i].flg == FALSE) {

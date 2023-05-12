@@ -2,7 +2,7 @@
 #include"DxLib.h"
 #include"Ranking.h"
 #include"../System/Input.h"
-#include "../main.cpp"
+//#include "../main.cpp"
 
 /****************************************
 * 構造体
@@ -96,7 +96,7 @@ void Ranking::InputRanking(void)
 		gRanking[RANK_MAX - 1].score = M.gScore;             //ランキングデータの10番目にスコアを表示
 		//SortRanking();                                     //ランキングの並び替え
 		//SaveRanking();                                     //ランキングデータ並び替え
-		gGameMode = E_TITLE;                               //ゲームモードの変更
+		/*gGameMode = E_RANKING;*/                               //ゲームモードの変更
 	}
 }
 
