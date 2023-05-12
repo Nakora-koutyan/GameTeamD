@@ -6,11 +6,11 @@ class Ranking
 {
 public:
 
-	int ReadRanking();
-	int SaveRanking();
+	int ReadRanking();   //ランキングデータの読込
+	int SaveRanking();   //ランキングデータの保存
 
-	void DrawRanking();
-	void SortRanking();
-    void InputRanking();
+	void DrawRanking();  //ランキング描画処理
+	void SortRanking();  //ランキングデータの並び替え
+    void InputRanking(); //ランキングン入力
 };
 
