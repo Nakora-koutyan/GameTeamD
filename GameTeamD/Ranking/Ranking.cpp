@@ -2,6 +2,7 @@
 #include"DxLib.h"
 #include"Ranking.h"
 #include"../System/Input.h"
+#include "../main.cpp"
 
 /****************************************
 * ランキング画面
@@ -12,7 +13,7 @@ void Ranking::DrawRanking(void)
 
 	M.Input();
 
-	//スでメニューに戻る
+	//でメニューに戻る
 	//if (gKeyFlg & PAD_INPUT_M) gGameMode = TITLE;
 
 	//ランキング画像を表示
@@ -33,7 +34,7 @@ void Ranking::DrawRanking(void)
 /****************************************
 * ランキングデータの保存
 *****************************************/
-int SaveRanking(void)
+int Ranking::SaveRanking(void)
 {
 	FILE* fp;
 #pragma warning(disable:4996)
@@ -57,9 +58,73 @@ int SaveRanking(void)
 }
 
 /****************************************
+* ランキング入力処理
+*****************************************/
+void Ranking::InputRanking(void)
+{
+	M_INPUT M;
+
+	M.Input();
+
+	//ランキング画像表示
+	DrawGraph(0, 0, M.gRankingImg, FALSE);
+
+	//フォントサイズの設定
+	SetFontSize(16);
+
+	//名前入力指示文字列の描画
+	DrawString(80, 150, "ランキングに登録します。", 0xFFFFFF);
+	DrawString(80, 170, "名前を英字で入力して下さい。", 0xFFFFFF);
+
+	//名前の入力
+	DrawString(80, 200, "> ", 0xFFFFFF);
+	DrawBox(90, 195, 200, 220, 0xFFFF00, TRUE);
+	if (KeyInputSingleCharString(90, 200, 10, gRanking[RANK_MAX - 1].name, FALSE) == 1) {
+		gRanking[RANK_MAX - 1].score = M.gScore;             //ランキングデータの10番目にスコアを表示
+		//SortRanking();                                     //ランキングの並び替え
+		//SaveRanking();                                     //ランキングデータ並び替え
+		gGameMode = M.RANKING;                               //ゲームモードの変更
+	}
+}
+
+/****************************************
+* ランキング並び替え
+*****************************************/
+void Ranking::SortRanking(void)
+{
+
+	int i, j;
+	RankingData work;
+
+	//選択法ソート
+	for (i = 0; i < RANK_MAX; i++) {
+		for (j = i + 1; j < RANK_MAX - 1; j++) {
+			if (gRanking[i].score <= gRanking[j].score) {
+				work = gRanking[i];
+				gRanking[i] = gRanking[j];
+				gRanking[j] = work;
+			}
+		}
+	}
+	//順位付け
+	for (i = 0; i < RANK_MAX; i++) {
+		gRanking[i].no = 1;
+	}
+	//得点が同じ場合は、同じ順位とする
+	//同順位があった場合の次の順位はデータ戸数が加算された順位とする
+	for (i = 0; i < RANK_MAX - 1; i++) {
+		for (j = i + 1; j < RANK_MAX; j++) {
+			if (gRanking[i].score > gRanking[j].score) {
+				gRanking[j].no++;
+			}
+		}
+	}
+}
+
+/****************************************
 * ランキングデータ読み込み
 *****************************************/
-int ReadRanking(void)
+int Ranking::ReadRanking(void)
 {
 	FILE* fp;
 #pragma warning(disable:4996)

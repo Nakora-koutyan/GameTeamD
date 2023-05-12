@@ -7,7 +7,7 @@
 *****************************************/
 //ランキングデータ構造体
 struct RankingData {
-	int      no;
+	int no;
 	char name[11];
 	long score;
 };
@@ -18,12 +18,9 @@ struct RankingData  gRanking[RANK_MAX];
 class Ranking
 {
 public:
-	
-	/*const int RANK_MAX = 5;*/
 
 	int ReadRanking();
 	int SaveRanking();
-	int gScore;
 
 	void DrawRanking();
 	void SortRanking();

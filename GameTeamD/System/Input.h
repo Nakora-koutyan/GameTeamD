@@ -6,7 +6,9 @@ public:
 	int gMainBGM;       //メインBGM
 	int gBackScreen;
 	int gApple[4];      // リンゴ
-	int gRankingImg;  //ランキング画像
+	int gRankingImg;    //ランキング画像
+	int RANKING;
+	int gScore;
 
 
 	int Input();
