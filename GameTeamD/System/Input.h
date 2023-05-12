@@ -2,10 +2,11 @@
 class M_INPUT
 {
 public:
-	int gTitleBGM;
-	int gMainBGM;
+	int gTitleBGM;      //タイトルBGM
+	int gMainBGM;       //メインBGM
 	int gBackScreen;
-	int gApple[4]; // リンゴ
+	int gApple[4];      // リンゴ
+	int gRankingImg;  //ランキング画像
 
 
 	int Input();
