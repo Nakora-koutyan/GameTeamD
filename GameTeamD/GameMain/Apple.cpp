@@ -47,10 +47,6 @@ int APPLE::IMAGES_RINGO()
 void APPLE::AppleControl()
 {
 
-	
-
-	/*struct RINGO lApple[APPLE_MAX];*/
-
 	// ƒŠƒ“ƒS‚Ì‰Šúİ’è
 	for (int i = 0; i < APPLE_MAX; i++) {
 		lApple[i].flg = FALSE;
@@ -79,8 +75,6 @@ int APPLE::CreateApple()
 	M_INPUT M;
 
 	M.Input();
-
-	/*struct RINGO lApple [APPLE_MAX];*/
 
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (lApple[i].flg == FALSE) {
