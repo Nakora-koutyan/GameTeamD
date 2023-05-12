@@ -5,6 +5,19 @@
 #include "../main.cpp"
 
 /****************************************
+* 構造体
+*****************************************/
+//ランキングデータ構造体
+struct RankingData {
+	int no;
+	char name[11];
+	long score;
+};
+
+//rランキングデータの変数宣言
+struct RankingData  gRanking[RANK_MAX];
+
+/****************************************
 * ランキング画面
 *****************************************/
 void Ranking::DrawRanking(void)
@@ -83,7 +96,7 @@ void Ranking::InputRanking(void)
 		gRanking[RANK_MAX - 1].score = M.gScore;             //ランキングデータの10番目にスコアを表示
 		//SortRanking();                                     //ランキングの並び替え
 		//SaveRanking();                                     //ランキングデータ並び替え
-		gGameMode = M.RANKING;                               //ゲームモードの変更
+		gGameMode = E_TITLE;                               //ゲームモードの変更
 	}
 }
 

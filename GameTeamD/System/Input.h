@@ -10,6 +10,5 @@ public:
 	int RANKING;
 	int gScore;
 
-
 	int Input();
 };

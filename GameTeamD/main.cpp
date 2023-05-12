@@ -6,7 +6,6 @@
 #include"GameMain/Player.h"
 #include"GameMain/Apple.h"
 #include"GameMain/Result.h"
-#include"Ranking/DrawRanking.h"
 #include"Ranking/Ranking.h"
 #include"Help/Help.h"
 #include"End/Credit.h"
@@ -43,13 +42,8 @@ const int SCREEN_HEIGHT = 720;
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
+
 int gGameMode = E_TITLE;    // ゲームモード
-
-int gTitlebgm;         // 
-
-int gScore = 0;        // スコア
-
-
 
 /**************************************
 *　プログラムの開始
@@ -70,9 +64,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
-
-	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
-	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
     M_INPUT M;
 

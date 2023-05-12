@@ -3,7 +3,7 @@
 class TITLE
 {
 public:
-	int i = 0;
+	int t = 0;
 
 	void print();
 };

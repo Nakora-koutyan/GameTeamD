@@ -15,4 +15,6 @@ int M_INPUT::Input() {
 	//BGMì«çû
 	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
 	if ((gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav")) == -1) return -1;
+
+	return 0;
 }
