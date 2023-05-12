@@ -39,8 +39,6 @@ enum mode {
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-// リンゴの最大数
-const int APPLE_MAX = 20;
 
 /**************************************
 *　変数の宣言(グローバル変数)
@@ -51,7 +49,7 @@ int gTitlebgm;         //
 
 int gScore = 0;        // スコア
 
-int gItemImg[4];       // アイテム画像
+
 
 /**************************************
 *　プログラムの開始
@@ -64,8 +62,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ウィンドウモードで起動
 	ChangeWindowMode(TRUE);
 
-	// ウィンドウサイズ設定
-	SetWindowSize(1280, 720);
+	// ウィンドウサイズ設定	
+	SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT,32);
 
 	// DXライブラリの初期化処理
 	if (DxLib_Init() == -1)return -1;
@@ -78,7 +76,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     M_INPUT M;
 
-	//C_PLAYER* player = new C_PLAYER;
+	G_PLAYER Box;
 
 	APPLE apple;
 	
@@ -99,13 +97,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
-		apple.RINGO();
+		apple.IMAGES_RINGO();
 
 		title.print();
 
-		//player->Draw();
+		Box.PlayerImages();
 
-		// 裏画面の内容を表画面に反映する
+		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
 
