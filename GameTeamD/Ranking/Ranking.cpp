@@ -2,7 +2,6 @@
 #include"DxLib.h"
 #include"Ranking.h"
 #include"../System/Input.h"
-//#include "../main.cpp"
 
 /****************************************
 * ç\ë¢ëÃ
