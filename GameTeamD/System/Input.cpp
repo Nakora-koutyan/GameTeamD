@@ -12,5 +12,7 @@ int M_INPUT::Input() {
 	if ((gApple[2] = LoadGraph("Material/Images/Apple_Gold.png")) == -1) return -1;
 	if ((gApple[3] = LoadGraph("Material/Images/Apple_Poison.png")) == -1) return -1;
 
+	/*キャラクターの画像読込*/
+
 	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
 }

@@ -7,12 +7,9 @@ class APPLE
 {
 private:
 
-	
-
-public:
-
 	int gItemImg[4];       // アイテム画像
 
+public:
 
 	int IMAGES_RINGO();              // リンゴの画像表示処理
 	void AppleControl(void); // リンゴの移動処理
