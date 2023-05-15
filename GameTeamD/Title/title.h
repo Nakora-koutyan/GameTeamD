@@ -17,6 +17,9 @@ private:
 public:
 	int t = 0;
 
+	int g_KeyFlg;
+	int g_MenuNumber;
+
 	void print();
 };
 
