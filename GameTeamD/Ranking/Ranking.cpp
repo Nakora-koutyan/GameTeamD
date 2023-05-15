@@ -1,4 +1,4 @@
-#include"DxLib.h"
+#include <stdio.h>
 #include"Ranking.h"
 #include"../System/Input.h"
 
