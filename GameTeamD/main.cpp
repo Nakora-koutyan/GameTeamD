@@ -70,12 +70,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
-	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
+	//SetLoopSamplePosSoundMem(371945, gMainbgm); 
+	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
 
 	M_INPUT M{};
 
-	G_PLAYER Box;
+	PLAYER Box;
 
 	APPLE apple{};
 
@@ -102,7 +102,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		T.print();
 
-		Box.PlayerImages();
+		//プレイヤー画像表示関数の宣言
+		Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();

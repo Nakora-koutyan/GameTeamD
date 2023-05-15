@@ -17,8 +17,8 @@ public:
 		old_key = 0;
 	}
 
-	static void Update();
-	static int GetKey(int key);
-	static int GetKeyDown(int key);
+	static void Update();			//更新
+	static int GetKey(int key);		//キー情報取得
+	static int GetKeyDown(int key);	//キー押下状態取得
 };
 
