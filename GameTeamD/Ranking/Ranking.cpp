@@ -60,7 +60,7 @@ int Ranking::SaveRanking(void)
 
 	//ランキングデータ分配列データを書き込む
 	for (int i = 0; i < RANK_MAX; i++) {
-		fprintf(fp, "%2d %10s %10d\n", gRanking[i].no, gRanking[i].name,
+		fprintf(fp,"%2d %10s %10d\n", gRanking[i].no, gRanking[i].name,
 			gRanking[i].score);
 	}
 
