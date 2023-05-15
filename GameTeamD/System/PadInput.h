@@ -4,7 +4,7 @@
 
 class InputControl
 {
-private:
+protected:
 	static int key_flg;
 	static int now_key;
 	static int old_key;

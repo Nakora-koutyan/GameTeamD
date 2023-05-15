@@ -1,5 +1,6 @@
 #pragma once
-class TITLE
+#include"../System/PadInput.h"
+class TITLE : public InputControl
 {
 private:
 	enum mode {
@@ -13,8 +14,8 @@ private:
 		E_END,
 		E_CLOSE
 	};
+	int g_MenuNumber = 0;
 public:
-
 
 	void print();
 };

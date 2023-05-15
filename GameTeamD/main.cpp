@@ -6,7 +6,6 @@
 #include"GameMain/Player.h"
 #include"GameMain/Apple.h"
 #include"GameMain/Result.h"
-#include"Ranking/DrawRanking.h"
 #include"Ranking/Ranking.h"
 #include"Help/Help.h"
 #include"End/Credit.h"
@@ -74,20 +73,23 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
 
-    M_INPUT M;
+	M_INPUT M{};
 
-	PLAYER Charactor;
+	G_PLAYER Box;
 
-	APPLE apple;
+	APPLE apple{};
+
+	TITLE T;
 	
 	M.Input();
-
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
+
+		InputControl::Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
@@ -98,7 +100,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		//title.print();
 
-		Charactor.IMAGES_PLAYER();
+		T.print();
+
+		Box.PlayerImages();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
