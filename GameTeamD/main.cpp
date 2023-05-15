@@ -76,11 +76,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     M_INPUT M;
 
-	G_PLAYER Box;
+	PLAYER Charactor;
 
 	APPLE apple;
 	
 	M.Input();
+
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
@@ -97,7 +98,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		//title.print();
 
-		Box.PlayerImages();
+		Charactor.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
