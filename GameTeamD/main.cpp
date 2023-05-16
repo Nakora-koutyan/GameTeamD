@@ -42,8 +42,13 @@ const int SCREEN_HEIGHT = 720;
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
-
 int gGameMode = E_TITLE;    // ゲームモード
+
+int gTitlebgm;         // 
+
+int gScore = 0;        // スコア
+
+
 
 /**************************************
 *　プログラムの開始
@@ -65,23 +70,26 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-    M_INPUT M;
+	//SetLoopSamplePosSoundMem(371945, gMainbgm); 
+	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
 
-	G_PLAYER Box;
+	M_INPUT M{};
 
-	APPLE apple;
+	PLAYER Box;
+
+	APPLE apple{};
+
+	TITLE T;
 	
 	M.Input();
-
-	TITLE title;
-
-	
 	// ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
+
+		InputControl::Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
@@ -90,9 +98,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// リンゴ表示確認用
 		apple.IMAGES_RINGO();
 
-		title.print();
+		//title.print();
 
-		Box.PlayerImages();
+		T.print();
+
+		//プレイヤー画像表示関数の宣言
+		Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
