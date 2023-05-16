@@ -75,7 +75,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	PLAYER Box;
+	/*PLAYER Box;*/
 
 	APPLE apple{};
 
@@ -103,7 +103,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		T.print();
 
 		//プレイヤー画像表示関数の宣言
-		Box.IMAGES_PLAYER();
+		//Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
