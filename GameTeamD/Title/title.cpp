@@ -4,7 +4,13 @@
 
 void TITLE::print()
 {	
-	if (GetKeyDown(PAD_INPUT_A)) {
+	if (CheckSoundMem(gTitleBGM) != 1)
+	{
+		SetLoopSamplePosSoundMem(109696, gTitleBGM);
+		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
+	}
+
+	if (GetKey(PAD_INPUT_DOWN)) {
 		if (++g_MenuNumber > 3) g_MenuNumber = 0;
 		DrawBox(300, 300, 400, 400, 0xFFFFFF, 1);
 		//PlaySoundMem(Menu1, DX_PLAYTYPE_BACK);
@@ -13,6 +19,6 @@ void TITLE::print()
 		if (--g_MenuNumber < 0) g_MenuNumber = 2;
 		//PlaySoundMem(Menu1, DX_PLAYTYPE_BACK);
 	}
-	//PlaySoundMem(gMainBGM, DX_PLAYTYPE_LOOP);
+	
 	DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
 }
