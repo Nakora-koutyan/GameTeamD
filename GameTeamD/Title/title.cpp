@@ -43,7 +43,18 @@ void TITLE::print()
 			}
 		}
 
-		//PlaySoundMem(gMainBGM, DX_PLAYTYPE_LOOP);
 		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+	}
+	if (gGameMode == E_INIT) {
+		DrawFormatString(300, 10, 0xFFFFFF, "init");
+	}
+	if (gGameMode == E_RANKING) {
+		DrawFormatString(300, 10, 0xFFFFFF, "rank");
+	}
+	if (gGameMode == E_HELP) {
+		DrawFormatString(300, 10, 0xFFFFFF, "help");
+	}
+	if (gGameMode == E_END) {
+		DrawFormatString(300, 10, 0xFFFFFF, "end");
 	}
 }
