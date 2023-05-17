@@ -15,6 +15,7 @@ private:
 		E_CLOSE
 	};
 	int g_MenuNumber = 0;
+	int gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
 public:
 
 	void print();
