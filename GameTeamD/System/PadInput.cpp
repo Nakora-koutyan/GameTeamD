@@ -1,6 +1,6 @@
 #include "PadInput.h"
 
-XINPUT_STATE input;
+//XINPUT_STATE input;
 int InputControl::key_flg;
 int InputControl::now_key;
 int InputControl::old_key;
@@ -8,7 +8,7 @@ int InputControl::old_key;
 void InputControl::Update()
 {
 	old_key = now_key;
-	now_key = GetJoypadXInputState(DX_INPUT_PAD1,&input);
+	now_key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	key_flg = now_key & ~old_key; //’·‰Ÿ‚µ‹‘”Û(2ƒtƒŒ[ƒ€ˆÈã“Ç‚Ì‹‘”Û)
 }
 
