@@ -10,7 +10,7 @@ void TITLE::print()
 		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
 	}
 
-	if (gGameMode == E_TITLE);
+	if (gGameMode == E_TITLE)
 	{
 		if (GetKeyDown(PAD_INPUT_DOWN)) {
 			if (++g_MenuNumber > 3) g_MenuNumber = 0;
@@ -44,6 +44,9 @@ void TITLE::print()
 		}
 
 		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+	}
+	if (gGameMode == E_TITLE) {
+		DrawFormatString(300, 10, 0xFFFFFF, "title");
 	}
 	if (gGameMode == E_INIT) {
 		DrawFormatString(300, 10, 0xFFFFFF, "init");
