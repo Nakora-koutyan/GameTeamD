@@ -5,16 +5,16 @@
 int M_INPUT::Input() {
 
 	// ”wŒi“Ç
-	if ((gBackScreen = LoadGraph("Material/Images/Title.png")) == -1) return -1;
+	if ((gBackScreen = LoadGraph("Material/Images/Title.png")) == -1) return -1;		//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
 	/* ƒŠƒ“ƒS‚Ì‰æ‘œ“Ç */
-	if ((gApple[0] = LoadGraph("Material/Images/Apple_Red.png")) == -1) return -1;
-	if ((gApple[1] = LoadGraph("Material/Images/Apple_Green.png")) == -1) return -1;
-	if ((gApple[2] = LoadGraph("Material/Images/Apple_Gold.png")) == -1) return -1;
-	if ((gApple[3] = LoadGraph("Material/Images/Apple_Poison.png")) == -1) return -1;
+	if ((gApple[0] = LoadGraph("Material/Images/Apple_Red.png")) == -1) return -1;		//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
+	if ((gApple[1] = LoadGraph("Material/Images/Apple_Green.png")) == -1) return -1;	//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
+	if ((gApple[2] = LoadGraph("Material/Images/Apple_Gold.png")) == -1) return -1;		//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
+	if ((gApple[3] = LoadGraph("Material/Images/Apple_Poison.png")) == -1) return -1;	//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
 
-	//BGM“Ç
-	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;
-	if ((gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav")) == -1) return -1;
+	/*ƒLƒƒƒ‰ƒNƒ^[‚Ì‰æ‘œ“Ç*/
+
+	if ((gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav")) == -1) return -1;	//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
 
 	return 0;
 }

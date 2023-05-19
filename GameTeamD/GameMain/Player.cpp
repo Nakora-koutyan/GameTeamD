@@ -1,14 +1,28 @@
 #include<stdio.h>
 #include"DxLib.h"
 #include"Player.h"
+#include"../System/Input.h"
+#include"../System/PadInput.h"
 
-int G_PLAYER::PlayerImages()
+struct CHARACTOR {
+	int flg;
+	int type;
+	int img;
+	int x, y, w, h;
+	int speed;
+};
+
+PLAYER::PLAYER()	//コンストラクタ(初期化)
 {
-	int Color;
+	gPlayerImg = LoadGraph("Material/Images/characterWalk02.png");
+}
 
-	Color = GetColor(0, 0, 255);//青色の値を取得
+void PLAYER::IMAGES_PLAYER() //画像の表示
+{
+	DrawGraph(550, 500, gPlayerImg,TRUE);
+}
 
-	DrawBox(0, 0, 64, 48, Color, TRUE);
-
-	return 0;
+void PLAYER::Move() //キャラクタームーブ
+{
+	
 }
