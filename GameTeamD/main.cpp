@@ -75,9 +75,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	PLAYER Box;
+	/*PLAYER Box;*/
 
 	APPLE apple{};
+
+	GAMEMAIN stage;
 
 	TITLE T;
 	
@@ -97,6 +99,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
+		apple.AppleControl();
+
+		//title.print();
 
 		T.print();
 
