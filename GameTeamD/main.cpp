@@ -6,7 +6,6 @@
 #include"GameMain/Player.h"
 #include"GameMain/Apple.h"
 #include"GameMain/Result.h"
-#include"Ranking/DrawRanking.h"
 #include"Ranking/Ranking.h"
 #include"Help/Help.h"
 #include"End/Credit.h"
@@ -39,19 +38,17 @@ enum mode {
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-// リンゴの最大数
-const int APPLE_MAX = 20;
 
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
-int gGameMode = E_TITLE;    // ゲームモード
+//int gGameMode = E_TITLE;    // ゲームモード
 
 int gTitlebgm;         // 
 
 int gScore = 0;        // スコア
 
-int gItemImg[4];       // アイテム画像
+
 
 /**************************************
 *　プログラムの開始
@@ -73,33 +70,38 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	//SetLoopSamplePosSoundMem(371945, gMainbgm); //
-	SetLoopSamplePosSoundMem(109696, gTitlebgm); //
+	//SetLoopSamplePosSoundMem(371945, gMainbgm); 
+	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
 
-    M_INPUT M;
+	M_INPUT M{};
 
-	G_PLAYER Box;
+	PLAYER Box;
 
-	APPLE apple;
+	APPLE apple{};
+
+	TITLE T;
 	
 	M.Input();
 	// ゲームループ
-	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
+	while (ProcessMessage() == 0 ) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
+
+		InputControl::Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
-		apple.RINGO();
+		//apple.IMAGES_RINGO();
 
-		//title.print();
+		T.print();
 
-		Box.PlayerImages();
+		//プレイヤー画像表示関数の宣言
+		//Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();

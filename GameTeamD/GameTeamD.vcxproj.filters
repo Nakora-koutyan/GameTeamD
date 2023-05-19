@@ -30,9 +30,6 @@
     <ClCompile Include="Help\Help.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Ranking\DrawRanking.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Ranking\Ranking.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -60,16 +57,10 @@
     <ClCompile Include="System\Input.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Bgm.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="System\PadInput.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="title.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,9 +78,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Help\Help.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Ranking\DrawRanking.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Ranking\Ranking.h">
@@ -114,9 +102,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="System\Input.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Bgm.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameMain\Player.h">
@@ -157,6 +142,18 @@
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="Material\Images\Walk.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Apple_Gold.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Apple_Poison.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Apple_Green.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Apple_Red.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
