@@ -1,12 +1,6 @@
 #include "End.h"
 #include "Dxlib.h"
 
-//変数
-static int E_count;
-static int E_second;
-//画像ハンドル格納用変数
-static int mImageHandle;
-
 //初期化
 void END::End_Initialize()
 {
@@ -50,6 +44,6 @@ void END::End_Draw()
 //終了
 void END::End_Finalize()
 {
-	//画像の解放
+	//画像の解放(要らないかも)
 	//DeleteGraph(mImageHandle);
 };
