@@ -6,6 +6,9 @@ class Ranking
 {
 public:
 
+	int gRankingImg;
+	int gScore;
+	
 	int ReadRanking();   //ランキングデータの読込
 	int SaveRanking();   //ランキングデータの保存
 
