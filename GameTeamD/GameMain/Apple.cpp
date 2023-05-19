@@ -3,8 +3,8 @@
 #define APPLE_MAX 20
 
 struct RINGO {
-	int flg;         // 使用フラグ
-	int type;        // タイプ
+	int flg;        // 使用フラグ
+	int type;       // タイプ
 	int img;         // 画像
 	int x, y, w, h;  // 座標、幅、高さ
 	int speed;       // 移動速度
@@ -12,22 +12,22 @@ struct RINGO {
 
 };
 
-struct RINGO gEnemy[APPLE_MAX];
-struct RINGO lApple00 = { TRUE,0,0,0,-50,63,120,0,1 };
-struct RINGO lAppleCn = { TRUE,4,0,0,-50,18,18,0,1 };
+struct RINGO gApple[APPLE_MAX];
+struct RINGO gApple00 = { TRUE,0,0,50,50,63,120,50,1 };
+struct RINGO gAppleCn = { TRUE,4,0,0,-50,18,18,50,1 };
 
 
 
 int APPLE::IMAGES_RINGO()
 {
-	M_INPUT M;
+	M_INPUT M{};
 
 	M.Input();
 
-	DrawGraph(100, 200, M.gApple[0], TRUE);
-	DrawGraph(200, 200, M.gApple[1], TRUE);
-	DrawGraph(300, 200, M.gApple[2], TRUE);
-	DrawGraph(400, 200, M.gApple[3], TRUE);
+	DrawGraph(100, 200, M.gAppleImg[0], TRUE);
+	DrawGraph(200, 200, M.gAppleImg[1], TRUE);
+	DrawGraph(300, 200, M.gAppleImg[2], TRUE);
+	DrawGraph(400, 200, M.gAppleImg[3], TRUE);
 
 	
 	/*int red, blue, gold, poison;
@@ -37,57 +37,60 @@ int APPLE::IMAGES_RINGO()
 	poison = DrawCircle(300, 300, 80, 0xff00ff, TRUE);
 	*/
 
-	AppleControl();
+	// AppleControl();
 	
 	return 0;
 }
 
 
-void APPLE::AppleControl()
+void APPLE::AppleControl(void)
 {
+	M_INPUT M{};
 
+	M.Input();
 	
-
-	struct RINGO lApple[APPLE_MAX];
+	struct RINGO gApple[APPLE_MAX]{};
 
 	// リンゴの初期設定
 	for (int i = 0; i < APPLE_MAX; i++) {
-		lApple[i].flg = FALSE;
+		gApple[i].flg = TRUE;
 	}
 
 	for (int i = 0; i < APPLE_MAX; i++) {
-		if (lApple[i].flg == TRUE) {
+		if (gApple[i].flg == TRUE) {
+
+			//DrawString(200, 200, "haitteru", 0xffffff, 0);
 
 			// リンゴの表示
-			DrawRotaGraph(lApple[i].x, lApple[i].y, 1.0f, 0, lApple[i].img, TRUE, FALSE);
+			DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
 
 			// 真っすぐ下に移動
-			lApple[i].y += lApple[i].speed;
+			gApple[i].y = gApple[i].speed * 10;
 
 			// Y軸が1000になったら消去
-			if (lApple[i].y > 1000)
-				lApple[i].flg = FALSE;
+			/*if (gApple[i].y > 1000)
+				gApple[i].flg = FALSE;*/
 		}
 	}
+	
 	CreateApple();
 }
 
-int APPLE::CreateApple()
+int APPLE::CreateApple(void)
 {
 
-	M_INPUT M;
+	M_INPUT M{};
 
 	M.Input();
 
-	struct RINGO lApple [APPLE_MAX];
-
 	for (int i = 0; i < APPLE_MAX; i++) {
-		if (lApple[i].flg == FALSE) {
-			lApple[i] = lApple00;
-			lApple[i].type = GetRand(2);
-			lApple[i].img = M.gApple[lApple[i].type];
-			lApple[i].x = GetRand(4) * 105 + 40;
-			lApple[i].speed = lApple[i].type * 2;
+		if (gApple[i].flg == FALSE) {
+			gApple[i] = gApple00;
+			gApple[i].type = GetRand(3);
+			gApple[i].img = M.gAppleImg[gApple[i].type];
+			gApple[i].x = GetRand(7) * 120 + 100;
+			gApple[i].speed = gApple[i].type * 1;
+			
 			// 成功
 			return TRUE;
 		}

@@ -7,7 +7,7 @@ class APPLE
 {
 private:
 
-	int gItemImg[4];       // ƒAƒCƒeƒ€‰æ‘œ
+
 
 public:
 

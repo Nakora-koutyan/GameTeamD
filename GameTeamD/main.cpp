@@ -79,6 +79,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	APPLE apple{};
 
+	GAMEMAIN stage;
+
 	TITLE T;
 	
 	M.Input();
@@ -96,7 +98,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
-		apple.IMAGES_RINGO();
+		//apple.IMAGES_RINGO();
+		apple.AppleControl();
 
 		//title.print();
 
