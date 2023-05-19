@@ -42,7 +42,7 @@ const int SCREEN_HEIGHT = 720;
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
-int gGameMode = E_TITLE;    // ゲームモード
+//int gGameMode = E_TITLE;    // ゲームモード
 
 int gTitlebgm;         // 
 
@@ -79,13 +79,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	APPLE apple{};
 
-	GAMEMAIN stage;
-
 	TITLE T;
 	
 	M.Input();
 	// ゲームループ
-	while (ProcessMessage() == 0 && gGameMode != E_CLOSE) {
+	while (ProcessMessage() == 0 ) {
 
 
 		// 画面の初期化
@@ -99,14 +97,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
-		apple.AppleControl();
-
-		//title.print();
 
 		T.print();
 
 		//プレイヤー画像表示関数の宣言
-		Box.IMAGES_PLAYER();
+		//Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
