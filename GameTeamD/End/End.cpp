@@ -1,13 +1,9 @@
 #include "End.h"
 #include "Dxlib.h"
 
-//•Ï”
-static int E_count;
-static int E_second;
-
-//‰æ‘œƒnƒ“ƒhƒ‹Ši”[—p•Ï”
-static int mImageHandle;
-
+int END::E_count;
+int END::E_second;
+int END::mImageHandle;
 //‰Šú‰»
 void END::End_Initialize()
 {
