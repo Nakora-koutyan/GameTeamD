@@ -76,7 +76,7 @@ void APPLE::AppleControl(void)
 	CreateApple();
 }
 
-int APPLE::CreateApple(void)
+int APPLE::CreateApple()
 {
 
 	M_INPUT M{};
@@ -86,8 +86,38 @@ int APPLE::CreateApple(void)
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == FALSE) {
 			gApple[i] = gApple00;
-			gApple[i].type = GetRand(3);
-			gApple[i].img = M.gAppleImg[gApple[i].type];
+			switch (GetRand(19))
+			{
+			case 0: 
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+			case 10:
+			case 11:	// ÔƒŠƒ“ƒSoŒ»
+				gApple[i].type = M.gAppleImg[0];
+				break;
+			case 12: 
+			case 13:
+			case 14:
+			case 15:
+			case 16: // ÂƒŠƒ“ƒSoŒ»
+				gApple[i].type = M.gAppleImg[1];
+				break;
+			case 17:
+			case 18: // ‹àƒŠƒ“ƒSoŒ»
+				gApple[i].type = M.gAppleImg[2];
+				break;
+			case 19: // “ÅƒŠƒ“ƒSoŒ»
+				gApple[i].type = M.gAppleImg[3];
+				break;
+			}
+			
 			gApple[i].x = GetRand(7) * 120 + 100;
 			gApple[i].speed = gApple[i].type * 1;
 			
@@ -98,4 +128,13 @@ int APPLE::CreateApple(void)
 
 	// Ž¸”s
 	return FALSE;
+}
+
+void APPLE::AppleSetting()
+{
+	M_INPUT M{};
+
+	M.Input();
+
+	
 }

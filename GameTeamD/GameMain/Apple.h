@@ -12,8 +12,9 @@ private:
 public:
 
 	int IMAGES_RINGO();              // ƒŠƒ“ƒS‚Ì‰æ‘œ•\¦ˆ—
-	void AppleControl(void); // ƒŠƒ“ƒS‚ÌˆÚ“®ˆ—
-	int CreateApple(void);   // ƒŠƒ“ƒS‚Ì¶¬ˆ—
+	void AppleControl(); // ƒŠƒ“ƒS‚ÌˆÚ“®ˆ—
+	int CreateApple();   // ƒŠƒ“ƒS‚Ì¶¬ˆ—
+	void AppleSetting();
 
 };
 
