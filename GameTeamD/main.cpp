@@ -75,7 +75,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	PLAYER Box;
+	/*PLAYER Box;*/
 
 	APPLE apple{};
 
