@@ -1,11 +1,13 @@
 #include"DxLib.h"
 //初期値設定
-class G_PLAYER
+class PLAYER
 {
 public:
+	PLAYER();
 	/****************************
 	Playerのプロトタイプ宣言
 	*****************************/
-	int PlayerImages(void);	//画像読込処理
-	int PlayerMove(void);	//プレイヤー移動処理
+	int gPlayerImg;	//画像読込処理
+	void IMAGES_PLAYER();	//プレイヤー移動処理
+	void Move();
 };
