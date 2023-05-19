@@ -2,12 +2,6 @@
 class END
 {
 public:
-	//変数
-	static int E_count;
-	static int E_second;
-
-	//画像ハンドル格納用変数
-	static int mImageHandle;
 
 	//メンバ関数
 	void End_Initialize();	//初期化
