@@ -7,8 +7,8 @@ int END::mImageHandle;
 //初期化
 void END::End_Initialize()
 {
-	E_count = 0;	//フレームカウント
-	E_second = 0;	//秒数
+	float E_count = 0;	//フレームカウント
+	float E_second = 0;	//秒数
 
 	//画像のロード
 	//mImageHandle=LoadGraph();

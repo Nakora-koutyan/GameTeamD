@@ -45,6 +45,9 @@ int APPLE::IMAGES_RINGO()
 
 void APPLE::AppleControl(void)
 {
+	this;
+
+
 	M_INPUT M{};
 
 	M.Input();
