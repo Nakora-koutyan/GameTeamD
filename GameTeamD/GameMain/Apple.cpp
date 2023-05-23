@@ -122,8 +122,12 @@ int APPLE::CreateApple()
 			}
 			
 			gApple[i].x = GetRand(7) * 120 + 100;
-			gApple[i].speed = gApple[i].type * 1;
-			
+			if (gApple[i].type - 3 == 0) {
+				gApple[i].speed = 0.5;
+			}
+			else {
+				gApple[i].speed = gApple[i].type * 2;	//1
+			}
 			// ê¨å˜
 			return TRUE;
 		}
