@@ -13,7 +13,7 @@ PLAYER::PLAYER()
 	AnimType = 0;
 	Image = ImageStand;
 	ImagesDash;
-	location.x = 100;
+	//location.x = 100;
 }
 
 PLAYER::~PLAYER()
