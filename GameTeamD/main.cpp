@@ -15,6 +15,7 @@
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
+#include"System/wh.h"
 
 
 /**************************************
@@ -31,13 +32,6 @@ enum mode {
 	E_END,
 	E_CLOSE
 };
-/**************************************
-*　変数の宣言
-***************************************/
-// 画面領域の大きさ
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
-
 
 /**************************************
 *　変数の宣言(グローバル変数)
