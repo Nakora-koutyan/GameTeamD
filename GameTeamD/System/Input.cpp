@@ -6,6 +6,8 @@ int M_INPUT::Input() {
 
 	// ”wŒi“Ç
 	if ((gBackScreen = LoadGraph("Material/Images/Title.png")) == -1) return -1;		//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
+	//if ((gBackScreen = LoadGraph("Material/Images/Ranking.png")) == -1) return -1;		//•\¦¸”s‚µ‚½‚ç-1‚ğ•Ô‚·
+
 	/* ƒŠƒ“ƒS‚Ì‰æ‘œ“Ç */
 	if ((gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png")) == -1) return -1;
 	if ((gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png")) == -1) return -1;

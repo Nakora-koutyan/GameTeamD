@@ -16,27 +16,56 @@ struct RankingData {
 struct RankingData  gRanking[RANK_MAX];
 
 /****************************************
-* ランキング画面
+* ランキング入力処理
 *****************************************/
-void Ranking::DrawRanking(void)
+void Ranking::InputRanking(void)
 {
 
-	//でメニューに戻る
-	//if (gKeyFlg & PAD_INPUT_M) gGameMode = TITLE;
-
-	//ランキング画像を表示
+	//ランキング画像表示
 	DrawGraph(0, 0, gRankingImg, FALSE);
 
-	//ランキング一覧を表示
-	SetFontSize(18);
-	for (int i = 0; i < RANK_MAX; i++) {
-		DrawFormatString(50, 170 + i * 25, 0xffffff,
-			"%2d %-10s %10d",
-			gRanking[i].no,
-			gRanking[i].name,
-			gRanking[i].score);
+	//フォントサイズの設定
+	SetFontSize(16);
+
+	//名前入力指示文字列の描画
+	DrawString(80, 150, "ランキングに登録します。", 0xFFFFFF);
+	DrawString(80, 170, "名前を英字で入力して下さい。", 0xFFFFFF);
+
+	//名前の入力
+	DrawString(80, 200, "> ", 0xFFFFFF);
+	DrawBox(90, 195, 200, 220, 0xFFFF00, TRUE);
+	if (KeyInputSingleCharString(90, 200, 10, gRanking[RANK_MAX - 1].name, FALSE) == 1) {
+		gRanking[RANK_MAX - 1].score = gScore;             //ランキングデータの10番目にスコアを表示
+		//SortRanking();                                     //ランキングの並び替え
+		//SaveRanking();                                     //ランキングデータ並び替え
+		/*gGameMode = E_RANKING;*/                               //ゲームモードの変更
 	}
-	DrawString(100, 450, "--- スペースキーを押してタイトルへ戻る ---", 0xff0000, 0);
+}
+
+/****************************************
+* ランキングデータ読み込み
+*****************************************/
+int Ranking::ReadRanking(void)
+{
+	FILE* fp;
+#pragma warning(disable:4996)
+
+	//ファイルオープン
+	if ((fp = fopen("dat/rankingdata.txt", "r")) == NULL) {
+		//エラー処理
+		printf("Ranking Data Error\n");
+		return -1;
+	}
+
+	//ランキングデータ分配列データを読み込む
+	for (int i = 0; i < RANK_MAX; i++) {
+		int dammy = fscanf(fp, "%2d %10s %10d", &gRanking[i].no, gRanking[i].name, &gRanking[i].score);
+	}
+
+	//ファイルクローズ
+	fclose(fp);
+
+	return 0;
 }
 
 /****************************************
@@ -65,32 +94,7 @@ int Ranking::SaveRanking(void)
 	return 0;
 }
 
-/****************************************
-* ランキング入力処理
-*****************************************/
-void Ranking::InputRanking(void)
-{
 
-	//ランキング画像表示
-	DrawGraph(0, 0, gRankingImg, FALSE);
-
-	//フォントサイズの設定
-	SetFontSize(16);
-
-	//名前入力指示文字列の描画
-	DrawString(80, 150, "ランキングに登録します。", 0xFFFFFF);
-	DrawString(80, 170, "名前を英字で入力して下さい。", 0xFFFFFF);
-
-	//名前の入力
-	DrawString(80, 200, "> ", 0xFFFFFF);
-	DrawBox(90, 195, 200, 220, 0xFFFF00, TRUE);
-	if (KeyInputSingleCharString(90, 200, 10, gRanking[RANK_MAX - 1].name, FALSE) == 1) {
-		gRanking[RANK_MAX - 1].score = gScore;             //ランキングデータの10番目にスコアを表示
-		//SortRanking();                                     //ランキングの並び替え
-		//SaveRanking();                                     //ランキングデータ並び替え
-		/*gGameMode = E_RANKING;*/                               //ゲームモードの変更
-	}
-}
 
 /****************************************
 * ランキング並び替え
@@ -127,27 +131,25 @@ void Ranking::SortRanking(void)
 }
 
 /****************************************
-* ランキングデータ読み込み
+* ランキング画面
 *****************************************/
-int Ranking::ReadRanking(void)
+void Ranking::DrawRanking(void)
 {
-	FILE* fp;
-#pragma warning(disable:4996)
+	//でメニューに戻る
+	//if (gKeyFlg & PAD_INPUT_M) gGameMode = TITLE;
 
-	//ファイルオープン
-	if ((fp = fopen("dat/rankingdata.txt", "r")) == NULL) {
-		//エラー処理
-		printf("Ranking Data Error\n");
-		return -1;
-	}
+	//ランキング画像を表示
+	DrawGraph(0, 0, gRankingImg, FALSE);
 
-	//ランキングデータ分配列データを読み込む
+	//ランキング一覧を表示
+	SetFontSize(18);
 	for (int i = 0; i < RANK_MAX; i++) {
-		int dammy = fscanf(fp, "%2d %10s %10d", &gRanking[i].no, gRanking[i].name, &gRanking[i].score);
+		DrawFormatString(50, 170 + i * 25, 0xffffff,
+			"%2d %-10s %10d",
+			gRanking[i].no,
+			gRanking[i].name,
+			gRanking[i].score);
 	}
 
-	//ファイルクローズ
-	fclose(fp);
-
-	return 0;
+	DrawString(100, 450, "---- [A]を押してタイトルへ戻る ----", 0xff0000, 0);
 }
