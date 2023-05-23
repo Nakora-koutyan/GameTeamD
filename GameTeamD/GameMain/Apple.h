@@ -5,16 +5,14 @@
 
 class APPLE
 {
-private:
-
-
-
 public:
 
-	int IMAGES_RINGO();              // ƒŠƒ“ƒS‚Ì‰æ‘œ•\¦ˆ—
 	void AppleControl(); // ƒŠƒ“ƒS‚ÌˆÚ“®ˆ—
 	int CreateApple();   // ƒŠƒ“ƒS‚Ì¶¬ˆ—
-	void AppleSetting();
+	
+	//int IMAGES_RINGO();              // ƒŠƒ“ƒS‚Ì‰æ‘œ•\¦ˆ—
+	//void AppleSetting();
 
+	
 };
 
