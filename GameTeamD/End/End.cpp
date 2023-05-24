@@ -1,5 +1,7 @@
 #include "End.h"
 #include "Dxlib.h"
+#include"../System/Input.h"
+
 
 int END::E_count;
 int END::E_second;
@@ -34,8 +36,13 @@ void END::End_Update()
 //•`‰æ
 void END::End_Draw()
 {
+
+	M_INPUT M{};
+
+	M.Input();
+
 	//”wŒi
-	//DrawGraph(0,0,mImageHandle,FALSE);
+	DrawGraph(0,0, M.gEndImg, FALSE);
 
 	//Š´ŽÓ
 	DrawString(0, 0, "Thank you for playing", GetColor(255, 0, 0));
