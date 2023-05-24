@@ -37,9 +37,6 @@ enum mode {
 /**************************************
 *@•Ï”‚ÌéŒ¾
 ***************************************/
-// ‰æ–Ê—Ìˆæ‚Ì‘å‚«‚³
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
 
 
 /**************************************
@@ -84,7 +81,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	Player.Update();
 
-	GAMEMAIN stage;
+	GameMain stage;
 
 	TITLE T;
 	
