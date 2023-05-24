@@ -98,12 +98,12 @@ int APPLE::CreateApple()
 					gApple[i].speed = 3;
 			break;
 
-			case 3:
+			case 2:
 					// ‹àƒŠƒ“ƒSoŒ»
 					gApple[i].speed = 5;
 			break;
 
-			case 4:
+			case 3:
 					// “ÅƒŠƒ“ƒSoŒ»
 					gApple[i].speed = 0.5;
 			break;
