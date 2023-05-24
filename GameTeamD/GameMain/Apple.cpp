@@ -56,13 +56,13 @@ void APPLE::AppleControl(void)
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == TRUE) {
 
-			DrawString(gApple[i].x, gApple[i].y, "haitteru", 0xffffff, 0);
+			//DrawString(gApple[i].x, gApple[i].y, "haitteru", 0xffffff, 0);
 
 			// ƒŠƒ“ƒS‚Ì•\¦
-			//DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
+			DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
 
 			// ^‚Á‚·‚®‰º‚ÉˆÚ“®
-			gApple[i].y += gApple[i].speed + 2;
+			gApple[i].y += gApple[i].speed;
 
 			// Y²‚ª1000‚É‚È‚Á‚½‚çÁ‹
 			if (gApple[i].y > 1000)
@@ -85,69 +85,41 @@ int APPLE::CreateApple()
 			gApple[i].type = GetRand(19);
 			gApple[i].img = M.gAppleImg[gApple[i].type];
 			gApple[i].x = GetRand(7) * 120 + 100;
+
 			switch (gApple[i].type)
-			{
-			case 0: 
+	        {
+	        case 0:
+		           // ÔƒŠƒ“ƒSoŒ»
+		           gApple[i].speed = 1;
+		     break;
+
 			case 1:
-			case 2:
+					// ÂƒŠƒ“ƒSoŒ»
+					gApple[i].speed = 3;
+			break;
+
 			case 3:
+					// ‹àƒŠƒ“ƒSoŒ»
+					gApple[i].speed = 5;
+			break;
+
 			case 4:
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-			case 11:	// ÔƒŠƒ“ƒSoŒ»
-			      gApple[i].speed = 1;
+					// “ÅƒŠƒ“ƒSoŒ»
+					gApple[i].speed = 0.5;
 			break;
-			case 12: 
-			case 13:
-			case 14:
-			case 15:
-			case 16: // ÂƒŠƒ“ƒSoŒ»
-			      gApple[i].speed = 1;
-			break;
-			case 17:
-			case 18: // ‹àƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 10;
-				break;
-			case 19: // “ÅƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 0.5;
-				break;
-			}
+	        }
+
 			
 			// ¬Œ÷
 		return TRUE;
 		}
 	}
+			
+	// ¸”s
+	return FALSE;
+}
 
-	//switch (gApple[i].type)
-	//{
-	//case 0:
-	//	// ÔƒŠƒ“ƒSoŒ»
-	//	gApple[i].speed = 1;
-	//	break;
-
-	//case 1:
-	//	// ÂƒŠƒ“ƒSoŒ»
-	//	gApple[i].speed = 1;
-	//	break;
-
-	//case 3:
-	//	// ‹àƒŠƒ“ƒSoŒ»
-	//	gApple[i].speed = 10;
-	//	break;
-
-	//case 4:
-	//	// “ÅƒŠƒ“ƒSoŒ»
-	//	gApple[i].speed = 0.5;
-	//	break;
-	//}
-
-
-
-	//for (int i = 0; i < APPLE_MAX; i++) {
+//for (int i = 0; i < APPLE_MAX; i++) {
 	//	if (gApple[i].flg == FALSE) {
 	//		gApple[i] = gApple00;
 	//		switch (GetRand(19))
@@ -184,8 +156,37 @@ int APPLE::CreateApple()
 	//		
 	//		gApple[i].x = GetRand(7) * 120 + 100;
 	//		gApple[i].speed = gApple[i].type * 1;
-			
-			
-	// ¸”s
-	return FALSE;
-}
+
+
+
+//switch (gApple[i].type)
+			//{
+			//case 0: 
+			//case 1:
+			//case 2:
+			//case 3:
+			//case 4:
+			//case 5:
+			//case 6:
+			//case 7:
+			//case 8:
+			//case 9:
+			//case 10:
+			//case 11:	// ÔƒŠƒ“ƒSoŒ»
+			//      gApple[i].speed = 1;
+			//break;
+			//case 12: 
+			//case 13:
+			//case 14:
+			//case 15:
+			//case 16: // ÂƒŠƒ“ƒSoŒ»
+			//      gApple[i].speed = 2;
+			//break;
+			//case 17:
+			//case 18: // ‹àƒŠƒ“ƒSoŒ»
+			//	gApple[i].speed = 3.5;
+			//	break;
+			//case 19: // “ÅƒŠƒ“ƒSoŒ»
+			//	gApple[i].speed = 0.5;
+			//	break;
+			//}
