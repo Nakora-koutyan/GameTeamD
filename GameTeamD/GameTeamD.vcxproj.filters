@@ -110,7 +110,7 @@
     <ClInclude Include="System\PadInput.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="System\wh.h">
+    <ClInclude Include="System\SceneManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

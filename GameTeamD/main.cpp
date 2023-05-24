@@ -15,7 +15,7 @@
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
-#include"System/wh.h"
+#include"System/SceneManager.h"
 
 
 /**************************************
@@ -32,6 +32,13 @@ enum mode {
 	E_END,
 	E_CLOSE
 };
+/**************************************
+*　変数の宣言
+***************************************/
+// 画面領域の大きさ
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+
 
 /**************************************
 *　変数の宣言(グローバル変数)
@@ -49,14 +56,6 @@ int gScore = 0;        // スコア
 ***************************************/
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
-	// FPSの計測と表示を行うローカル変数の宣言
-	LONGLONG nowTime = GetNowHiPerformanceCount();
-	LONGLONG oldTime = nowTime;
-	LONGLONG fpsCheckTime;
-	double deltaTime = 0;
-	int fpsCounter = 0;
-	int fps = 0;
-
 	// タイトルを設定
 	SetMainWindowText("pick up apples");
 
@@ -77,21 +76,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	/*PLAYER Box;*/
+	PLAYER Box;
 
 	APPLE apple{};
-
-	GAMEMAIN stage;
 
 	TITLE T;
 	
 	M.Input();
-
-	//ループ前にFPS計測を初期化
-	fpsCheckTime = GetNowHiPerformanceCount();
-	fps = 0;
-	fpsCounter = 0;
-
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
@@ -107,33 +98,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
-		apple.AppleControl();
 
-		//title.print();
+		//T.print();
+		SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
 
-		T.print();
-
-		//1ループ時点のシステム時間を取得
-		oldTime = nowTime;
-		nowTime = GetNowHiPerformanceCount();
-
-		//1ループの時間経過を求める
-		deltaTime = (nowTime - oldTime) / 1000000.0f;
-
-		//1秒間のFPSを計測する、1秒ごとに初期化する
-		fpsCounter++;
-		if (nowTime - fpsCheckTime > 1000000) {
-			fps = fpsCounter;
-			fpsCounter = 0;
-			fpsCheckTime = nowTime;
+		printf("整数値を入力してください＞");
+		while (sceneMng.Update() != nullptr) {
+			sceneMng.Draw();
 		}
 
 		//プレイヤー画像表示関数の宣言
 		//Box.IMAGES_PLAYER();
-
-		//FPSの表示
-		SetFontSize(16);
-		DrawFormatString(390, 5, 0xffffff, "FPS:%3d DELTA: %8.6fsec", fps, deltaTime);
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
