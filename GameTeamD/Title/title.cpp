@@ -1,63 +1,76 @@
 #include<stdio.h>
 #include"DxLib.h"
 #include"Title.h"
+#include"../GameMain/GameMain.h"
 
-void TITLE::print()
+TITLE::TITLE()
 {
-	if (CheckSoundMem(gTitleBGM) != 1)
+	// gTitleBGMが流れてないなら流す
+	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
 	{
 		SetLoopSamplePosSoundMem(109696, gTitleBGM);
 		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
 	}
+	
 
-	if (gGameMode == E_TITLE)
-	{
-		if (GetKeyDown(PAD_INPUT_DOWN)) {
-			if (++g_MenuNumber > 3) g_MenuNumber = 0;
-			DrawBox(300, 300, 400, 400, 0xFFFFFF, 1);
-			//PlaySoundMem(Menu1, DX_PLAYTYPE_BACK);
-		}
-		if (GetKeyDown(PAD_INPUT_UP)) {
-			if (--g_MenuNumber < 0) g_MenuNumber = 3;
-			//PlaySoundMem(Menu1, DX_PLAYTYPE_BACK);
-		}
+}
+TITLE::~TITLE()
+{
+	DeleteSoundMem(gTitleBGM);
+}
 
-		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+//void TITLE::print()
+//{
+//	// ゲームモード(タイトル)
+//	if (gGameMode == E_TITLE)
+//	{
+//		
+//
+//		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+//
+//	
+//				/*while (vol > 0)
+//				{
+//					ClearDrawScreen();
+//					DrawGraph(0, 0, gBackScreen, 0);
+//					ChangeVolumeSoundMem(vol, gTitleBGM);
+//					SetDrawBlendMode(DX_BLENDMODE_ALPHA, vol);
+//					ScreenFlip();
+//					vol--;
+//					WaitTimer(9);
+//				}
+//				SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);*/
+//	
+//
+//		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+//	}
+//	if (gGameMode == E_TITLE) {
+//		DrawFormatString(300, 10, 0xFFFFFF, "title");
+//	}
+//	// ゲームモード(メイン)
+//	if (gGameMode == E_MAIN) {
+//		DrawFormatString(300, 10, 0xFFFFFF, "main");
+//		GAME_MAIN main;
+//		main.main();
+//	}
+//	// ゲームモード(ランキング)
+//	if (gGameMode == E_RANKING) {
+//		DrawFormatString(300, 10, 0xFFFFFF, "rank");
+//	}
+//	if (gGameMode == E_HELP) {
+//		DrawFormatString(300, 10, 0xFFFFFF, "help");
+//	}
+//	if (gGameMode == E_END) {
+//		DrawFormatString(300, 10, 0xFFFFFF, "end");
+//	}
+//}
+AbstractScene* TITLE::Update() {
+	if (g_MenuNumber == 1) {
+		return new GameMain();
+	}
+	return this;
+}
 
-		if (GetKeyDown(PAD_INPUT_A)) {
-			switch (g_MenuNumber)
-			{
-			case 0:
-				gGameMode = E_INIT;
-				DrawFormatString(300, 100, 0xFFFFFF, "init");
-				break;
-			case 1:
-				gGameMode = E_RANKING;
-				break;
-			case 2:
-				gGameMode = E_HELP;
-				break;
-			case 3:
-				gGameMode = E_END;
-				break;
-			}
-		}
-
-		DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
-	}
-	if (gGameMode == E_TITLE) {
-		DrawFormatString(300, 10, 0xFFFFFF, "title");
-	}
-	if (gGameMode == E_INIT) {
-		DrawFormatString(300, 10, 0xFFFFFF, "init");
-	}
-	if (gGameMode == E_RANKING) {
-		DrawFormatString(300, 10, 0xFFFFFF, "rank");
-	}
-	if (gGameMode == E_HELP) {
-		DrawFormatString(300, 10, 0xFFFFFF, "help");
-	}
-	if (gGameMode == E_END) {
-		DrawFormatString(300, 10, 0xFFFFFF, "end");
-	}
+void TITLE::Draw() const {
+	DrawFormatString(300, 10, 0xFFFFFF, "title");
 }

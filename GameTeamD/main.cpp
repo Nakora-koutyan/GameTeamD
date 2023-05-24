@@ -15,6 +15,7 @@
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
+#include"System/SceneManager.h"
 
 
 /**************************************
@@ -98,7 +99,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
 
-		T.print();
+		//T.print();
+		SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
+
+		printf("整数値を入力してください＞");
+		while (sceneMng.Update() != nullptr) {
+			sceneMng.Draw();
+		}
 
 		//プレイヤー画像表示関数の宣言
 		//Box.IMAGES_PLAYER();

@@ -183,6 +183,7 @@
     <ClInclude Include="System\FpsController.h" />
     <ClInclude Include="System\Input.h" />
     <ClInclude Include="System\PadInput.h" />
+    <ClInclude Include="System\SceneManager.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <ItemGroup>
