@@ -50,7 +50,7 @@ void APPLE::AppleControl(void)
 
 	M_INPUT M{};
 
-	M.Input();
+	//M.Input();
 	
 	// ƒŠƒ“ƒS‚Ì‰Šúİ’è
 	for (int i = 0; i < APPLE_MAX; i++) {

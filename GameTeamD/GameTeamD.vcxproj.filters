@@ -138,7 +138,7 @@
     <Image Include="Material\Images\Title.png">
       <Filter>リソース ファイル</Filter>
     </Image>
-    <Image Include="Material\Images\characterWalk02.png">
+    <Image Include="Material\Images\characterStand.png">
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="Material\Images\Dash.png">

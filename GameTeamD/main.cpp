@@ -18,6 +18,8 @@
 #include"System/SceneManager.h"
 
 
+#define FRAMERATE 60.0
+
 /**************************************
 *　列挙型の宣言
 ***************************************/
@@ -76,21 +78,31 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	PLAYER Box;
+	PLAYER Player;
 
 	APPLE apple{};
+
+	Player.Update();
+
+	GAMEMAIN stage;
 
 	TITLE T;
 	
 	M.Input();
+
+	FpsController FPSC(FRAMERATE, 800);
+
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
+		FPSC.All();
 
 		InputControl::Update();
+
+		Player.Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
@@ -108,17 +120,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 
 		//プレイヤー画像表示関数の宣言
-		//Box.IMAGES_PLAYER();
+		Player.Draw();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
-
-	//delete player;
-
-	// DXライブラリ使用の終了処理
-	DxLib_End();
-
 	// プログラムの終了
 	return 0;
 }
