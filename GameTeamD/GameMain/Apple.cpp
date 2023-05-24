@@ -13,7 +13,7 @@ struct RINGO {
 };
 
 struct RINGO gApple[APPLE_MAX];
-struct RINGO gApple00 = { TRUE,0,0,50,50,63,120,50,1 };
+struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,50,1 };
 struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 
@@ -82,9 +82,9 @@ int APPLE::CreateApple()
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == FALSE) {
 			gApple[i] = gApple00;
-			gApple[i].type = GetRand(19);
+			gApple[i].type = AppleProd();
 			gApple[i].img = M.gAppleImg[gApple[i].type];
-			gApple[i].x = GetRand(7) * 120 + 100;
+			gApple[i].x = GetRand(6) * 150 + 100;
 
 			switch (gApple[i].type)
 	        {
@@ -117,6 +117,24 @@ int APPLE::CreateApple()
 			
 	// Ž¸”s
 	return FALSE;
+}
+
+int APPLE::AppleProd()     // ƒŠƒ“ƒS‚Ì¶¬—¦
+{
+
+	int rand = GetRand(19);
+	if (rand < 11) {
+		return 0;
+	}
+	else if (rand < 16) {
+		return 1;
+	}
+	else if (rand < 18) {
+		return 2;
+	}
+	else {
+		return 3;
+	}
 }
 
 //for (int i = 0; i < APPLE_MAX; i++) {
