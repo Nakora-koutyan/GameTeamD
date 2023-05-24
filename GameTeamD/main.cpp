@@ -49,6 +49,14 @@ int gScore = 0;        // スコア
 ***************************************/
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
+	// FPSの計測と表示を行うローカル変数の宣言
+	LONGLONG nowTime = GetNowHiPerformanceCount();
+	LONGLONG oldTime = nowTime;
+	LONGLONG fpsCheckTime;
+	double deltaTime = 0;
+	int fpsCounter = 0;
+	int fps = 0;
+
 	// タイトルを設定
 	SetMainWindowText("pick up apples");
 
@@ -78,6 +86,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	TITLE T;
 	
 	M.Input();
+
+	//ループ前にFPS計測を初期化
+	fpsCheckTime = GetNowHiPerformanceCount();
+	fps = 0;
+	fpsCounter = 0;
+
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
@@ -99,8 +113,27 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		T.print();
 
+		//1ループ時点のシステム時間を取得
+		oldTime = nowTime;
+		nowTime = GetNowHiPerformanceCount();
+
+		//1ループの時間経過を求める
+		deltaTime = (nowTime - oldTime) / 1000000.0f;
+
+		//1秒間のFPSを計測する、1秒ごとに初期化する
+		fpsCounter++;
+		if (nowTime - fpsCheckTime > 1000000) {
+			fps = fpsCounter;
+			fpsCounter = 0;
+			fpsCheckTime = nowTime;
+		}
+
 		//プレイヤー画像表示関数の宣言
 		//Box.IMAGES_PLAYER();
+
+		//FPSの表示
+		SetFontSize(16);
+		DrawFormatString(390, 5, 0xffffff, "FPS:%3d DELTA: %8.6fsec", fps, deltaTime);
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
