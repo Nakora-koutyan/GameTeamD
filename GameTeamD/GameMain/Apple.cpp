@@ -50,7 +50,7 @@ void APPLE::AppleControl(void)
 
 	M_INPUT M{};
 
-	M.Input();
+	//M.Input();
 	
 	struct RINGO gApple[APPLE_MAX]{};
 
