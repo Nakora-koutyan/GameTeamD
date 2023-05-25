@@ -155,7 +155,11 @@
     <ClCompile Include="End\End.cpp" />
     <ClCompile Include="GameMain\Apple.cpp" />
     <ClCompile Include="GameMain\GameMain.cpp" />
+    <ClCompile Include="GameMain\GoldApple.cpp" />
+    <ClCompile Include="GameMain\GreenApple.cpp" />
     <ClCompile Include="GameMain\Player.cpp" />
+    <ClCompile Include="GameMain\PoisonApple.cpp" />
+    <ClCompile Include="GameMain\RedApple.cpp" />
     <ClCompile Include="GameMain\Result.cpp" />
     <ClCompile Include="GameMain\Stage.cpp" />
     <ClCompile Include="Help\Help.cpp" />
@@ -173,7 +177,11 @@
     <ClInclude Include="End\End.h" />
     <ClInclude Include="GameMain\Apple.h" />
     <ClInclude Include="GameMain\GameMain.h" />
+    <ClInclude Include="GameMain\GoldApple.h" />
+    <ClInclude Include="GameMain\GreenApple.h" />
     <ClInclude Include="GameMain\Player.h" />
+    <ClInclude Include="GameMain\PoisonAppleh.h" />
+    <ClInclude Include="GameMain\RedApple.h" />
     <ClInclude Include="GameMain\Result.h" />
     <ClInclude Include="GameMain\Stage.h" />
     <ClInclude Include="Help\Help.h" />
