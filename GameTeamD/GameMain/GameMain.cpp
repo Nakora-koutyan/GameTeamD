@@ -15,12 +15,14 @@ GameMain::GameMain()
 		SetLoopSamplePosSoundMem(371945, gMainBGM);
 		PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
 	}
-	/* 画像読込 */
+	/* リンゴ画像読込 */
 	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
 	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
 	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
 	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
-
+	/* リンゴ落下SE */
+	int gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
+	int gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -44,6 +46,20 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		if (HitBoxPlayer(&player, &apple[i]) == TRUE)
 		{
 			apple[i].flg = FALSE;
+			if (apple[i].img != gAppleImg[3]) // 毒リンゴ取ってないとき
+			{
+				if (CheckSoundMem(gRingoSE) == 0)
+				{
+					ChangeVolumeSoundMem(123, gRingoSE);
+					PlaySoundMem(gRingoSE, DX_PLAYTYPE_NORMAL);
+				}
+			}
+			else // 毒リンゴを取ったとき
+			{
+				ChangeVolumeSoundMem(123, gPoisonRingoSE);
+				PlaySoundMem(gPoisonRingoSE, DX_PLAYTYPE_NORMAL);
+			}
+
 		}
 	}
 
@@ -72,33 +88,37 @@ int GameMain::CreateApple()
 			apple[i].flg = TRUE; // 画像をONにする
 			apple[i].type = AppleProd(); // 乱数で確率出す
 			apple[i].img = gAppleImg[apple[i].type]; // リンゴの画像を代入
-			apple[i].SetLocation(Location{ float(GetRand(6) * 150 + 100), 0}); // レーン数X  // y軸を0に設定
+			apple[i].SetLocation(Location{ float(GetRand(6) * 120 + 100), 0}); // レーン数X  // y軸を0に設定
 
 
 			switch (apple[i].type)
 			{
 			case 0:
 				// 赤リンゴ出現
-				apple[i].speed = 1;
-				apple[i].magnification = 1.1;
+				apple[i].speed = 1;           // スピードを設定
+				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].point += 100;		  // ポイントに100加算
 				break;
 
 			case 1:
 				// 青リンゴ出現
-				apple[i].speed = 3;
-				apple[i].magnification = 1.1;
-				break;
-
+				apple[i].speed = 3;			  // スピードを設定
+				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].point += 200;        // ポイントに200加算
+				break;						  
+				
 			case 2:
 				// 金リンゴ出現
-				apple[i].speed = 5;
-				apple[i].magnification = 1.1;
+				apple[i].speed = 5;			  // スピードを設定
+				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].point += 500;        // ポイントに500加算
 				break;
 
 			case 3:
 				// 毒リンゴ出現
-				apple[i].speed = 0.5;
-				apple[i].magnification = 0.9;
+				apple[i].speed = 0.5;		  // スピードを設定
+				apple[i].magnification = 0.9; // 当たり判定の倍率設定
+				apple[i].point -= 750;		  // ポイントに750減算
 				break;
 			}
 
