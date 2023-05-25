@@ -11,7 +11,7 @@
 #define PLAYER_STATE_WALK	1		//プレイヤーの歩行状態
 #define PLAYER_STATE_DASH	2		//プレイヤーのダッシュ状態
 
-#define ANIMATION_INTERVAL 1.7f		//アニメーション切り替えの間隔
+#define ANIMATION_INTERVAL	2		//アニメーション切り替えの間隔
 
 class PLAYER:public BoxCollider
 {

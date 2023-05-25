@@ -8,22 +8,22 @@ PLAYER::PLAYER()
 	//画像の読込
 	try 
 	{
-		ImageStand = LoadGraph("Material/Images/characterStand.png");				//直立
-		if (ImageStand == -1)
+		ImageStand = LoadGraph("Material/Images/characterStand.png");		//Image画像(直立)の読込
+		if (ImageStand == -1)												//-1が検出されたらcatchへエラーを飛ばす
 		{
 			throw "Material/Images/characterStand.png";
 		}
 
-		LoadDivGraph("Material/Images/Dash.png", 6, 6, 1, 160, 160, ImagesDash);	//ダッシュ
-		for (int i = 0; i < 6; i++)
+		LoadDivGraph("Material/Images/Dash.png", 6, 6, 1, 160, 160, ImagesDash);	//Image画像6枚(ダッシュ)の読込
+		for (int i = 0; i < 6; i++)													//-1が検出されたらcatchへエラーを飛ばす
 		{
 			if (ImagesDash[i] == -1)
 			{
 				throw"Material/Images/Dash.png";							
 			}
 		}
-		LoadDivGraph("Material/Images/walk.png", 8, 8, 1, 160, 160, ImagesWalk);	//歩行
-		for (int i = 0; i < 8; i++)
+		LoadDivGraph("Material/Images/walk.png", 8, 8, 1, 160, 160, ImagesWalk);	//Image画像8枚(歩行)の読込
+		for (int i = 0; i < 8; i++)													//-1が検出されたらcatchへエラーを飛ばす
 		{	
 			if (ImagesWalk[i] == -1)
 			{
@@ -32,7 +32,7 @@ PLAYER::PLAYER()
 		}
 	}
 	catch (int& err) {
-		printf("エラーコード%d\n", err);
+		printf("エラーコード%d\n", err);		//エラーの表示
 	}
 
 	TurnFlag = false;
@@ -58,7 +58,7 @@ PLAYER::PLAYER()
 	//location.x = 100;
 }
 
-PLAYER::~PLAYER()
+PLAYER::~PLAYER()		//デストラクタ
 {
 	//フォントの削除
 	DeleteFontToHandle(GuideFont);
@@ -66,10 +66,10 @@ PLAYER::~PLAYER()
 
 void PLAYER::Update() //キャラクターの移動と状態の更新
 {
-	//スティックの傾き割合 > 5割
+	//スティックの傾き割合 が -0.5より小さい値 または スティックの傾き割合 が 0.5よりも大きい値  
 	if (InputControl::TipLeftLStick(STICKL_X) < -0.7 || InputControl::TipLeftLStick(STICKL_X) > 0.7)
 	{
-		if (PlayerState != PLAYER_STATE::DASH)
+		if (PlayerState != PLAYER_STATE::DASH)	//プレイヤーの動作状態がダッシュでない時
 		{
 			PlayerState = PLAYER_STATE::DASH;
 			AnimInterval = ANIMATION_INTERVAL;

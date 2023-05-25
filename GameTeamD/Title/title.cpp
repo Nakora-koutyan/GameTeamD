@@ -5,10 +5,6 @@
 
 TITLE::TITLE()
 {
-	gBackScreen = LoadGraph("Material/Images/Title.png");
-	gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
-	gCursor_Move = LoadSoundMem("Material/Sounds/SE/cursor1.wav");
-	gCursor_Enter = LoadSoundMem("Material/Sounds/SE/eats.wav");
 	// gTitleBGMが流れてないなら流す
 	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
 	{
@@ -69,13 +65,13 @@ TITLE::~TITLE()
 //	}
 //}
 AbstractScene* TITLE::Update() {
-	if (g_MenuNumber == 1) {
-		return new GameMain();
+	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {	//Aボタンが押されたら真を返す
+		return new GameMain();		//返す値 ＝ ゲームメインシーン
 	}
-	return this;
+	return this;	//現在のシーンを返す(タイトル)
 }
 
 void TITLE::Draw() const {
+	DrawString(300, 10, "title", 0xFFFFFF);
 	DrawGraph(0, 0, gBackScreen, 0);
-	DrawFormatString(300, 10, 0xFFFFFF, "title");
 }

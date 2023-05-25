@@ -1,4 +1,5 @@
 #include"SceneManager.h"
+#include"PadInput.h"
 
 AbstractScene* SceneManager::Update() {
 	AbstractScene* p = mScene->Update();
@@ -7,6 +8,10 @@ AbstractScene* SceneManager::Update() {
 		mScene = p;
 	}
 
+	if (InputControl::PressBotton(XINPUT_BUTTON_BACK))
+	{
+		return nullptr;
+	}
 
 	return p;
 }
