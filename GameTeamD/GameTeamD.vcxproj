@@ -184,6 +184,7 @@
     <ClInclude Include="System\FpsController.h" />
     <ClInclude Include="System\Input.h" />
     <ClInclude Include="System\PadInput.h" />
+    <ClInclude Include="System\SceneManager.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <ItemGroup>
@@ -199,7 +200,7 @@
     <Image Include="Material\Images\Apple_Poison.png" />
     <Image Include="Material\Images\Apple_Green.png" />
     <Image Include="Material\Images\Apple_Red.png" />
-    <Image Include="Material\Images\characterWalk02.png" />
+    <Image Include="Material\Images\characterStand.png" />
     <Image Include="Material\Images\Dash.png" />
     <Image Include="Material\Images\Title.png" />
     <Image Include="Material\Images\Walk.png" />

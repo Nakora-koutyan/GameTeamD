@@ -13,7 +13,7 @@ struct RINGO {
 };
 
 struct RINGO gApple[APPLE_MAX];
-struct RINGO gApple00 = { TRUE,0,0,50,50,63,120,50,1 };
+struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,50,1 };
 struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 
@@ -50,7 +50,7 @@ void APPLE::AppleControl(void)
 
 	M_INPUT M{};
 
-	M.Input();
+	//M.Input();
 	
 	// ÉäÉìÉSÇÃèâä˙ê›íË
 	for (int i = 0; i < APPLE_MAX; i++) {
@@ -82,9 +82,9 @@ int APPLE::CreateApple()
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == FALSE) {
 			gApple[i] = gApple00;
-			gApple[i].type = GetRand(19);
+			gApple[i].type = AppleProd();
 			gApple[i].img = M.gAppleImg[gApple[i].type];
-			gApple[i].x = GetRand(7) * 120 + 100;
+			gApple[i].x = GetRand(6) * 150 + 100;
 
 			switch (gApple[i].type)
 	        {
@@ -98,12 +98,12 @@ int APPLE::CreateApple()
 					gApple[i].speed = 3;
 			break;
 
-			case 3:
+			case 2:
 					// ã‡ÉäÉìÉSèoåª
 					gApple[i].speed = 5;
 			break;
 
-			case 4:
+			case 3:
 					// ì≈ÉäÉìÉSèoåª
 					gApple[i].speed = 0.5;
 			break;
@@ -117,6 +117,24 @@ int APPLE::CreateApple()
 			
 	// é∏îs
 	return FALSE;
+}
+
+int APPLE::AppleProd()     // ÉäÉìÉSÇÃê∂ê¨ó¶
+{
+
+	int rand = GetRand(19);
+	if (rand < 11) {
+		return 0;
+	}
+	else if (rand < 16) {
+		return 1;
+	}
+	else if (rand < 18) {
+		return 2;
+	}
+	else {
+		return 3;
+	}
 }
 
 //for (int i = 0; i < APPLE_MAX; i++) {
