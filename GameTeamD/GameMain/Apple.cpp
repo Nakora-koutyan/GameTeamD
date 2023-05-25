@@ -1,6 +1,5 @@
 #include"Apple.h"
-#include"../System/Input.h"
-#define APPLE_MAX 10
+#define APPLE_MAX 20
 
 struct RINGO {
 	int flg;        // Žg—pƒtƒ‰ƒO
@@ -13,7 +12,7 @@ struct RINGO {
 };
 
 struct RINGO gApple[APPLE_MAX];
-struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,100,1 };
+struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,50,1 };
 struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 
@@ -42,15 +41,26 @@ struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 //	
 //	return 0;
 //}
+APPLE::APPLE()
+{
+	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
+	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
+	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
+	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
+}
 
+APPLE::~APPLE()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		DeleteGraph(gAppleImg[i]);
+	}
+}
 
 void APPLE::AppleControl(void)
 {
 	//this;
 
-	M_INPUT M{};
-
-	//M.Input();
 	
 	// ƒŠƒ“ƒS‚Ì‰ŠúÝ’è
 	for (int i = 0; i < APPLE_MAX; i++) {
@@ -62,52 +72,47 @@ void APPLE::AppleControl(void)
 			DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
 
 			// ^‚Á‚·‚®‰º‚ÉˆÚ“®
-			gApple[i].y += gApple[i].speed + 1;
+			gApple[i].y += gApple[i].speed;
 
 			// YŽ²‚ª1000‚É‚È‚Á‚½‚çÁ‹Ž
 			if (gApple[i].y > 1000)
 				gApple[i].flg = FALSE;
 		}
 	}
-
 	CreateApple();
 }
 
 int APPLE::CreateApple()
 {
 
-	M_INPUT M{};
-
-	M.Input();
-
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == FALSE) {
 			gApple[i] = gApple00;
 			gApple[i].type = AppleProd();
-			gApple[i].img = M.gAppleImg[gApple[i].type];
+			gApple[i].img = gAppleImg[gApple[i].type];
 			gApple[i].x = GetRand(6) * 150 + 100;
 
 			switch (gApple[i].type)
 	        {
 	        case 0:
 		           // ÔƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 1;
-				   break;
+		           gApple[i].speed = 1;
+		     break;
 
 			case 1:
 					// ÂƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 3;
-					break;
+					gApple[i].speed = 3;
+			break;
 
 			case 2:
 					// ‹àƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 5;
-					break;
+					gApple[i].speed = 5;
+			break;
 
 			case 3:
 					// “ÅƒŠƒ“ƒSoŒ»
-				gApple[i].speed = 0.5;
-					break;
+					gApple[i].speed = 0.5;
+			break;
 	        }
 
 			
