@@ -5,8 +5,6 @@
 class Ranking
 {
 public:
-
-	
 	int gScore;
 	
 	int ReadRanking();   //ランキングデータの読込

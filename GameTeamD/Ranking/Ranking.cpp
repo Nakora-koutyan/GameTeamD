@@ -98,14 +98,11 @@ int Ranking::SaveRanking(void)
 	return 0;
 }
 
-
-
 /****************************************
 * ƒ‰ƒ“ƒLƒ“ƒO•À‚Ñ‘Ö‚¦
 *****************************************/
 void Ranking::SortRanking(void)
 {
-
 	int i, j;
 	RankingData work;
 
@@ -139,7 +136,6 @@ void Ranking::SortRanking(void)
 *****************************************/
 void Ranking::DrawRanking(void)
 {
-
 	M_INPUT M{};
 
 	M.Input();
