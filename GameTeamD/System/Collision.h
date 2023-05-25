@@ -19,7 +19,7 @@ struct Erea
 
 class BoxCollider
 {
-private:
+protected:
 	Location location;	//’†SÀ•W
 	Erea erea;			//”ÍˆÍ
 public:

@@ -15,8 +15,10 @@
 #include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
-#include"System/wh.h"
+#include"System/SceneManager.h"
 
+
+#define FRAMERATE 60.0
 
 /**************************************
 *　列挙型の宣言
@@ -32,6 +34,10 @@ enum mode {
 	E_END,
 	E_CLOSE
 };
+/**************************************
+*　変数の宣言
+***************************************/
+
 
 /**************************************
 *　変数の宣言(グローバル変数)
@@ -81,17 +87,22 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	/*PLAYER Box;*/
+	PLAYER Player;
 
 	APPLE apple{};
 
-	GAMEMAIN stage;
+	Player.Update();
+
+	GameMain stage;
 
 	TITLE T;
 
 	FpsController FPS;
 	
 	M.Input();
+
+	FpsController FPSC(FRAMERATE, 800);
+
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
@@ -124,8 +135,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// 画面の初期化
 		ClearDrawScreen();
+		FPSC.All();
 
 		InputControl::Update();
+
+		Player.Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
@@ -133,14 +147,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
-		apple.AppleControl();
 
-		//title.print();
+		//T.print();
+		SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
 
-		T.print();
+		printf("整数値を入力してください＞");
+		while (sceneMng.Update() != nullptr) {
+			sceneMng.Draw();
+		}
 
 		//プレイヤー画像表示関数の宣言
-		//Box.IMAGES_PLAYER();
+		Player.Draw();
 
 		//// FPSの表示
 		//SetFontSize(16);
@@ -164,12 +181,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
-
-	//delete player;
-
-	// DXライブラリ使用の終了処理
-	DxLib_End();
-
 	// プログラムの終了
 	return 0;
 }
