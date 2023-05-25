@@ -2,9 +2,6 @@
 #include"DxLib.h"
 #include"Title/Title.h"
 #include"GameMain/GameMain.h"
-#include"GameMain/Stage.h"
-#include"GameMain/Player.h"
-#include"GameMain/Apple.h"
 #include"GameMain/Result.h"
 #include"Ranking/Ranking.h"
 #include"Help/Help.h"
@@ -74,20 +71,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
 
 	M_INPUT M{};
-
-	PLAYER Player;
-
-	APPLE apple{};
-
-	Player.Update();
-
-	GameMain stage;
-
-	TITLE T;
 	
 	M.Input();
 
 	FpsController FPSC(FRAMERATE, 800);
+
+	SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
 
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
@@ -99,27 +88,22 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		InputControl::Update();
 
-		Player.Update();
-
-		DrawGraph(0, 0, M.gBackScreen, 0);
-
-		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
+		//DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
 		//apple.IMAGES_RINGO();
 
 		//T.print();
-		SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
 
 		printf("整数値を入力してください＞");
-		while (sceneMng.Update() != nullptr) {
+		if (sceneMng.Update() != nullptr) {
 			sceneMng.Draw();
 		}
+		else {
+			break;
+		}
 
-		//プレイヤー画像表示関数の宣言
-		Player.Draw();
-
-		 //裏画面の内容を表画面に反映する
+		//裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
 	// プログラムの終了
