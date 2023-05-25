@@ -1,5 +1,4 @@
 #include"Apple.h"
-#include"../System/Input.h"
 #define APPLE_MAX 20
 
 struct RINGO {
@@ -42,10 +41,27 @@ struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 //	
 //	return 0;
 //}
+APPLE::APPLE()
+{
+	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
+	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
+	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
+	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
+}
 
+APPLE::~APPLE()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		DeleteGraph(gAppleImg[i]);
+	}
+}
 
 void APPLE::AppleControl(void)
 {
+	//this;
+
+	
 	// ƒŠƒ“ƒS‚Ì‰ŠúÝ’è
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == TRUE) {
@@ -69,15 +85,11 @@ void APPLE::AppleControl(void)
 int APPLE::CreateApple()
 {
 
-	M_INPUT M{};
-
-	M.Input();
-
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == FALSE) {
 			gApple[i] = gApple00;
 			gApple[i].type = AppleProd();
-			gApple[i].img = M.gAppleImg[gApple[i].type];
+			gApple[i].img = gAppleImg[gApple[i].type];
 			gApple[i].x = GetRand(6) * 150 + 100;
 
 			switch (gApple[i].type)
@@ -102,11 +114,13 @@ int APPLE::CreateApple()
 					gApple[i].speed = 0.5;
 			break;
 	        }
+
 			
-		}
-		// ¬Œ÷
+			// ¬Œ÷
 		return TRUE;
+		}
 	}
+			
 	// Ž¸”s
 	return FALSE;
 }
