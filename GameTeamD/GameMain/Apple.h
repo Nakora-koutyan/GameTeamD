@@ -1,10 +1,32 @@
 #pragma once
 #include<stdio.h>
 #include"../System/Input.h"
+#include"../System/Collision.h"
 #include"DxLib.h"
+#define APPLE_MAX 10
 
-class APPLE
+struct RINGO {
+	int flg;        // 使用フラグ
+	int type;       // タイプ
+	int img;         // 画像
+	int x, y, w, h;  // 座標、幅、高さ
+	int speed;       // 移動速度
+	int point;       // スコア加算ポイント
+
+};
+
+
+class APPLE : public BoxCollider
 {
+
+public:
+	int flg;        // 使用フラグ
+	int type;       // タイプ
+	int img;         // 画像
+	//int x, y, w, h;  // 座標、幅、高さ
+	float speed;       // 移動速度
+	int point;       // スコア加算ポイント
+	float magnification; // 当たり判定の倍率
 public:
 
 	APPLE();
@@ -12,10 +34,10 @@ public:
 	int gAppleImg[4];
 
 	void AppleControl(); // リンゴの移動処理
-	int CreateApple();   // リンゴの生成処理
-	int AppleProd();     // リンゴの生成率
-	int IMAGES_RINGO();              // リンゴの画像表示処理
-	void AppleSetting();
+	//int CreateApple();   // リンゴの生成処理
+	//int AppleProd();     // リンゴの生成率
+	//int IMAGES_RINGO();              // リンゴの画像表示処理
+	//void AppleSetting();
 
 	~APPLE();
 };

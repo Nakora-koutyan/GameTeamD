@@ -1,19 +1,10 @@
 #include"Apple.h"
-#define APPLE_MAX 10
 
-struct RINGO {
-	int flg;        // 使用フラグ
-	int type;       // タイプ
-	int img;         // 画像
-	int x, y, w, h;  // 座標、幅、高さ
-	int speed;       // 移動速度
-	int point;       // スコア加算ポイント
 
-};
-
-struct RINGO gApple[APPLE_MAX];
-struct RINGO gApple00 = { TRUE,0,0,50,50,63,120,50,1 };
-struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
+//
+//struct RINGO gApple[APPLE_MAX];
+//struct RINGO gApple00 = { TRUE,0,0,50,50,63,120,50,1 };
+//struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 
 //struct RINGO gApple[APPLE_MAX]{};
@@ -43,10 +34,14 @@ struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 //}
 APPLE::APPLE()
 {
-	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
-	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
-	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
-	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
+	flg = FALSE;  // ダミーデータ（使用）
+
+	location.x =  0;  // ダミーデータ（ｘ）
+	location.y = 0;   // ダミーデータ（ｙ）
+	 erea.width = 63;     // ダミーデータ（ｗ）
+	 erea.height = 120;	 // ダミーデータ（ｈ）
+	 speed = 50; // ダミーデータ（speed）
+	 point = 1;	 // ダミーデータ（point加算）
 
 	//// リンゴの初期設定
 	//for (int i = 0; i < APPLE_MAX; i++) {
@@ -69,94 +64,31 @@ APPLE::APPLE()
 
 APPLE::~APPLE()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		DeleteGraph(gAppleImg[i]);
-	}
+
 }
 
 void APPLE::AppleControl(void)
 {
 	//this;
 
-	
+
 	// リンゴの初期設定
-	for (int i = 0; i < APPLE_MAX; i++) {
-		if (gApple[i].flg == TRUE) {
 
-			//DrawString(gApple[i].x, gApple[i].y, "haitteru", 0xffffff, 0);
+	if (flg == TRUE) {
 
-			// リンゴの表示
-			DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
+		//DrawString(gApple[i].x, gApple[i].y, "haitteru", 0xffffff, 0);
 
-			// 真っすぐ下に移動
-			gApple[i].y += gApple[i].speed;
+		// リンゴの表示
+		DrawRotaGraph(location.x, location.y,1,0, img, TRUE);
 
-			// Y軸が1000になったら消去
-			if (gApple[i].y > 1000)
-				gApple[i].flg = FALSE;
-		}
-	}
-	CreateApple();
-}
+		// 真っすぐ下に移動
+		location.y += speed;
 
-int APPLE::CreateApple()
-{
+		// Y軸が1000になったら消去
+		if (location.y > 1000)
+			flg = FALSE;
 
-	for (int i = 0; i < APPLE_MAX; i++) {
-		if (gApple[i].flg == FALSE) {
-			gApple[i] = gApple00;
-			gApple[i].type = AppleProd();
-			gApple[i].img = gAppleImg[gApple[i].type];
-			gApple[i].x = GetRand(6) * 150 + 100;
-
-			switch (gApple[i].type)
-	        {
-	        case 0:
-		           // 赤リンゴ出現
-		           gApple[i].speed = 1;
-		     break;
-
-			case 1:
-					// 青リンゴ出現
-					gApple[i].speed = 3;
-			break;
-
-			case 2:
-					// 金リンゴ出現
-					gApple[i].speed = 5;
-			break;
-
-			case 3:
-					// 毒リンゴ出現
-					gApple[i].speed = 0.5;
-			break;
-	        }
-
-			
-			// 成功
-		return TRUE;
-		}
-	}
-			
-	// 失敗
-	return FALSE;
-}
-
-int APPLE::AppleProd()     // リンゴの生成率
-{
-
-	int rand = GetRand(19);
-	if (rand < 11) {
-		return 0;
-	}
-	else if (rand < 16) {
-		return 1;
-	}
-	else if (rand < 18) {
-		return 2;
-	}
-	else {
-		return 3;
 	}
 }
+
+
