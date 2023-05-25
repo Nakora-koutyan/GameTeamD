@@ -17,16 +17,16 @@ private:
 	int g_MenuNumber = 0;
 	int gGameMode = E_TITLE;
 	int vol = 255;
-	int gBackScreen = LoadGraph("Material/Images/Title.png");
-	int gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
-	int gCursor_Move = LoadSoundMem("Material/Sounds/SE/cursor1.wav");
-	int gCursor_Enter = LoadSoundMem("Material/Sounds/SE/eats.wav");
+	int gBackScreen;
+	int gTitleBGM;
+	int gCursor_Move;
+	int gCursor_Enter;
 public:
 
 	TITLE();
 
 	// デストラクタ
-	virtual ~TITLE();
+	~TITLE();
 
 	// 描画以外の更新を実装する
 	virtual AbstractScene* Update() override;

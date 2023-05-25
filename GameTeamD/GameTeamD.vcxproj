@@ -163,7 +163,6 @@
     <ClCompile Include="Ranking\Ranking.cpp" />
     <ClCompile Include="System\Collision.cpp" />
     <ClCompile Include="System\FpsController.cpp" />
-    <ClCompile Include="System\Input.cpp" />
     <ClCompile Include="System\PadInput.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
@@ -182,7 +181,6 @@
     <ClInclude Include="System\Collision.h" />
     <ClInclude Include="System\wh.h" />
     <ClInclude Include="System\FpsController.h" />
-    <ClInclude Include="System\Input.h" />
     <ClInclude Include="System\PadInput.h" />
     <ClInclude Include="System\SceneManager.h" />
     <ClInclude Include="Title\Title.h" />

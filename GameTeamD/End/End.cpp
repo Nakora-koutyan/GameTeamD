@@ -1,6 +1,5 @@
 #include "End.h"
 #include "Dxlib.h"
-#include"../System/Input.h"
 
 
 int END::E_count;
@@ -37,12 +36,9 @@ void END::End_Update()
 void END::End_Draw()
 {
 
-	M_INPUT M{};
-
-	M.Input();
 
 	//îwåi
-	DrawGraph(0,0, M.gEndImg, FALSE);
+	//DrawGraph(0,0, M.gEndImg, FALSE);
 
 	//ä¥é”
 	DrawString(0, 0, "Thank you for playing", GetColor(255, 0, 0));
