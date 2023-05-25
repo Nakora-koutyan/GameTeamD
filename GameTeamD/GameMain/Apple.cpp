@@ -1,6 +1,6 @@
 #include"Apple.h"
 #include"../System/Input.h"
-#define APPLE_MAX 20
+#define APPLE_MAX 10
 
 struct RINGO {
 	int flg;        // 使用フラグ
@@ -13,7 +13,7 @@ struct RINGO {
 };
 
 struct RINGO gApple[APPLE_MAX];
-struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,50,1 };
+struct RINGO gApple00 = { TRUE,0,0,-50,50,63,120,100,1 };
 struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 
@@ -62,13 +62,14 @@ void APPLE::AppleControl(void)
 			DrawGraph(gApple[i].x, gApple[i].y, gApple[i].img, TRUE);
 
 			// 真っすぐ下に移動
-			gApple[i].y += gApple[i].speed;
+			gApple[i].y += gApple[i].speed + 1;
 
 			// Y軸が1000になったら消去
 			if (gApple[i].y > 1000)
 				gApple[i].flg = FALSE;
 		}
 	}
+
 	CreateApple();
 }
 
@@ -90,23 +91,23 @@ int APPLE::CreateApple()
 	        {
 	        case 0:
 		           // 赤リンゴ出現
-		           gApple[i].speed = 1;
-		     break;
+				gApple[i].speed = 1;
+				   break;
 
 			case 1:
 					// 青リンゴ出現
-					gApple[i].speed = 3;
-			break;
+				gApple[i].speed = 3;
+					break;
+
+			case 2:
+					// 金リンゴ出現
+				gApple[i].speed = 5;
+					break;
 
 			case 3:
-					// 金リンゴ出現
-					gApple[i].speed = 5;
-			break;
-
-			case 4:
 					// 毒リンゴ出現
-					gApple[i].speed = 0.5;
-			break;
+				gApple[i].speed = 0.5;
+					break;
 	        }
 
 			
