@@ -2,58 +2,49 @@
 #include "Dxlib.h"
 #include"../System/Input.h"
 
+int END::End;
 
-int END::E_count;
-int END::E_second;
-int END::mImageHandle;
 //初期化
-void END::End_Initialize()
+END::END()
 {
-	float E_count = 0;	//フレームカウント
-	float E_second = 0;	//秒数
+	End = 0;
+	Count = 0;
 
 	//画像のロード
-	//mImageHandle=LoadGraph();
+	//Endimg=LoadGraph();
 };
 
+//SceneManager用
 //更新
-void END::End_Update()
-{
-	//E_countを1フレームごとに加算
-	E_count++;
-
-	//E_countの値を秒にして取得
-	E_second = E_count / 60;
-
-	//5秒経つと終了(gGameModeをE_CLOSEに変更)
-	if (E_second == 5)
-	{
-		
-	}
-
-};
+//void END::Update()
+//{
+//	//5秒経つと終了(gGameModeをE_CLOSEに変更)
+//	if (300 < Count++)
+//	{
+//		End = 99;
+//	}
+//};
 
 //描画
-void END::End_Draw()
-{
+//void END::Draw() const
+//{
+//
+//	M_INPUT M{};
+//
+//	M.Input();
+//
+//	//背景
+//	DrawGraph(0,0, M.gEndImg, FALSE);
+//
+//	//感謝
+//	DrawString(0, 0, "Thank you for playing", GetColor(255, 0, 0));
+//
+//	//クレジット（素材の利用許諾など）
+//
+//};
 
-	M_INPUT M{};
-
-	M.Input();
-
-	//背景
-	DrawGraph(0,0, M.gEndImg, FALSE);
-
-	//感謝
-	DrawString(0, 0, "Thank you for playing", GetColor(255, 0, 0));
-
-	//クレジット（素材の利用許諾など）
-
-};
-
-//終了
-void END::End_Finalize()
-{
-	//画像の解放(要らないかも)
-	//DeleteGraph(mImageHandle);
-};
+//SceneManager用
+//AbstractScene* END::ChangeScene()
+//{
+//	return this;
+//};
