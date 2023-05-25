@@ -2,17 +2,11 @@
 #include"DxLib.h"
 #include"Title/Title.h"
 #include"GameMain/GameMain.h"
-#include"GameMain/Stage.h"
 #include"GameMain/Player.h"
 #include"GameMain/Apple.h"
 #include"GameMain/Result.h"
-#include"Ranking/Ranking.h"
-#include"Help/Help.h"
-#include"End/Credit.h"
-#include"End/End.h"
 #include"System/FpsController.h"
 #include"System/PadInput.h"
-#include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
 #include"System/SceneManager.h"
@@ -36,8 +30,8 @@ enum mode {
 *@•Ï”‚ÌéŒ¾
 ***************************************/
 // ‰æ–Ê—Ìˆæ‚Ì‘å‚«‚³
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+//const int SCREEN_WIDTH = 1280;
+//const int SCREEN_HEIGHT = 720;
 
 
 /**************************************
