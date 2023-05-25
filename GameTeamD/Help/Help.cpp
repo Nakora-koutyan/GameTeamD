@@ -1,6 +1,5 @@
 #include "Help.h"
 #include "Dxlib.h"
-#include"../System/Input.h"
 
 //初期化処理
 void HELP::HELP_Initialize()
@@ -22,12 +21,9 @@ void HELP::HELP_Update()
 void HELP::HELP_Draw()
 {
 
-	M_INPUT M{};
-
-	M.Input();
 
 	//背景
-	DrawGraph(0,0,M.gHelpImg,FALSE);
+	//DrawGraph(0,0,M.gHelpImg,FALSE);
 
 	//操作説明(仮)
 	DrawString(0, 0, "　　　　　　　操作説明　　　　　　　", GetColor(255, 0, 0));

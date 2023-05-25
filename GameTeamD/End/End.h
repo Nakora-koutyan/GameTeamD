@@ -1,17 +1,22 @@
 #pragma once
-class END
+#include "DxLib.h"
+#include "../System/AbstractScene.h"
+
+class END : public AbstractScene
 {
-public:
-	//変数
-	static int E_count;
-	static int E_second;
-
+private:
+	int Count;
 	//画像ハンドル格納用変数
-	static int mImageHandle;
+	//int Endimg;
+public:
 
-	//メンバ関数
-	void End_Initialize();	//初期化
-	void End_Finalize();	//終了
-	void End_Update();		//更新
-	void End_Draw();		//描画
+	static int End;
+
+	END();
+	//デストラクタ
+	~END() {};
+	//SceneManager用
+	//void Update() override;		//描画以外の更新処理
+	//void Draw()const override;		//描画の更新処理
+	//AbstractScene* ChangeScene() override;
 };

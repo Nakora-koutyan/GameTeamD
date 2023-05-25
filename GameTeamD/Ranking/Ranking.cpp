@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include"DxLib.h"
 #include"Ranking.h"
-#include"../System/Input.h"
 
 /****************************************
 * 構造体
@@ -21,12 +20,8 @@ struct RankingData  gRanking[RANK_MAX];
 *****************************************/
 void Ranking::InputRanking(void)
 {
-	M_INPUT M{};
-
-	M.Input();
-
 	//ランキング画像表示
-	DrawGraph(0, 0, M.gRankingImg, FALSE);
+	//DrawGraph(0, 0, M.gRankingImg, FALSE);
 
 	//フォントサイズの設定
 	SetFontSize(16);
@@ -140,15 +135,12 @@ void Ranking::SortRanking(void)
 void Ranking::DrawRanking(void)
 {
 
-	M_INPUT M{};
-
-	M.Input();
 
 	//でメニューに戻る
 	//if (gKeyFlg & PAD_INPUT_M) gGameMode = TITLE;
 
 	//ランキング画像を表示
-	DrawGraph(0, 0, M.gRankingImg, FALSE);
+	//DrawGraph(0, 0, M.gRankingImg, FALSE);
 
 	//ランキング一覧を表示
 	SetFontSize(18);
