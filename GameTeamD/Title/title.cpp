@@ -11,8 +11,6 @@ TITLE::TITLE()
 		SetLoopSamplePosSoundMem(109696, gTitleBGM);
 		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
 	}
-	
-
 }
 TITLE::~TITLE()
 {

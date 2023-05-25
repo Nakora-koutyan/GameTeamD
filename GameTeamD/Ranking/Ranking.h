@@ -4,9 +4,19 @@
 
 class Ranking
 {
+private:
+	enum mode {
+		E_TITLE,
+		E_RANKING,
+		E_INPUTNAME,
+	};
+
 public:
 	int gScore;
+	int gRankingImg;
+	int gGameMode = E_RANKING;
 	
+	int LoadRanking();   //ランキング画像の読込
 	int ReadRanking();   //ランキングデータの読込
 	int SaveRanking();   //ランキングデータの保存
 

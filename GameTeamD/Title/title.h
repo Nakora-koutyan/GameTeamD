@@ -1,6 +1,7 @@
 #pragma once
 #include"../System/PadInput.h"
 #include"../System/AbstractScene.h"
+
 class TITLE : public AbstractScene
 {
 private:
