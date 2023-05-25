@@ -46,12 +46,6 @@ struct RINGO gAppleCn = { TRUE,3,0,100,-50,18,18,10,1 };
 
 void APPLE::AppleControl(void)
 {
-	//this;
-
-	M_INPUT M{};
-
-	//M.Input();
-	
 	// ƒŠƒ“ƒS‚Ì‰Šúİ’è
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == TRUE) {
@@ -108,13 +102,11 @@ int APPLE::CreateApple()
 					gApple[i].speed = 0.5;
 			break;
 	        }
-
 			
-			// ¬Œ÷
-		return TRUE;
 		}
+		// ¬Œ÷
+		return TRUE;
 	}
-			
 	// ¸”s
 	return FALSE;
 }
