@@ -1,5 +1,6 @@
 #pragma once
-class END
+#include "AbstractScene.h"
+class END:public AbstractScene
 {
 public:
 	//•Ï”
