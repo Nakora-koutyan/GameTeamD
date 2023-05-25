@@ -5,6 +5,10 @@
 
 TITLE::TITLE()
 {
+	gBackScreen = LoadGraph("Material/Images/Title.png");
+	gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
+	gCursor_Move = LoadSoundMem("Material/Sounds/SE/cursor1.wav");
+	gCursor_Enter = LoadSoundMem("Material/Sounds/SE/eats.wav");
 	// gTitleBGM‚ª—¬‚ê‚Ä‚È‚¢‚È‚ç—¬‚·
 	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
 	{
@@ -72,5 +76,6 @@ AbstractScene* TITLE::Update() {
 }
 
 void TITLE::Draw() const {
+	DrawGraph(0, 0, gBackScreen, 0);
 	DrawFormatString(300, 10, 0xFFFFFF, "title");
 }

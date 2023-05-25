@@ -8,7 +8,6 @@
 #include"System/FpsController.h"
 #include"System/PadInput.h"
 #include"System/AbstractScene.h"
-#include"System/Input.h"
 #include"System/SceneManager.h"
 
 
@@ -65,18 +64,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	//SetLoopSamplePosSoundMem(371945, gMainbgm); 
-	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
-
-	M_INPUT M{};
-
 	PLAYER Box;
 
 	APPLE apple{};
 
 	TITLE T;
-	
-	M.Input();
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
@@ -86,8 +78,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		InputControl::Update();
 
-		DrawGraph(0, 0, M.gBackScreen, 0);
-
 		DrawString(20, 20, "debug...", GetColor(255, 255, 255));
 
 		// リンゴ表示確認用
@@ -96,7 +86,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//T.print();
 		SceneManager sceneMng(dynamic_cast<AbstractScene*>(new TITLE()));
 
-		printf("整数値を入力してください＞");
 		while (sceneMng.Update() != nullptr) {
 			sceneMng.Draw();
 		}
