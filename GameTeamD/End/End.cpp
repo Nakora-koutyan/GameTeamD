@@ -4,21 +4,21 @@
 
 int END::End;
 
-//初期化
+//コンストラクタ
 END::END()
 {
 	End = 0;
 	Count = 0;
 
 	//画像のロード
-	//Endimg=LoadGraph();
+	//EndImg=LoadGraph();
 };
 
 //SceneManager用
 //更新
 //void END::Update()
 //{
-//	//5秒経つと終了(gGameModeをE_CLOSEに変更)
+//	//5秒経つと終了
 //	if (300 < Count++)
 //	{
 //		End = 99;

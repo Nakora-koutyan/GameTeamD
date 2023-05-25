@@ -1,13 +1,23 @@
 #pragma once
-class HELP
+#include "../System/AbstractScene.h"
+
+class HELP : public AbstractScene
 {
-public:
+private:
 	//画像ハンドル格納用変数
-	static int mImageHandle;
+	//int Helpimg;
+	//シーン変更値
+	bool sceneCHG;
+	//分岐
+	int sceneFlg;
+public:
+	HELP();
+
+	//デストラクタ
+	~HELP() {};
 
 	//メンバ関数
-	void HELP_Initialize();	//初期化
-	void HELP_Finalize();	//終了
-	void HELP_Update();		//更新
-	void HELP_Draw();		//描画
+	//void Update()override;					//描画以外の更新処理
+	//void Draw() const override;				//描画の更新処理
+	//AbstractScene* ChangeScene() override;	//シーンの変更処理
 };
