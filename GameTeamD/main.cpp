@@ -2,23 +2,15 @@
 #include"DxLib.h"
 #include"Title/Title.h"
 #include"GameMain/GameMain.h"
-#include"GameMain/Stage.h"
 #include"GameMain/Player.h"
 #include"GameMain/Apple.h"
 #include"GameMain/Result.h"
-#include"Ranking/Ranking.h"
-#include"Help/Help.h"
-#include"End/Credit.h"
-#include"End/End.h"
 #include"System/FpsController.h"
 #include"System/PadInput.h"
-#include"System/Collision.h"
 #include"System/AbstractScene.h"
 #include"System/Input.h"
 #include"System/SceneManager.h"
 
-
-#define FRAMERATE 60.0
 
 /**************************************
 *　列挙型の宣言
@@ -37,6 +29,9 @@ enum mode {
 /**************************************
 *　変数の宣言
 ***************************************/
+// 画面領域の大きさ
+//const int SCREEN_WIDTH = 1280;
+//const int SCREEN_HEIGHT = 720;
 
 
 /**************************************
@@ -75,31 +70,21 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	M_INPUT M{};
 
-	PLAYER Player;
+	PLAYER Box;
 
 	APPLE apple{};
-
-	Player.Update();
-
-	GameMain stage;
 
 	TITLE T;
 	
 	M.Input();
-
-	FpsController FPSC(FRAMERATE, 800);
-
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
 
 		// 画面の初期化
 		ClearDrawScreen();
-		FPSC.All();
 
 		InputControl::Update();
-
-		Player.Update();
 
 		DrawGraph(0, 0, M.gBackScreen, 0);
 
@@ -117,11 +102,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 
 		//プレイヤー画像表示関数の宣言
-		Player.Draw();
+		//Box.IMAGES_PLAYER();
 
 		 //裏画面の内容を表画面に反映する
 		ScreenFlip();
 	}
+
+	//delete player;
+
+	// DXライブラリ使用の終了処理
+	DxLib_End();
+
 	// プログラムの終了
 	return 0;
 }
