@@ -7,7 +7,7 @@
 class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：AbstractScene
 private:
 	int gMainBGM;	//BGMの宣言
-	int gBackScreen;
+	int gGameBackScreen;
 
 	int gRingoSE;      // リンゴのSE
 	int gPoisonRingoSE;  // 毒リンゴのSE

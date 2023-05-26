@@ -24,7 +24,6 @@ public:
 	enum PLAYER_STATE
 	{
 		IDOL = 0,
-		WALK,
 		DASH
 	};
 
@@ -50,88 +49,13 @@ public:
 
 private:
 
+	void PLAYER_DASH();					//ダッシュ動作関数をまとめる場所
+
+	void MoveLeftDash();			//左動作
+	void MoveRightDash();			//右動作
+	void NotTip();					//スティックが離れてる時の動作
+
 	void DashAnimation();			//走行アニメーション
-	void WalkAnimation();			//歩行アニメーション
-
-
-private:
-	//スティックの動作に伴うキャラクターの移動方向とダッシュ
-	void MoveLeftDash()
-	{
-		if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
-		{
-			PlayerState = PLAYER_STATE::DASH;
-			AnimInterval = ANIMATION_INTERVAL;
-			TurnFlag = true;
-			
-			if (Speed > ( - 1 * MAX_DASH_SPEED)) {
-				Speed += ((- 1 * PLAYER_DASH_SPEED) / 10);
-			}
-		}
-		else if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
-		{
-			Speed += (Speed * 0.3);
-			TurnFlag = true;
-
-
-			if (InputControl::TipLeftLStick(STICKL_X) > 0 || InputControl::TipLeftLStick(STICKL_X) == 0)
-			{
-				TurnFlag = true;
-				if (fabsf(Speed) > 1 && fabsf(Speed) < 5)
-				{
-					PlayerState = PLAYER_STATE::DASH;
-					AnimInterval = ANIMATION_INTERVAL + 1;
-					TurnFlag = true;
-				}
-				else if (fabsf(Speed) < 1)
-				{
-					AnimTimer = 0;
-					AnimType = 0;
-					PlayerState = PLAYER_STATE::IDOL;
-					Image = ImageStand;
-					TurnFlag = true;
-				}
-			}
-		}
-	}
-
-	void MoveRightDash() 
-	{
-		if (InputControl::TipLeftLStick(STICKL_X) > 0.7)
-		{
-			PlayerState = PLAYER_STATE::DASH;
-			AnimInterval = ANIMATION_INTERVAL;
-			TurnFlag = false;
-
-
-			if (Speed < MAX_DASH_SPEED) {
-				Speed += (PLAYER_DASH_SPEED / 10);
-			}
-		}
-		else if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
-		{
-			Speed -= (Speed * 0.3);
-			TurnFlag = false;
-
-			if (InputControl::TipLeftLStick(STICKL_X) < 0 || InputControl::TipLeftLStick(STICKL_X) == 0) 
-			{
-				TurnFlag = false;
-				if (fabsf(Speed) > 1 && fabsf(Speed) < 5)	//Speedの値が１以上5未満の時
-				{
-					PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
-					AnimInterval = ANIMATION_INTERVAL + 1;	//
-				}
-				else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
-				{
-					AnimTimer = 0;
-					AnimType = 0;
-					PlayerState = PLAYER_STATE::IDOL;
-					Image = ImageStand;
-				}
-			}
-		}
-	}
-
 
 public:
 	//コンストラクタ
