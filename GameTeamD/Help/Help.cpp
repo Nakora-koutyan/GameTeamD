@@ -1,6 +1,9 @@
 #include "Help.h"
 #include "Dxlib.h"
+<<<<<<< HEAD
 #include"../System/Input.h"
+=======
+>>>>>>> parent of 97bad70 (Merge branch 'main' into yoshiki)
 
 //初期化処理
 void HELP::HELP_Initialize()
@@ -22,12 +25,18 @@ void HELP::HELP_Update()
 void HELP::HELP_Draw()
 {
 
+<<<<<<< HEAD
 	M_INPUT M{};
 
 	M.Input();
 
 	//背景
 	DrawGraph(0,0,M.gHelpImg,FALSE);
+=======
+
+	//背景
+	//DrawGraph(0,0,M.gHelpImg,FALSE);
+>>>>>>> parent of 97bad70 (Merge branch 'main' into yoshiki)
 
 	//操作説明(仮)
 	DrawString(0, 0, "　　　　　　　操作説明　　　　　　　", GetColor(255, 0, 0));
