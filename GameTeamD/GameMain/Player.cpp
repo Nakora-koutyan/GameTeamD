@@ -64,54 +64,66 @@ PLAYER::~PLAYER()		//デストラクタ
 	DeleteFontToHandle(GuideFont);
 }
 
+void PLAYER::PLAYER_DASH()
+{
+	MoveLeftDash();
+	MoveRightDash();
+	NotTip();					//スティックが離れてる時の動作	
+}
+
+void PLAYER::MoveLeftDash()
+{
+	if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
+	{
+		PlayerState = PLAYER_STATE::DASH;
+		AnimInterval = ANIMATION_INTERVAL;
+		TurnFlag = true;
+
+		if (Speed > (-MAX_DASH_SPEED)) {
+			Speed += ((-PLAYER_DASH_SPEED) / 10);
+		}
+	}
+}
+
+void PLAYER::MoveRightDash()
+{
+	if (InputControl::TipLeftLStick(STICKL_X) > 0.7)
+	{
+		PlayerState = PLAYER_STATE::DASH;
+		AnimInterval = ANIMATION_INTERVAL;
+		TurnFlag = false;
+
+		if (Speed < MAX_DASH_SPEED) {
+			Speed += (PLAYER_DASH_SPEED / 10);
+		}
+	}
+}
+
+void PLAYER::NotTip()
+{
+	if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
+	{
+		Speed -= (Speed * 0.05);
+
+		if (fabsf(Speed) >= 1)	//Speedの値が１以上5未満の時
+		{
+			PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
+			AnimInterval = ANIMATION_INTERVAL + 1;	//
+		}
+		else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
+		{
+			AnimTimer = 0;
+			AnimType = 0;
+			PlayerState = PLAYER_STATE::IDOL;
+			Image = ImageStand;
+			Speed = 0;
+		}
+	}
+}
+
 void PLAYER::Update() //キャラクターの移動と状態の更新
 {
-	//スティックの傾き割合 が -0.7より小さい値 または スティックの傾き割合 が 0.7よりも大きい値  
-	//if (InputControl::TipLeftLStick(STICKL_X) < -0.7 || InputControl::TipLeftLStick(STICKL_X) > 0.7)
-	//{
-	//	if (PlayerState != PLAYER_STATE::DASH)	//プレイヤーの動作状態がダッシュでない時
-	//	{
-	//		PlayerState = PLAYER_STATE::DASH;
-	//		AnimInterval = ANIMATION_INTERVAL;
-	//		AnimTimer = 0;
-	//		AnimType = 0;
-	//	}
-	//	
-
-	//}
-	//else if (InputControl::TipLeftLStick(STICKL_X) < -0.3 || InputControl::TipLeftLStick(STICKL_X) > 0.3)
-	//{
-	//	if (PlayerState != PLAYER_STATE::WALK)
-	//	{
-	//		PlayerState = PLAYER_STATE::WALK;
-	//		AnimInterval = ANIMATION_INTERVAL;
-	//		AnimTimer = 0;
-	//		AnimType = 0;
-	//	}
-
-	//	if (InputControl::TipLeftLStick(STICKL_X) < -0.3)
-	//	{
-	//		Speed = -PLAYER_WALK_SPEED;
-	//		TurnFlag = true;
-	//	}
-
-	//	if (InputControl::TipLeftLStick(STICKL_X) > 0.3)
-	//	{
-	//		Speed = PLAYER_WALK_SPEED;
-	//		TurnFlag = false;
-	//	}
-	//}
-	//else if (PlayerState != PLAYER_STATE::IDOL)
-	//{
-	//	AnimTimer = 0;
-	//	AnimType = 0;
-	//	PlayerState = PLAYER_STATE::IDOL;
-	//	Image = ImageStand;
-	//	Speed = 0;
-	//}
-	MoveLeftDash();
-
-	MoveRightDash();
+	PLAYER_DASH();
 
 	switch(PlayerState)
 	{
@@ -125,18 +137,6 @@ void PLAYER::Update() //キャラクターの移動と状態の更新
 			StopSoundMem(DashSE);
 		}
 		break;
-	case PLAYER_STATE::WALK:
-		if (CheckSoundMem(DashSE) == 1)
-		{
-			PlaySoundMem(WalkSE,DX_PLAYTYPE_BACK,TRUE);
-		}
-		if (CheckSoundMem(DashSE) == 1)
-		{
-			StopSoundMem(DashSE);
-		}
-		WalkAnimation();
-		location.x += Speed;
-		break;
 	case PLAYER_STATE::DASH:
 		if (CheckSoundMem(DashSE) == 1)
 		{
@@ -148,7 +148,6 @@ void PLAYER::Update() //キャラクターの移動と状態の更新
 		}
 		DashAnimation();
 		location.x += Speed;
-		break;
 
 	}
 }
@@ -158,13 +157,6 @@ void PLAYER::DashAnimation()
 	if (AnimTimer++ % AnimInterval == 0)
 	{
 		Image = ImagesDash[AnimType++ % 6];
-	}
-}
-void PLAYER::WalkAnimation()
-{
-	if (AnimTimer++ % AnimInterval == 0)
-	{
-		Image = ImagesWalk[AnimType++ % 8];
 	}
 }
 
