@@ -7,13 +7,13 @@
 GameMain::GameMain()
 {
 	// BGM読込
-	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
 
 	// gMainBGMが流れてないなら流す
 	if (CheckSoundMem(gMainBGM) != 1)
 	{
 		SetLoopSamplePosSoundMem(371945, gMainBGM);
-		//PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
+		PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
 	}
 
 	//背景画像読込
@@ -24,8 +24,10 @@ GameMain::GameMain()
 	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
 	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
 	/* リンゴ落下SE */
-	int gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
-	int gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
+	gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
+	gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
+
+
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -62,7 +64,6 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 				ChangeVolumeSoundMem(123, gPoisonRingoSE);
 				PlaySoundMem(gPoisonRingoSE, DX_PLAYTYPE_BACK);
 			}
-
 		}
 	}
 
@@ -75,8 +76,8 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 	return this;	//現在のシーンを返す(ゲームメイン)
 }
 
-void GameMain::Draw() const {
-
+void GameMain::Draw() const 
+{
 	DrawGraph(0, 0, gBackScreen, FALSE);
 
 	player.Draw();
@@ -85,13 +86,10 @@ void GameMain::Draw() const {
 		apple[i].Draw();
 	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
-
-
 }
 
 int GameMain::CreateApple()
 {
-
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (apple[i].flg == FALSE) {
 			apple[i] = {};
