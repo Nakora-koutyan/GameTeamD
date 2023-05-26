@@ -4,6 +4,8 @@
 #include"../Title/title.h"
 #include "../System/Input.h"
 
+const int TIMELIMIT = 60;
+
 GameMain::GameMain()
 {
 	// BGM読込
@@ -43,10 +45,12 @@ GameMain::~GameMain()	//デストラクタ
 	}
 }
 
-
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
 	player.Update();	//プレイヤーの更新
+
+	CreateApple();
+
 	for(int i=0; i<APPLE_MAX;i++)
 	{
 		apple[i].AppleControl();
@@ -87,6 +91,11 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
+	//残り時間を描画する
+	int time = TIMELIMIT;
+	FlmCnt++;
+	second = FlmCnt / 28;
+
 
 	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
 	//	return new TITLE;	//
@@ -106,6 +115,12 @@ void GameMain::Draw() const
 		apple[i].Draw();
 	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
+
+	if (time <= 0)
+	{
+		DrawGraph(0, 0, gGameOver, FALSE);
+	}
+	DrawFormatString(900, 100, 0xffffff, "%3d");
 }
 
 int GameMain::CreateApple()
