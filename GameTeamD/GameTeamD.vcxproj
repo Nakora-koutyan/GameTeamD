@@ -212,6 +212,10 @@
     <Image Include="Material\Images\BackImage.png" />
     <Image Include="Material\Images\characterStand.png" />
     <Image Include="Material\Images\Dash.png" />
+    <Image Include="Material\Images\Help.png" />
+    <Image Include="Material\Images\Ranking.png" />
+    <Image Include="Material\Images\start.png" />
+    <Image Include="Material\Images\TimeOver.jpg" />
     <Image Include="Material\Images\Title.png" />
     <Image Include="Material\Images\Walk.png" />
   </ItemGroup>

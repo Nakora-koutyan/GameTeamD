@@ -5,7 +5,7 @@ class HELP : public AbstractScene
 {
 private:
 	//画像ハンドル格納用変数
-	int HelpImg;
+	/*int HelpImg;*/
 	//シーン変更値
 	bool sceneCHG;
 	//分岐

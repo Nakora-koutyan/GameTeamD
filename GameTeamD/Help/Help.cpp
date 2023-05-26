@@ -8,17 +8,17 @@
 HELP::HELP()
 {
 	//画像のロード
-	HelpImg=LoadGraph("Material/Images/BackImage.png");
+	/*HelpImg=LoadGraph("Material/Images/BackImage.png");*/
 	sceneCHG = false;
 	sceneFlg = 0;
 
 	//キャンセル音追加
 	CancelSE =LoadSoundMem("Material/Sounds/SE/キャンセル音");
-};
+}
 
 HELP::~HELP()
 {
-	DeleteGraph(HelpImg);
+	/*DeleteGraph(HelpImg);*/
 	DeleteSoundMem(CancelSE);
 }
 
@@ -39,12 +39,14 @@ HELP::~HELP()
 //		sceneCHG = true;
 //		sceneFlg = 2;
 //	}
-//};
+//}
 //
 ////描画処理
 //void HELP::Draw() const
 //{
+//	M_INPUT M{};
 //
+//	M.Input();
 //
 //	//背景
 //	//DrawGraph(0,0,M.gHelpImg,FALSE);
@@ -58,7 +60,7 @@ HELP::~HELP()
 //	//画面遷移方法を記載
 //	DrawString(0, 80, "Bボタン入力でゲームメインへ", GetColor(255, 0, 0));
 //	DrawString(0, 100, "Aボタン入力でタイトルへ", GetColor(255, 0, 0));
-//};
+//}
 //
 ////終了処理
 //AbstractScene* HELP::ChangeScene()
@@ -77,4 +79,4 @@ HELP::~HELP()
 //
 //	return this;
 //
-//};
+//}

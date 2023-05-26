@@ -3,6 +3,8 @@
 #include"GameMain.h"
 #include"../Title/title.h"
 #include "../System/Input.h"
+#define TIMELIMIT = 60;
+
 
 GameMain::GameMain()
 {
@@ -19,6 +21,7 @@ GameMain::GameMain()
 
 	//背景画像読込
 	gGameBackScreen = LoadGraph("Material/Images/BackImage.png");
+	gTimeOver = LoadGraph("Material/Images/TimeOver.png");
 	/* リンゴ画像読込 */
 	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
 	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
@@ -32,6 +35,9 @@ GameMain::GameMain()
 	AppleCount[1] = 0;
 	AppleCount[2] = 0;
 	AppleCount[3] = 0;
+
+	//残り時間を描画する
+	TimeOver = FALSE;
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -42,7 +48,6 @@ GameMain::~GameMain()	//デストラクタ
 		DeleteGraph(gAppleImg[i]);
 	}
 }
-
 
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
@@ -90,6 +95,9 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
+	FlmCnt++;
+	second = FlmCnt / 28;
+	if (second >= 60) TimeOver = TRUE;
 
 	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
 	//	return new TITLE;	//
@@ -109,6 +117,12 @@ void GameMain::Draw() const
 		apple[i].Draw();
 	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
+
+	if (TimeOver)
+	{
+		DrawGraph(0, 0, gTimeOver, FALSE);
+	}
+	DrawFormatString(900, 100, 0xffffff, "%3d");
 }
 
 int GameMain::CreateApple()

@@ -39,14 +39,13 @@ PLAYER::PLAYER()
 
 	//プレイヤー当たり判定の値の初期化
 	location.x = 100;
-	location.y = 500;
+	location.y = 600;
 	erea.width = 50;
 	erea.height = 100;
 	erea.width_rate = 0.6;
 	erea.height_rate = 0.5;
 
 	//プレイヤーの状態の初期化
-	PlayerState = PLAYER_STATE::IDOL;
 	Speed = 0;
 	AnimTimer = 0;
 	AnimInterval = 0;
@@ -108,7 +107,7 @@ void PLAYER::NotTip()
 		if (fabsf(Speed) >= 1)	//Speedの値が１以上5未満の時
 		{
 			PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
-			AnimInterval = ANIMATION_INTERVAL + 1;	//
+			AnimInterval = ANIMATION_INTERVAL + 3;	//
 		}
 		else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
 		{

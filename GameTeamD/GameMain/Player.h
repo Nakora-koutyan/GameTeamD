@@ -49,10 +49,9 @@ public:
 
 private:
 
-	void PLAYER_DASH();					//ダッシュ動作関数をまとめる場所
-
-	void MoveLeftDash();			//左動作
-	void MoveRightDash();			//右動作
+	void PLAYER_DASH();				//ダッシュ動作関数をまとめる場所
+	void MoveLeftDash();			//左ダッシュ動作
+	void MoveRightDash();			//右ダッシュ動作
 	void NotTip();					//スティックが離れてる時の動作
 
 	void DashAnimation();			//走行アニメーション
