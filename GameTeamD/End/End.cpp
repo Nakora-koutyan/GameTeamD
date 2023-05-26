@@ -3,30 +3,20 @@
 #include"../System/Input.h"
 
 
-<<<<<<< HEAD
 int END::E_count;
 int END::E_second;
 int END::mImageHandle;
 //初期化
 void END::End_Initialize()
-=======
-//初期化
-END::END()
->>>>>>> parent of 97bad70 (Merge branch 'main' into yoshiki)
 {
 	float E_count = 0;	//フレームカウント
 	float E_second = 0;	//秒数
 
 	//画像のロード
-<<<<<<< HEAD
 	//mImageHandle=LoadGraph();
-=======
-	//Endimg=LoadGraph();
->>>>>>> parent of 97bad70 (Merge branch 'main' into yoshiki)
 };
 
 //更新
-<<<<<<< HEAD
 void END::End_Update()
 {
 	//E_countを1フレームごとに加算
@@ -42,16 +32,6 @@ void END::End_Update()
 	}
 
 };
-=======
-//void END::Update()
-//{
-//	//5秒経つと終了(gGameModeをE_CLOSEに変更)
-//	if (300 < Count++)
-//	{
-//		End = 99;
-//	}
-//};
->>>>>>> parent of 97bad70 (Merge branch 'main' into yoshiki)
 
 //描画
 void END::End_Draw()
