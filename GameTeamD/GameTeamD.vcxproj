@@ -180,6 +180,7 @@
     <ClInclude Include="Ranking\Ranking.h" />
     <ClInclude Include="System\AbstractScene.h" />
     <ClInclude Include="System\Collision.h" />
+    <ClInclude Include="System\Input.h" />
     <ClInclude Include="System\wh.h" />
     <ClInclude Include="System\FpsController.h" />
     <ClInclude Include="System\Input.h" />
@@ -200,6 +201,7 @@
     <Image Include="Material\Images\Apple_Poison.png" />
     <Image Include="Material\Images\Apple_Green.png" />
     <Image Include="Material\Images\Apple_Red.png" />
+    <Image Include="Material\Images\BackImage.png" />
     <Image Include="Material\Images\characterStand.png" />
     <Image Include="Material\Images\Dash.png" />
     <Image Include="Material\Images\Title.png" />
