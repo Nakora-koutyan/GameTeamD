@@ -95,11 +95,9 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
-	
 	FlmCnt++;
 	second = FlmCnt / 28;
 	if (second >= 60) TimeOver = TRUE;
-
 
 	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
 	//	return new TITLE;	//
