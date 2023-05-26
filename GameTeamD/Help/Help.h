@@ -5,16 +5,20 @@ class HELP : public AbstractScene
 {
 private:
 	//画像ハンドル格納用変数
-	//int Helpimg;
+	int HelpImg;
 	//シーン変更値
 	bool sceneCHG;
 	//分岐
 	int sceneFlg;
+	//キャンセル音
+	int  CancelSE;
+
 public:
+	//コンストラクタ
 	HELP();
 
 	//デストラクタ
-	~HELP() {};
+	~HELP();
 
 	//メンバ関数
 	//void Update()override;					//描画以外の更新処理

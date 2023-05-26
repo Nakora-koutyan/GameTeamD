@@ -160,6 +160,9 @@
     <Media Include="Material\Sounds\SE\毒状態.wav">
       <Filter>リソース ファイル</Filter>
     </Media>
+    <Media Include="Material\Sounds\SE\キャンセル音.wav">
+      <Filter>リソース ファイル</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Material\Images\Title.png">
@@ -184,6 +187,9 @@
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="Material\Images\Apple_Red.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\BackImage.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>

@@ -8,6 +8,7 @@ GameMain::GameMain()
 {
 	// BGM読込
 	gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	gGameBackScreen = LoadGraph("Material/Images/BackImage.png");
 
 	// gMainBGMが流れてないなら流す
 	if (CheckSoundMem(gMainBGM) != 1)
@@ -36,20 +37,12 @@ GameMain::GameMain()
 GameMain::~GameMain()	//デストラクタ
 {
 	DeleteSoundMem(gMainBGM);
-
-	for (int i = 0; i < 4; i++)
-	{
-		DeleteGraph(gAppleImg[i]);
-	}
 }
 
 
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
 	player.Update();	//プレイヤーの更新
-	for (int i = 0; i < APPLE_MAX; i++)
-	{
-		apple[i].AppleControl(); // リンゴの移動処理
 
 		if (HitBoxPlayer(&player, &apple[i]) == TRUE)
 		{
@@ -87,24 +80,15 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
-	CreateApple(); // リンゴの生成処理
 
-	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
-		return new TITLE;	//
-	}
+	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
+	//	return new TITLE;	//
+	//}
 
 	return this;	//現在のシーンを返す(ゲームメイン)
 }
 
 void GameMain::Draw() const {
-
-	DrawGraph(0, 0, gBackScreen, FALSE);
-
-	player.Draw();
-	for (int i = 0; i < APPLE_MAX; i++)
-	{
-		apple[i].Draw();
-	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
 
 
@@ -200,4 +184,7 @@ int GameMain::HitBoxPlayer(BoxCollider* p, APPLE* a)
 		return TRUE;
 	}
 	return FALSE;
+	DrawGraph(0, 0, gGameBackScreen,0);
+	player.Draw();
+	DrawFormatString(100, 100, 0xffffff, "%f", player.Speed);
 }
