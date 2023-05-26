@@ -171,6 +171,7 @@
     <ClCompile Include="System\PadInput.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
+    <ClCompile Include="GameMain\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="End\Credit.h" />
@@ -194,6 +195,7 @@
     <ClInclude Include="System\PadInput.h" />
     <ClInclude Include="System\SceneManager.h" />
     <ClInclude Include="Title\Title.h" />
+    <ClInclude Include="GameMain\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Material\Sounds\BGM\GameMain.wav" />
