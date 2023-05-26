@@ -78,8 +78,7 @@ void APPLE::AppleControl(void)
 
 		//DrawString(gApple[i].x, gApple[i].y, "haitteru", 0xffffff, 0);
 
-		// ƒŠƒ“ƒS‚Ì•\¦
-		DrawRotaGraph(location.x, location.y,1,0, img, TRUE);
+
 
 		// ^‚Á‚·‚®‰º‚ÉˆÚ“®
 		location.y += speed;
@@ -91,4 +90,10 @@ void APPLE::AppleControl(void)
 	}
 }
 
+void APPLE::Draw()const {
+	if (flg == TRUE) {
+		// ƒŠƒ“ƒS‚Ì•\¦
+		DrawRotaGraph(location.x, location.y, 1, 0, img, TRUE);
+	}
+}
 
