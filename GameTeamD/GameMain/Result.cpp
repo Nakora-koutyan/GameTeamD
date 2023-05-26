@@ -15,7 +15,7 @@ RESULT::~RESULT()
 	DeleteGraph(ResultImg);
 }
 
-void RESULT::Update()
+AbstractScene* RESULT::Update()
 {
 	FlmCnt++;
 	second = FlmCnt / 28;
@@ -26,16 +26,12 @@ void RESULT::Update()
 		//スコアがランキングの最下位以下でランキング
 
 	}
+
+	return this;
 }
 
 void RESULT::Draw() const
 {
 	//背景
 	DrawGraph(0, 0, ResultImg, FALSE);
-}
-
-//シーン切り替え
-AbstractScene* RESULT::ChengeScene()
-{
-
 }
