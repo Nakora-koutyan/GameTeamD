@@ -11,8 +11,13 @@ END::END()
 	Count = 0;
 
 	//画像のロード
-	//EndImg=LoadGraph();
+	EndImg=LoadGraph("Material/Images/BackImage.png");
 };
+
+END::~END()
+{
+	DeleteGraph(EndImg);
+}
 
 //SceneManager用
 //更新

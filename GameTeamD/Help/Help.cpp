@@ -8,10 +8,19 @@
 HELP::HELP()
 {
 	//画像のロード
-	//HelpImg=LoadGraph();
+	HelpImg=LoadGraph("Material/Images/BackImage.png");
 	sceneCHG = false;
 	sceneFlg = 0;
+
+	//キャンセル音追加
+	CancelSE =LoadSoundMem("Material/Sounds/SE/キャンセル音");
 };
+
+HELP::~HELP()
+{
+	DeleteGraph(HelpImg);
+	DeleteSoundMem(CancelSE);
+}
 
 //更新処理
 //void HELP::Update()
@@ -25,12 +34,14 @@ HELP::HELP()
 //	//Aボタン入力でタイトルへ
 //	else if (InputControl::PressBotton(XINPUT_BUTTON_A))
 //	{
+//		//キャンセル
+//		PlaySoundMem(cancelSE, DX_PLAYTYPE_BACK);
 //		sceneCHG = true;
 //		sceneFlg = 2;
 //	}
 //};
-
-//描画処理
+//
+////描画処理
 //void HELP::Draw() const
 //{
 //
@@ -48,8 +59,8 @@ HELP::HELP()
 //	DrawString(0, 80, "Bボタン入力でゲームメインへ", GetColor(255, 0, 0));
 //	DrawString(0, 100, "Aボタン入力でタイトルへ", GetColor(255, 0, 0));
 //};
-
-//終了処理
+//
+////終了処理
 //AbstractScene* HELP::ChangeScene()
 //{
 //	if (sceneCHG) 
@@ -60,7 +71,7 @@ HELP::HELP()
 //		}
 //		if (sceneFlg == 2)
 //		{
-//			return new Title;
+//			return new TITLE;
 //		}
 //	}
 //
