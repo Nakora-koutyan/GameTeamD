@@ -7,7 +7,8 @@
 GameMain::GameMain()
 {
 	// BGM読込
-	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	gGameBackScreen = LoadGraph("Material/Images/BackImage.png");
 
 	// gMainBGMが流れてないなら流す
 	if (CheckSoundMem(gMainBGM) != 1)
@@ -31,16 +32,15 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 
 
 
-	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
-		return new TITLE;	//
-	}
+	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
+	//	return new TITLE;	//
+	//}
 
 	return this;	//現在のシーンを返す(ゲームメイン)
 }
 
 void GameMain::Draw() const {
-	player.Draw();
-
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
-
+	DrawGraph(0, 0, gGameBackScreen,0);
+	player.Draw();
 }

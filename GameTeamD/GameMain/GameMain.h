@@ -7,10 +7,11 @@
 class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：AbstractScene
 private:
 	int gMainBGM;	//BGMの宣言
+	int gGameBackScreen;
 
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
 
-	APPLE apple{};	//リンゴとリンゴの配列を呼び出すための配列
+	APPLE apple[];	//リンゴとリンゴの配列を呼び出すための配列
 public:
 	//コンストラクタ
 	GameMain();
