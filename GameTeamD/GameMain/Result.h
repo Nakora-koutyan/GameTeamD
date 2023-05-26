@@ -21,7 +21,6 @@ public:
 	//デストラクタ
 	~RESULT();
 
-	void Update() override;
+	AbstractScene* Update() override;
 	void Draw()const override;
-	AbstractScene* ChangeScene() override;
 };

@@ -3,6 +3,7 @@
 #include"Stage.h"
 #include"Player.h"
 #include"Apple.h"
+#include"UI.h"
 
 class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：AbstractScene
 private:
@@ -22,6 +23,8 @@ private:
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
 
 	APPLE apple[APPLE_MAX];	//リンゴとリンゴの配列を呼び出すための配列
+
+	UI ui;
 
 	int gAppleImg[4];
 public:
