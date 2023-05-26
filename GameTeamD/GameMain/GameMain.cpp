@@ -7,13 +7,13 @@
 GameMain::GameMain()
 {
 	// BGM読込
-	int gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
+	gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
 
 	// gMainBGMが流れてないなら流す
 	if (CheckSoundMem(gMainBGM) != 1)
 	{
 		SetLoopSamplePosSoundMem(371945, gMainBGM);
-		//PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
+		PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
 	}
 	/* リンゴ画像読込 */
 	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
@@ -21,8 +21,8 @@ GameMain::GameMain()
 	gAppleImg[2] = LoadGraph("Material/Images/Apple_Gold.png");
 	gAppleImg[3] = LoadGraph("Material/Images/Apple_Poison.png");
 	/* リンゴ落下SE */
-	int gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
-	int gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
+	gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
+	gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -46,18 +46,18 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		if (HitBoxPlayer(&player, &apple[i]) == TRUE)
 		{
 			apple[i].flg = FALSE;
-			if (AppleProd() != 3) // 毒リンゴ取ってないとき
+			if (apple[i].img!=gAppleImg[3]) // 毒リンゴ取ってないとき
 			{
 				if (CheckSoundMem(gRingoSE) == 0)
-				{
-					ChangeVolumeSoundMem(123, gRingoSE);
+				{	
 					PlaySoundMem(gRingoSE, DX_PLAYTYPE_BACK);
+					ChangeVolumeSoundMem(123, gRingoSE);
 				}
 			}
 			else // 毒リンゴを取ったとき
 			{
-				ChangeVolumeSoundMem(123, gPoisonRingoSE);
 				PlaySoundMem(gPoisonRingoSE, DX_PLAYTYPE_BACK);
+				ChangeVolumeSoundMem(255, gPoisonRingoSE);
 			}
 
 		}
