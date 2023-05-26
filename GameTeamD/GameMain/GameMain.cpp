@@ -26,8 +26,6 @@ GameMain::GameMain()
 	/* リンゴ落下SE */
 	gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
 	gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
-
-
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -39,7 +37,6 @@ GameMain::~GameMain()	//デストラクタ
 		DeleteGraph(gAppleImg[i]);
 	}
 }
-
 
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
@@ -129,20 +126,16 @@ int GameMain::CreateApple()
 				apple[i].point -= 750;		  // ポイントに750減算
 				break;
 			}
-
-
 			// 成功
 			return TRUE;
 		}
 	}
-
 	// 失敗
 	return FALSE;
 }
 
 int GameMain::AppleProd()     // リンゴの生成率
 {
-
 	int rand = GetRand(19);
 	if (rand < 11) {
 		return 0;
