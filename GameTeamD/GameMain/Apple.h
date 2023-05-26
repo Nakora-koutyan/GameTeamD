@@ -27,7 +27,6 @@ public:
 	float speed;       // 移動速度
 	int point;       // スコア加算ポイント
 	float magnification; // 当たり判定の倍率
-public:
 
 	APPLE();
 
