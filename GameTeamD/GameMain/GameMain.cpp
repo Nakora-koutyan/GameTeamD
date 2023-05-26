@@ -18,7 +18,7 @@ GameMain::GameMain()
 	}
 
 	//背景画像読込
-	gBackScreen = LoadGraph("Material/Images/BackImage.png");
+	gGameBackScreen = LoadGraph("Material/Images/BackImage.png");
 	/* リンゴ画像読込 */
 	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
 	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
@@ -43,6 +43,9 @@ GameMain::~GameMain()	//デストラクタ
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
 	player.Update();	//プレイヤーの更新
+	for(int i=0; i<APPLE_MAX;i++)
+	{
+
 
 		if (HitBoxPlayer(&player, &apple[i]) == TRUE)
 		{
@@ -88,10 +91,17 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 	return this;	//現在のシーンを返す(ゲームメイン)
 }
 
-void GameMain::Draw() const {
+void GameMain::Draw() const 
+{
+
+	DrawGraph(0, 0, gGameBackScreen, FALSE);
+
+	player.Draw();
+	for (int i = 0; i < APPLE_MAX; i++)
+	{
+		apple[i].Draw();
+	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
-
-
 }
 
 int GameMain::CreateApple()
