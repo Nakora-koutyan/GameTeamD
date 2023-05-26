@@ -8,7 +8,7 @@ GameMain::GameMain()
 {
 	// BGM読込
 	gMainBGM = LoadSoundMem("Material/Sounds/BGM/GameMain.wav");
-	gGameBackScreen = LoadGraph("Material/Images/BackImage.png");
+	gBackScreen = LoadGraph("Material/Images/BackImage.png");
 
 	// gMainBGMが流れてないなら流す
 	if (CheckSoundMem(gMainBGM) != 1)
@@ -41,7 +41,7 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 
 void GameMain::Draw() const {
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
-	DrawGraph(0, 0, gGameBackScreen,0);
+	DrawGraph(0, 0, gBackScreen,0);
 	player.Draw();
 	DrawFormatString(100, 100, 0xffffff, "%f", player.Speed);
 }
