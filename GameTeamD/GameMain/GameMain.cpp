@@ -47,6 +47,9 @@ GameMain::~GameMain()	//デストラクタ
 AbstractScene* GameMain::Update() //ゲームメインのアップデート
 {
 	player.Update();	//プレイヤーの更新
+
+	CreateApple();
+
 	for(int i=0; i<APPLE_MAX;i++)
 	{
 		apple[i].AppleControl();
