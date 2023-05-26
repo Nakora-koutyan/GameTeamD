@@ -5,6 +5,9 @@
 
 TITLE::TITLE()
 {
+	// BGMì«çû
+	gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
+
 	// gTitleBGMÇ™ó¨ÇÍÇƒÇ»Ç¢Ç»ÇÁó¨Ç∑
 	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
 	{
@@ -13,13 +16,25 @@ TITLE::TITLE()
 	}
 
 	gBackScreen = LoadGraph("Material/Images/Title.png");
-	
 
 }
 TITLE::~TITLE()
 {
 	DeleteSoundMem(gTitleBGM);
 }
+	//for (int i = 0; i < 1;)
+	//{
+	//	// gTitleBGMÇ™ó¨ÇÍÇƒÇ»Ç¢Ç»ÇÁó¨Ç∑
+	//	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
+	//	{
+	//		SetLoopSamplePosSoundMem(109696, gTitleBGM);
+	//		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
+	//	}
+	//	
+	//}
+
+	
+	
 
 //void TITLE::print()
 //{
