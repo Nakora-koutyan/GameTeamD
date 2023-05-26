@@ -200,6 +200,7 @@
     <Media Include="Material\Sounds\BGM\Title.wav" />
     <Media Include="Material\Sounds\SE\Finish.wav" />
     <Media Include="Material\Sounds\SE\warning1.wav" />
+    <Media Include="Material\Sounds\SE\キャンセル音.wav" />
     <Media Include="Material\Sounds\SE\パワーアップ.wav" />
     <Media Include="Material\Sounds\SE\毒状態.wav" />
   </ItemGroup>
