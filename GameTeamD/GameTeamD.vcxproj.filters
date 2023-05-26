@@ -163,6 +163,15 @@
     <Media Include="Material\Sounds\SE\キャンセル音.wav">
       <Filter>リソース ファイル</Filter>
     </Media>
+    <Media Include="Material\Sounds\SE\cursor.wav">
+      <Filter>リソース ファイル</Filter>
+    </Media>
+    <Media Include="Material\Sounds\SE\cursor1.wav">
+      <Filter>リソース ファイル</Filter>
+    </Media>
+    <Media Include="Material\Sounds\SE\eats.wav">
+      <Filter>リソース ファイル</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Material\Images\Title.png">

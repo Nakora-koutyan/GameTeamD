@@ -7,6 +7,10 @@ TITLE::TITLE()
 {
 	// BGMì«çû
 	gTitleBGM = LoadSoundMem("Material/Sounds/BGM/Title.wav");
+	gCursor = LoadGraph("Material/Images/Apple_Red.png");
+	gCursor_Move = LoadSoundMem("Material/Sounds/SE/cursor1.wav");
+	gCursor_Enter = LoadSoundMem("Material/Sounds/SE/eats.wav");
+
 
 	// gTitleBGMÇ™ó¨ÇÍÇƒÇ»Ç¢Ç»ÇÁó¨Ç∑
 	if (CheckSoundMem(gTitleBGM) != 1 && gGameMode == E_TITLE)
@@ -82,6 +86,15 @@ TITLE::~TITLE()
 //	}
 //}
 AbstractScene* TITLE::Update() {
+
+	if (InputControl::TipLeftLStick(STICKL_Y) < -0.5) {
+		if (++g_MenuNumber > 3) g_MenuNumber = 0;
+		PlaySoundMem(gCursor_Move, DX_PLAYTYPE_BACK);
+	}
+	if (InputControl::TipLeftLStick(STICKL_Y) > 0.5) {
+		if (--g_MenuNumber < 0) g_MenuNumber = 3;
+		PlaySoundMem(gCursor_Move, DX_PLAYTYPE_BACK);
+	}
 	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {	//AÉ{É^ÉìÇ™âüÇ≥ÇÍÇΩÇÁê^Çï‘Ç∑
 		while(vol > 0)
 		{
@@ -100,6 +113,9 @@ AbstractScene* TITLE::Update() {
 }
 
 void TITLE::Draw() const {
-	DrawString(300, 10, "title", 0xFFFFFF);
+	
 	DrawGraph(0, 0, gBackScreen, 0);
+	DrawString(300, 10, "title", 0xFFFFFF);
+	DrawFormatString(200, 10, 0xFFFFFF, "%d", g_MenuNumber);
+	DrawGraph(370, 300 + g_MenuNumber * 90, gCursor, 1);
 }

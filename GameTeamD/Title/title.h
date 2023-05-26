@@ -21,6 +21,7 @@ private:
 	int gTitleBGM;
 	int gCursor_Move;
 	int gCursor_Enter;
+	int gCursor;
 public:
 
 	TITLE();

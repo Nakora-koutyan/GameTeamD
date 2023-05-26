@@ -198,6 +198,9 @@
   <ItemGroup>
     <Media Include="Material\Sounds\BGM\GameMain.wav" />
     <Media Include="Material\Sounds\BGM\Title.wav" />
+    <Media Include="Material\Sounds\SE\cursor.wav" />
+    <Media Include="Material\Sounds\SE\cursor1.wav" />
+    <Media Include="Material\Sounds\SE\eats.wav" />
     <Media Include="Material\Sounds\SE\Finish.wav" />
     <Media Include="Material\Sounds\SE\warning1.wav" />
     <Media Include="Material\Sounds\SE\キャンセル音.wav" />
