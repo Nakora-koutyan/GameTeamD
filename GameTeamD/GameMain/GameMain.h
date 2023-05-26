@@ -7,12 +7,11 @@
 class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：AbstractScene
 private:
 	int gMainBGM;	//BGMの宣言
+	int gGameBackScreen;
 
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
 
-	APPLE apple[APPLE_MAX];	//リンゴとリンゴの配列を呼び出すための配列
-
-	int gAppleImg[4];
+	APPLE apple[];	//リンゴとリンゴの配列を呼び出すための配列
 public:
 	//コンストラクタ
 	GameMain();
@@ -25,12 +24,5 @@ public:
 
 	// 描画に関することを実装する
 	virtual void Draw() const override;
-
-	int CreateApple();
-
-	int AppleProd();
-
-	int HitBoxPlayer(BoxCollider* p, APPLE* a);  // 当たり判定
-
 };
 

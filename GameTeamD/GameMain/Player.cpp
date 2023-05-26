@@ -66,60 +66,52 @@ PLAYER::~PLAYER()		//デストラクタ
 
 void PLAYER::Update() //キャラクターの移動と状態の更新
 {
-	//スティックの傾き割合 が -0.5より小さい値 または スティックの傾き割合 が 0.5よりも大きい値  
-	if (InputControl::TipLeftLStick(STICKL_X) < -0.7 || InputControl::TipLeftLStick(STICKL_X) > 0.7)
-	{
-		if (PlayerState != PLAYER_STATE::DASH)	//プレイヤーの動作状態がダッシュでない時
-		{
-			PlayerState = PLAYER_STATE::DASH;
-			AnimInterval = ANIMATION_INTERVAL;
-			AnimTimer = 0;
-			AnimType = 0;
-		}
-		
-		if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
-		{
-			Speed = -PLAYER_DASH_SPEED;
-			TurnFlag = true;
-		}
-		if (InputControl::TipLeftLStick(STICKL_X) > 0.7)
-		{
-			Speed = PLAYER_DASH_SPEED;
-			TurnFlag = false;
-		}
-	}
-	else if (InputControl::TipLeftLStick(STICKL_X) < -0.3 || InputControl::TipLeftLStick(STICKL_X) > 0.3)
-	{
-		if (PlayerState != PLAYER_STATE::WALK)
-		{
-			PlayerState = PLAYER_STATE::WALK;
-			AnimInterval = ANIMATION_INTERVAL;
-			AnimTimer = 0;
-			AnimType = 0;
-		}
+	//スティックの傾き割合 が -0.7より小さい値 または スティックの傾き割合 が 0.7よりも大きい値  
+	//if (InputControl::TipLeftLStick(STICKL_X) < -0.7 || InputControl::TipLeftLStick(STICKL_X) > 0.7)
+	//{
+	//	if (PlayerState != PLAYER_STATE::DASH)	//プレイヤーの動作状態がダッシュでない時
+	//	{
+	//		PlayerState = PLAYER_STATE::DASH;
+	//		AnimInterval = ANIMATION_INTERVAL;
+	//		AnimTimer = 0;
+	//		AnimType = 0;
+	//	}
+	//	
 
-		if (InputControl::TipLeftLStick(STICKL_X) < -0.3)
-		{
-			Speed = -PLAYER_WALK_SPEED;
-			TurnFlag = true;
-		}
+	//}
+	//else if (InputControl::TipLeftLStick(STICKL_X) < -0.3 || InputControl::TipLeftLStick(STICKL_X) > 0.3)
+	//{
+	//	if (PlayerState != PLAYER_STATE::WALK)
+	//	{
+	//		PlayerState = PLAYER_STATE::WALK;
+	//		AnimInterval = ANIMATION_INTERVAL;
+	//		AnimTimer = 0;
+	//		AnimType = 0;
+	//	}
 
-		if (InputControl::TipLeftLStick(STICKL_X) > 0.3)
-		{
-			Speed = PLAYER_WALK_SPEED;
-			TurnFlag = false;
-		}
-	}
-	else if (PlayerState != PLAYER_STATE::IDOL)
-	{
-		AnimTimer = 0;
-		AnimType = 0;
-		PlayerState = PLAYER_STATE::IDOL;
-		Image = ImageStand;
-		Speed = 0;
-	}
+	//	if (InputControl::TipLeftLStick(STICKL_X) < -0.3)
+	//	{
+	//		Speed = -PLAYER_WALK_SPEED;
+	//		TurnFlag = true;
+	//	}
 
-	else{}
+	//	if (InputControl::TipLeftLStick(STICKL_X) > 0.3)
+	//	{
+	//		Speed = PLAYER_WALK_SPEED;
+	//		TurnFlag = false;
+	//	}
+	//}
+	//else if (PlayerState != PLAYER_STATE::IDOL)
+	//{
+	//	AnimTimer = 0;
+	//	AnimType = 0;
+	//	PlayerState = PLAYER_STATE::IDOL;
+	//	Image = ImageStand;
+	//	Speed = 0;
+	//}
+	MoveLeftDash();
+
+	MoveRightDash();
 
 	switch(PlayerState)
 	{
