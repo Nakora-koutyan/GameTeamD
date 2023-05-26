@@ -37,5 +37,6 @@ public:
 	//void AppleSetting();
 
 	~APPLE();
+	void Draw()const;
 };
 

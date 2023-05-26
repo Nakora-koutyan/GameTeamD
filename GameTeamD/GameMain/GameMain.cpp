@@ -15,6 +15,9 @@ GameMain::GameMain()
 		SetLoopSamplePosSoundMem(371945, gMainBGM);
 		PlaySoundMem(gMainBGM, DX_PLAYTYPE_BACK);
 	}
+
+	//背景画像読込
+	gBackScreen = LoadGraph("Material/Images/BackImage.png");
 	/* リンゴ画像読込 */
 	gAppleImg[0] = LoadGraph("Material/Images/Apple_Red.png");
 	gAppleImg[1] = LoadGraph("Material/Images/Apple_Green.png");
@@ -94,9 +97,16 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 }
 
 void GameMain::Draw() const {
-	player.Draw();
 
+	DrawGraph(0, 0, gBackScreen, FALSE);
+
+	player.Draw();
+	for (int i = 0; i < APPLE_MAX; i++)
+	{
+		apple[i].Draw();
+	}
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
+
 
 }
 

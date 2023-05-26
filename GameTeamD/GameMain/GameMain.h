@@ -7,10 +7,11 @@
 class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：AbstractScene
 private:
 	int gMainBGM;	//BGMの宣言
-	int gGameBackScreen;
+	int gBackScreen;
 
 	int gRingoSE;      // リンゴのSE
 	int gPoisonRingoSE;  // 毒リンゴのSE
+
 
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
 
@@ -19,7 +20,9 @@ private:
 	int gAppleImg[4];
 public:
 
-	int AppleCount[4];    // リンゴのゲット数カウント
+	// 描画に関することを実装する
+	virtual void Draw() const override;
+
 
 	//コンストラクタ
 	GameMain();
@@ -30,8 +33,7 @@ public:
 	// 描画以外の更新を実装する
 	virtual AbstractScene* Update() override;
 
-	// 描画に関することを実装する
-	virtual void Draw() const override;
+	
 
 	int CreateApple();   // リンゴの生成処理
 
