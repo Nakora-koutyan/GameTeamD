@@ -37,6 +37,10 @@ GameMain::GameMain()
 GameMain::~GameMain()	//デストラクタ
 {
 	DeleteSoundMem(gMainBGM);
+
+	for (int i = 0; i < 4; i++) {
+		DeleteGraph(gAppleImg[i]);
+	}
 }
 
 
@@ -45,7 +49,7 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 	player.Update();	//プレイヤーの更新
 	for(int i=0; i<APPLE_MAX;i++)
 	{
-
+		apple[i].AppleControl();
 
 		if (HitBoxPlayer(&player, &apple[i]) == TRUE)
 		{
@@ -194,7 +198,11 @@ int GameMain::HitBoxPlayer(BoxCollider* p, APPLE* a)
 		return TRUE;
 	}
 	return FALSE;
-	DrawGraph(0, 0, gGameBackScreen,0);
+	/*DrawGraph(0, 0, gGameBackScreen,0);
 	player.Draw();
-	DrawFormatString(100, 100, 0xffffff, "%f", player.Speed);
+	for (int i = 0; i < APPLE_MAX; i++)
+	{
+		apple[i].Draw();
+	}
+	DrawFormatString(100, 100, 0xffffff, "%f", player.Speed);*/
 }
