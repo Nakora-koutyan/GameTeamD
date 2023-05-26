@@ -41,7 +41,7 @@ APPLE::APPLE()
 	 erea.width = 63;     // ダミーデータ（ｗ）
 	 erea.height = 120;	 // ダミーデータ（ｈ）
 	 speed = 50; // ダミーデータ（speed）
-	 point = 1;	 // ダミーデータ（point加算）
+	 count = 1;	 // ダミーデータ（count加算）
 
 	//// リンゴの初期設定
 	//for (int i = 0; i < APPLE_MAX; i++) {

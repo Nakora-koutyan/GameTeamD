@@ -23,6 +23,11 @@ GameMain::GameMain()
 	/* リンゴ落下SE */
 	gRingoSE = LoadSoundMem("Material/Sounds/SE/パワーアップ.wav");
 	gPoisonRingoSE = LoadSoundMem("Material/Sounds/SE/毒状態.wav");
+
+	AppleCount[0] = 0;
+	AppleCount[1] = 0;
+	AppleCount[2] = 0;
+	AppleCount[3] = 0;
 }
 
 GameMain::~GameMain()	//デストラクタ
@@ -59,7 +64,23 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 				PlaySoundMem(gPoisonRingoSE, DX_PLAYTYPE_BACK);
 				ChangeVolumeSoundMem(255, gPoisonRingoSE);
 			}
-
+			/* 取ったリンゴをカウント */
+			if (apple[i].type == 0)      // 取ったリンゴが赤だったとき
+			{
+				AppleCount[0]++;           // 赤リンゴの数に1加算
+			}
+			else if (apple[i].type == 1)  // 取ったリンゴが青だったとき
+			{
+				AppleCount[1]++;		   // 青リンゴの数に1加算
+			}
+			else if (apple[i].type == 2)  // 取ったリンゴが金だったとき
+			{
+				AppleCount[2]++;		   // 金リンゴの数に1加算
+			}
+			else						   // 取ったリンゴが毒だったとき
+			{
+				AppleCount[3]++;		    // 毒リンゴの数に1加算
+			}
 		}
 	}
 
@@ -97,28 +118,29 @@ int GameMain::CreateApple()
 				// 赤リンゴ出現
 				apple[i].speed = 1;           // スピードを設定
 				apple[i].magnification = 1.1; // 当たり判定の倍率設定
-				apple[i].point += 100;		  // ポイントに100加算
+				//apple[i].count += 1;		  // カウントに１加算
+				//apple[i].point += 100;	  // ポイントに100加算
 				break;
 
 			case 1:
 				// 青リンゴ出現
 				apple[i].speed = 3;			  // スピードを設定
 				apple[i].magnification = 1.1; // 当たり判定の倍率設定
-				apple[i].point += 200;        // ポイントに200加算
+				//apple[i].point += 200;        // ポイントに200加算
 				break;						  
 				
 			case 2:
 				// 金リンゴ出現
 				apple[i].speed = 5;			  // スピードを設定
 				apple[i].magnification = 1.1; // 当たり判定の倍率設定
-				apple[i].point += 500;        // ポイントに500加算
+				//apple[i].point += 500;        // ポイントに500加算
 				break;
 
 			case 3:
 				// 毒リンゴ出現
 				apple[i].speed = 0.5;		  // スピードを設定
 				apple[i].magnification = 0.9; // 当たり判定の倍率設定
-				apple[i].point -= 750;		  // ポイントに750減算
+				//apple[i].point -= 750;		  // ポイントに750減算
 				break;
 			}
 

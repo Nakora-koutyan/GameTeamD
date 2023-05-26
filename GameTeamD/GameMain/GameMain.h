@@ -18,6 +18,9 @@ private:
 
 	int gAppleImg[4];
 public:
+
+	int AppleCount[4];    // リンゴのゲット数カウント
+
 	//コンストラクタ
 	GameMain();
 
