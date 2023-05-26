@@ -21,5 +21,7 @@ void UI::Draw() const
 
 	DrawFormatString(x + 90, 20, 0x000000, "スコア : %d", score);
 	DrawFormatString(x + 90, 50, 0x000000, "タイム : %d", time);
-	DrawFormatString(x + 90, 80, 0x000000, "赤リンゴ : %d\n青リンゴ : %d\n金リンゴ : %d\n", acqu[0], acqu[1],acqu[2]);
+	DrawFormatString(x + 90, 80, 0x000000, "赤リンゴ : %d\n青リンゴ : %d\n金リンゴ : %d\n毒リンゴ : %d", acqu[0], acqu[1], acqu[2], acqu[3]);;
+	DrawFormatString(x + 90, 200, 0x000000, "スコア:%d\n", acqu[0] * 100 + acqu[1] * 200 + acqu[2] * 500 - acqu[3] * 750);
 }
+
