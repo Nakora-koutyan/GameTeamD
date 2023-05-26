@@ -11,7 +11,7 @@ private:
 
 	int score;
 	int time;
-	int acqu;
+	int acqu[4];
 public:
 	UI();
 
@@ -20,6 +20,11 @@ public:
 
 	void SetTime(int time) { this->time = time; }
 	void AddScore(int score) { this->score += score; }
-	void AddAcqu(int acqu) { this->acqu = acqu; }
+	void AddAcqu(int acqu[4]) {
+		for (int i = 0; i < 3; i++)
+		{
+			this->acqu[i] = acqu[i];
+		}
+	}
 };
 

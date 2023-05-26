@@ -95,13 +95,16 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
-	FlmCnt++;
-	second = FlmCnt / 28;
+	if(FlmCnt++ % 60)second += 1;
+
 	if (second >= 60) TimeOver = TRUE;
 
 	//if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {
 	//	return new TITLE;	//
 	//}
+
+	ui.SetTime(second);
+	ui.AddAcqu(AppleCount);
 
 	return this;	//現在のシーンを返す(ゲームメイン)
 }
@@ -123,6 +126,8 @@ void GameMain::Draw() const
 		DrawGraph(0, 0, gTimeOver, FALSE);
 	}
 	DrawFormatString(900, 100, 0xffffff, "%3d");
+
+	ui.Draw();
 }
 
 int GameMain::CreateApple()
