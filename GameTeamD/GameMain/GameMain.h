@@ -20,6 +20,8 @@ private:
 	int gAppleImg[4];
 public:
 
+	int AppleCount[4];
+
 	// •`‰æ‚ÉŠÖ‚·‚é‚±‚Æ‚ðŽÀ‘•‚·‚é
 	virtual void Draw() const override;
 
