@@ -12,7 +12,7 @@ END::END()
 
 	//画像のロード
 	EndImg=LoadGraph("Material/Images/BackImage.png");
-};
+}
 
 END::~END()
 {
@@ -28,28 +28,23 @@ END::~END()
 //	{
 //		End = 99;
 //	}
-//};
+//}
 
 //描画
 //void END::Draw() const
 //{
-//
-//	M_INPUT M{};
-//
-//	M.Input();
-//
 //	//背景
-//	DrawGraph(0,0, M.gEndImg, FALSE);
+//	DrawGraph(0,0,EndImg, FALSE);
 //
 //	//感謝
 //	DrawString(0, 0, "Thank you for playing", GetColor(255, 0, 0));
 //
 //	//クレジット（素材の利用許諾など）
 //
-//};
+//}
 
 //SceneManager用
 //AbstractScene* END::ChangeScene()
 //{
 //	return this;
-//};
+//}
