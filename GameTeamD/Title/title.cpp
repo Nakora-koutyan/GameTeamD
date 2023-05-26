@@ -83,6 +83,17 @@ TITLE::~TITLE()
 //}
 AbstractScene* TITLE::Update() {
 	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {	//Aボタンが押されたら真を返す
+		while(vol > 0)
+		{
+			ClearDrawScreen();
+			DrawGraph(0, 0, gBackScreen, 0);
+			ChangeVolumeSoundMem(vol, gTitleBGM);
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, vol);
+			ScreenFlip();
+			vol--;
+			WaitTimer(9);
+		}
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
 		return new GameMain();		//返す値 ＝ ゲームメインシーン
 	}
 	return this;	//現在のシーンを返す(タイトル)
