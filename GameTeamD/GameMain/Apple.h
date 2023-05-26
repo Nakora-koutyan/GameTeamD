@@ -32,4 +32,3 @@ public:
 	void AppleControl(); // ƒŠƒ“ƒS‚ÌˆÚ“®ˆ—
 	void Draw()const;
 };
-
