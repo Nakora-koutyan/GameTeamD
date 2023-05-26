@@ -70,9 +70,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//SetLoopSamplePosSoundMem(371945, gMainbgm); 
 	SetLoopSamplePosSoundMem(109696, gTitlebgm); 
 
-	//M_INPUT M{};
-	//
-	//M.Input();
+	M_INPUT M;
+	
+	M.Input();
 
 	FpsController FPSC(FRAMERATE, 800);
 

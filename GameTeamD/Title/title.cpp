@@ -11,6 +11,8 @@ TITLE::TITLE()
 		SetLoopSamplePosSoundMem(109696, gTitleBGM);
 		PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP);
 	}
+
+	gBackScreen = LoadGraph("Material/Images/Title.png");
 	
 
 }
