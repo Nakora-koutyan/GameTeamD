@@ -43,4 +43,5 @@ void GameMain::Draw() const {
 	DrawString(300, 10, "GameMain", 0xFFFFFF);
 	DrawGraph(0, 0, gGameBackScreen,0);
 	player.Draw();
+	DrawFormatString(100, 100, 0xffffff, "%f", player.Speed);
 }

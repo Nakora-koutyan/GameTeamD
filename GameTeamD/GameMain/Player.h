@@ -15,11 +15,11 @@
 #define PLAYER_STATE_WALK	1		//プレイヤーの歩行状態
 #define PLAYER_STATE_DASH	2		//プレイヤーのダッシュ状態
 
-#define ANIMATION_INTERVAL	2		//アニメーション切り替えの間隔
+#define ANIMATION_INTERVAL	3		//アニメーション切り替えの間隔
 
 class PLAYER:public BoxCollider
 {
-private:
+public:
 	int TurnFlag;
 	enum PLAYER_STATE
 	{
@@ -58,35 +58,49 @@ private:
 	//スティックの動作に伴うキャラクターの移動方向とダッシュ
 	void MoveLeftDash()
 	{
-		//if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
-		//{
-		//	PlayerState = PLAYER_STATE::DASH;
-		//	AnimInterval = ANIMATION_INTERVAL;
-		//	AnimTimer = 0;
-		//	AnimType = 0;
+		if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
+		{
+			PlayerState = PLAYER_STATE::DASH;
+			AnimInterval = ANIMATION_INTERVAL;
+			TurnFlag = true;
+			
+			if (Speed > ( - 1 * MAX_DASH_SPEED)) {
+				Speed += ((- 1 * PLAYER_DASH_SPEED) / 10);
+			}
+		}
+		else if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
+		{
+			Speed += (Speed * 0.3);
+			TurnFlag = true;
 
-		//	if (Speed > -MAX_DASH_SPEED) {
-		//		Speed += (-PLAYER_DASH_SPEED / 10);
-		//		TurnFlag = true;
-		//		//DrawString("")
-		//	}
-		//}
-		//else if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
-		//{
-		//	if (fabsf(Speed) > 0)
-		//	{
-		//		Speed -= (Speed * 0.01);
-		//		TurnFlag = false;
 
-		//	}
-		//}
+			if (InputControl::TipLeftLStick(STICKL_X) > 0 || InputControl::TipLeftLStick(STICKL_X) == 0)
+			{
+				TurnFlag = true;
+				if (fabsf(Speed) > 1 && fabsf(Speed) < 5)
+				{
+					PlayerState = PLAYER_STATE::DASH;
+					AnimInterval = ANIMATION_INTERVAL + 1;
+					TurnFlag = true;
+				}
+				else if (fabsf(Speed) < 1)
+				{
+					AnimTimer = 0;
+					AnimType = 0;
+					PlayerState = PLAYER_STATE::IDOL;
+					Image = ImageStand;
+					TurnFlag = true;
+				}
+			}
+		}
 	}
+
 	void MoveRightDash() 
 	{
 		if (InputControl::TipLeftLStick(STICKL_X) > 0.7)
 		{
 			PlayerState = PLAYER_STATE::DASH;
-			AnimInterval = ANIMATION_INTERVAL + 5;
+			AnimInterval = ANIMATION_INTERVAL;
 			TurnFlag = false;
 
 
@@ -96,21 +110,24 @@ private:
 		}
 		else if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
 		{
-			Speed -= (Speed * 0.07);
+			Speed -= (Speed * 0.3);
 			TurnFlag = false;
 
-
-			if (fabsf(Speed) > 1 && fabsf(Speed) < 5)
+			if (InputControl::TipLeftLStick(STICKL_X) < 0 || InputControl::TipLeftLStick(STICKL_X) == 0) 
 			{
-				PlayerState = PLAYER_STATE::DASH;
-				AnimInterval = ANIMATION_INTERVAL+10;
-			}
-			else if(fabsf(Speed) < 1)
-			{
-				AnimTimer = 0;
-				AnimType = 0;
-				PlayerState = PLAYER_STATE::IDOL;
-				Image = ImageStand;
+				TurnFlag = false;
+				if (fabsf(Speed) > 1 && fabsf(Speed) < 5)	//Speedの値が１以上5未満の時
+				{
+					PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
+					AnimInterval = ANIMATION_INTERVAL + 1;	//
+				}
+				else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
+				{
+					AnimTimer = 0;
+					AnimType = 0;
+					PlayerState = PLAYER_STATE::IDOL;
+					Image = ImageStand;
+				}
 			}
 		}
 	}
