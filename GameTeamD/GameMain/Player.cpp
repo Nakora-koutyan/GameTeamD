@@ -79,8 +79,8 @@ void PLAYER::MoveLeftDash()
 		AnimInterval = ANIMATION_INTERVAL;
 		TurnFlag = true;
 
-		if (Speed > (-1 * MAX_DASH_SPEED)) {
-			Speed += ((-1 * PLAYER_DASH_SPEED) / 10);
+		if (Speed > (-MAX_DASH_SPEED)) {
+			Speed += ((-PLAYER_DASH_SPEED) / 10);
 		}
 	}
 }
@@ -102,29 +102,29 @@ void PLAYER::MoveRightDash()
 void PLAYER::NotTip()
 {
 	if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
-		{
-			Speed -= (Speed * 0.3);
+	{
+		Speed -= (Speed * 0.05);
 
-			if (InputControl::TipLeftLStick(STICKL_X) < 0 || InputControl::TipLeftLStick(STICKL_X) == 0)
-			{
-				if (fabsf(Speed) > 1 && fabsf(Speed) < 5)	//Speedの値が１以上5未満の時
-				{
-					PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
-					AnimInterval = ANIMATION_INTERVAL + 1;	//
-				}
-			}
+		if (fabsf(Speed) >= 1)	//Speedの値が１以上5未満の時
+		{
+			PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
+			AnimInterval = ANIMATION_INTERVAL + 1;	//
+		}
 		else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
 		{
 			AnimTimer = 0;
 			AnimType = 0;
 			PlayerState = PLAYER_STATE::IDOL;
 			Image = ImageStand;
+			Speed = 0;
 		}
 	}
 }
 
 void PLAYER::Update() //キャラクターの移動と状態の更新
 {
+	PLAYER_DASH();
+
 	switch(PlayerState)
 	{
 	case PLAYER_STATE::IDOL:
