@@ -14,7 +14,9 @@ private:
 
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
 
-	APPLE apple[];	//リンゴとリンゴの配列を呼び出すための配列
+	APPLE apple[APPLE_MAX];	//リンゴとリンゴの配列を呼び出すための配列
+
+	int gAppleImg[4];
 public:
 	//コンストラクタ
 	GameMain();
@@ -27,5 +29,11 @@ public:
 
 	// 描画に関することを実装する
 	virtual void Draw() const override;
+
+	int CreateApple();   // リンゴの生成処理
+
+	int AppleProd();     // リンゴの生成率
+
+	int HitBoxPlayer(BoxCollider* p, APPLE* a);  // 当たり判定
 };
 
