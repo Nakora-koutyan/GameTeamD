@@ -8,7 +8,7 @@ class GameMain : public AbstractScene {	//子クラス：GameMain、親クラス：Abstract
 private:
 	int gMainBGM;	//BGMの宣言
 	int gGameBackScreen;
-	int gGameOver;
+	int gTimeOver;
 
 	int gRingoSE;      // リンゴのSE
 	int gPoisonRingoSE;  // 毒リンゴのSE
@@ -16,6 +16,7 @@ private:
 	int gStartTime;                 //ゲーム開始時間
 	int FlmCnt;
 	int second;
+	bool TimeOver;
 
 
 	PLAYER player;	//PLAYER型を呼び出すためのクラス変数
