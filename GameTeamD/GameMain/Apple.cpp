@@ -93,7 +93,7 @@ void APPLE::AppleControl(void)
 void APPLE::Draw()const {
 	if (flg == TRUE) {
 		// ƒŠƒ“ƒS‚Ì•\Ž¦
-		DrawRotaGraph(location.x, location.y, 1, 0, img, TRUE);
+		DrawRotaGraph((int)location.x, (int)location.y, 1, 0, img, TRUE);
 	}
 }
 

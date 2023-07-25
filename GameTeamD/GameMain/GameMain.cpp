@@ -95,7 +95,7 @@ AbstractScene* GameMain::Update() //ゲームメインのアップデート
 		}
 	}
 
-	if(FlmCnt++ % 60)second += 1;
+	if(FlmCnt++ % 120)second += 1;
 
 	if (second >= 60) TimeOver = TRUE;
 
@@ -147,7 +147,7 @@ int GameMain::CreateApple()
 			case 0:
 				// 赤リンゴ出現
 				apple[i].speed = 1;           // スピードを設定
-				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].magnification = (float)1.1; // 当たり判定の倍率設定
 				//apple[i].count += 1;		  // カウントに１加算
 				//apple[i].point += 100;	  // ポイントに100加算
 				break;
@@ -155,21 +155,21 @@ int GameMain::CreateApple()
 			case 1:
 				// 青リンゴ出現
 				apple[i].speed = 3;			  // スピードを設定
-				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].magnification = (float)1.1; // 当たり判定の倍率設定
 				//apple[i].point += 200;        // ポイントに200加算
 				break;						  
 				
 			case 2:
 				// 金リンゴ出現
 				apple[i].speed = 5;			  // スピードを設定
-				apple[i].magnification = 1.1; // 当たり判定の倍率設定
+				apple[i].magnification = (float)1.1; // 当たり判定の倍率設定
 				//apple[i].point += 500;        // ポイントに500加算
 				break;
 
 			case 3:
 				// 毒リンゴ出現
 				apple[i].speed = 0.5;		  // スピードを設定
-				apple[i].magnification = 0.9; // 当たり判定の倍率設定
+				apple[i].magnification = (float)0.9; // 当たり判定の倍率設定
 				//apple[i].point -= 750;		  // ポイントに750減算
 				break;
 			}
@@ -204,16 +204,16 @@ int GameMain::AppleProd()     // リンゴの生成率
 
 int GameMain::HitBoxPlayer(BoxCollider* p, APPLE* a)
 {	// x,yは中心座標とする
-	int sx1 = p->GetLocation().x - (p->GetErea().width / 2);
-	int sy1 = p->GetLocation().y - (p->GetErea().height / 2);
-	int sx2 = sx1 + p->GetErea().width;
-	int sy2 = sy1 + p->GetErea().height;
+	float sx1 = p->GetLocation().x - (p->GetErea().width / 2);
+	float sy1 = p->GetLocation().y - (p->GetErea().height / 2);
+	float sx2 = sx1 + p->GetErea().width;
+	float sy2 = sy1 + p->GetErea().height;
 
 	/* 赤、青、金,毒リンゴの当たり判定*/
-	int ax1 = a->GetLocation().x - (a->GetErea().width / 2 * a->magnification);
-	int ay1 = a->GetLocation().y - (a->GetErea().height / 2 * a->magnification);
-	int ax2 = ax1 + a->GetErea().width * a->magnification;
-	int ay2 = ay1 + a->GetErea().height * a->magnification;
+	float ax1 = a->GetLocation().x - (a->GetErea().width / 2 * a->magnification);
+	float ay1 = a->GetLocation().y - (a->GetErea().height / 2 * a->magnification);
+	float ax2 = ax1 + a->GetErea().width * a->magnification;
+	float ay2 = ay1 + a->GetErea().height * a->magnification;
 
 	if (sx1 < ax2 && ax1 < sx2 && sy1 < ay2 && ay1 && sy2)
 	{

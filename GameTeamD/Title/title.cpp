@@ -82,7 +82,7 @@ TITLE::~TITLE()
 //	}
 //}
 AbstractScene* TITLE::Update() {
-	if (InputControl::PressBotton(XINPUT_BUTTON_A) == true) {	//Aボタンが押されたら真を返す
+	if (InputControl::PressBotton(XINPUT_BUTTON_A) == TRUE) {	//Aボタンが押されたら真を返す
 		while(vol > 0)
 		{
 			ClearDrawScreen();

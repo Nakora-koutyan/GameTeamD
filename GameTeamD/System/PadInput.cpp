@@ -53,7 +53,7 @@ float InputControl::TipLeftLStick(short StickL)
 	{
 		float ratioL_Y = xinput.ThumbLY / MAXL_Y;
 
-		//右スティックの縦軸を最大値を1とした割合
+		//左スティックの縦軸を最大値を1とした割合
 		return ratioL_Y;
 	}
 
