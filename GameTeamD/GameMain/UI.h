@@ -21,7 +21,7 @@ public:
 	void SetTime(int time) { this->time = time; }
 	void AddScore(int score) { this->score += score; }
 	void AddAcqu(int acqu[4]) {
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			this->acqu[i] = acqu[i];
 		}
