@@ -75,6 +75,9 @@
     <ClCompile Include="GameMain\RedApple.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain\UI.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameMain\Apple.h">
@@ -140,6 +143,9 @@
     <ClInclude Include="GameMain\RedApple.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="GameMain\UI.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Material\Sounds\BGM\GameMain.wav">
@@ -190,6 +196,18 @@
       <Filter>リソース ファイル</Filter>
     </Image>
     <Image Include="Material\Images\BackImage.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\TimeOver.jpg">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\start.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Help.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Material\Images\Ranking.png">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>

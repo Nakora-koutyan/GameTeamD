@@ -15,30 +15,23 @@ RESULT::~RESULT()
 	DeleteGraph(ResultImg);
 }
 
-//void RESULT::Update()
-//{
-//	//スコア
-//
-//	//表示時間
-//	FlmCnt++;
-//	second = FlmCnt / 28;
-//	if (second >= 60)
-//	{
-//		//スコアがランキングの最下位以上で名前入力
-//		
-//		//スコアがランキングの最下位以下でランキング
-//
-//	}
-//}
-//
-//void RESULT::Draw() const
-//{
-//	//背景
-//	DrawGraph(0, 0, ResultImg, FALSE);
-//}
-//
-////シーン切り替え
-//AbstractScene* RESULT::ChengeScene()
-//{
-//
-//}
+AbstractScene* RESULT::Update()
+{
+	FlmCnt++;
+	second = FlmCnt / 28;
+	if (second >= 60)
+	{
+		//スコアがランキングの最下位以上で名前入力
+		
+		//スコアがランキングの最下位以下でランキング
+
+	}
+
+	return this;
+}
+
+void RESULT::Draw() const
+{
+	//背景
+	DrawGraph(0, 0, ResultImg, FALSE);
+}

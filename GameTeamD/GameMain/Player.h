@@ -21,9 +21,9 @@ class PLAYER:public BoxCollider
 {
 public:
 	int TurnFlag;
-	enum PLAYER_STATE
+	enum class PLAYER_STATE
 	{
-		IDOL = 0,
+		IDOL,
 		DASH
 	};
 
@@ -31,21 +31,21 @@ public:
 	PLAYER_STATE PlayerState;				//プレイヤーの現在の状態を制御
 
 	//プレイヤー画像用の配列・変数宣言
-	int ImageStand;					//画像用変数(直立)
-	int ImagesDash[6];				//画像用配列(歩行)
-	int ImagesWalk[8];				//画像用配列(ダッシュ)
-	int Image;						//画像
+	int image_stand;					//画像用変数(直立)
+	int images_dash[6];				//画像用配列(歩行)
+	int images_walk[8];				//画像用配列(ダッシュ)
+	int image;						//画像
 
 	//画像切り替えに関する変数宣言
-	int AnimTimer;					//アニメーション画像切り替え用タイマー
-	int AnimInterval;				//アニメーション切り替え間隔
-	int AnimType;					//アニメーションタイプ
+	int anim_timer;					//アニメーション画像切り替え用タイマー
+	int anim_interval;				//アニメーション切り替え間隔
+	int anim_type;					//アニメーションタイプ
 
-	float Speed;					//プレイヤーのスピード値
+	float speed;					//プレイヤーのスピード値
 
-	int WalkSE;						//歩行SE
-	int DashSE;						//ダッシュSE
-	int GuideFont;
+	int walk_se;						//歩行SE
+	int dash_se;						//ダッシュSE
+	int guide_font;
 
 private:
 

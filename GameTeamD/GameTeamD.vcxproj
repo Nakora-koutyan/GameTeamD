@@ -171,6 +171,7 @@
     <ClCompile Include="System\PadInput.cpp" />
     <ClCompile Include="System\SceneManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
+    <ClCompile Include="GameMain\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="End\Credit.h" />
@@ -194,6 +195,7 @@
     <ClInclude Include="System\PadInput.h" />
     <ClInclude Include="System\SceneManager.h" />
     <ClInclude Include="Title\Title.h" />
+    <ClInclude Include="GameMain\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Material\Sounds\BGM\GameMain.wav" />
@@ -212,6 +214,10 @@
     <Image Include="Material\Images\BackImage.png" />
     <Image Include="Material\Images\characterStand.png" />
     <Image Include="Material\Images\Dash.png" />
+    <Image Include="Material\Images\Help.png" />
+    <Image Include="Material\Images\Ranking.png" />
+    <Image Include="Material\Images\start.png" />
+    <Image Include="Material\Images\TimeOver.jpg" />
     <Image Include="Material\Images\Title.png" />
     <Image Include="Material\Images\Walk.png" />
   </ItemGroup>

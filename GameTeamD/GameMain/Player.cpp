@@ -6,26 +6,26 @@
 PLAYER::PLAYER()
 {
 	//画像の読込
-	try 
+	try
 	{
-		ImageStand = LoadGraph("Material/Images/characterStand.png");		//Image画像(直立)の読込
-		if (ImageStand == -1)												//-1が検出されたらcatchへエラーを飛ばす
+		image_stand = LoadGraph("Material/Images/characterStand.png");		//Image画像(直立)の読込
+		if (image_stand == -1)												//-1が検出されたらcatchへエラーを飛ばす
 		{
 			throw "Material/Images/characterStand.png";
 		}
 
-		LoadDivGraph("Material/Images/Dash.png", 6, 6, 1, 160, 160, ImagesDash);	//Image画像6枚(ダッシュ)の読込
+		LoadDivGraph("Material/Images/Dash.png", 6, 6, 1, 160, 160, images_dash);	//Image画像6枚(ダッシュ)の読込
 		for (int i = 0; i < 6; i++)													//-1が検出されたらcatchへエラーを飛ばす
 		{
-			if (ImagesDash[i] == -1)
+			if (images_dash[i] == -1)
 			{
-				throw"Material/Images/Dash.png";							
+				throw"Material/Images/Dash.png";
 			}
 		}
-		LoadDivGraph("Material/Images/walk.png", 8, 8, 1, 160, 160, ImagesWalk);	//Image画像8枚(歩行)の読込
+		LoadDivGraph("Material/Images/walk.png", 8, 8, 1, 160, 160, images_walk);	//Image画像8枚(歩行)の読込
 		for (int i = 0; i < 8; i++)													//-1が検出されたらcatchへエラーを飛ばす
-		{	
-			if (ImagesWalk[i] == -1)
+		{
+			if (images_walk[i] == -1)
 			{
 				throw"Material/Images/walk.png";
 			}
@@ -42,25 +42,28 @@ PLAYER::PLAYER()
 	location.y = 600;
 	erea.width = 50;
 	erea.height = 100;
-	erea.width_rate = 0.6;
-	erea.height_rate = 0.5;
+	erea.width_rate = 0.6f;
+	erea.height_rate = 0.5f;
 
 	//プレイヤーの状態の初期化
-	Speed = 0;
-	AnimTimer = 0;
-	AnimInterval = 0;
-	AnimType = 0;
+	speed = 0;
+	anim_timer = 0;
+	anim_interval = 0;
+	anim_type = 0;
 
 	//画像の初期化
-	Image = ImageStand;
-	ImagesDash;
+	image = image_stand;
+	images_dash;
+	images_walk;
 	//location.x = 100;
+
+	PlayerState ;
 }
 
 PLAYER::~PLAYER()		//デストラクタ
 {
 	//フォントの削除
-	DeleteFontToHandle(GuideFont);
+	DeleteFontToHandle(guide_font);
 }
 
 void PLAYER::PLAYER_DASH()
@@ -75,11 +78,11 @@ void PLAYER::MoveLeftDash()
 	if (InputControl::TipLeftLStick(STICKL_X) < -0.7)
 	{
 		PlayerState = PLAYER_STATE::DASH;
-		AnimInterval = ANIMATION_INTERVAL;
+		anim_interval = ANIMATION_INTERVAL;
 		TurnFlag = true;
 
-		if (Speed > (-MAX_DASH_SPEED)) {
-			Speed += ((-PLAYER_DASH_SPEED) / 10);
+		if (speed > (-MAX_DASH_SPEED)) {
+			speed += ((-PLAYER_DASH_SPEED) / 10);
 		}
 	}
 }
@@ -89,11 +92,11 @@ void PLAYER::MoveRightDash()
 	if (InputControl::TipLeftLStick(STICKL_X) > 0.7)
 	{
 		PlayerState = PLAYER_STATE::DASH;
-		AnimInterval = ANIMATION_INTERVAL;
+		anim_interval = ANIMATION_INTERVAL;
 		TurnFlag = false;
 
-		if (Speed < MAX_DASH_SPEED) {
-			Speed += (PLAYER_DASH_SPEED / 10);
+		if (speed < MAX_DASH_SPEED) {
+			speed += (PLAYER_DASH_SPEED / 10);
 		}
 	}
 }
@@ -102,20 +105,20 @@ void PLAYER::NotTip()
 {
 	if (InputControl::TipLeftLStick(STICKL_X) > -0.3 && InputControl::TipLeftLStick(STICKL_X) < 0.3)
 	{
-		Speed -= (Speed * 0.05);
+		speed -= (speed * 0.05f);
 
-		if (fabsf(Speed) >= 1)	//Speedの値が１以上5未満の時
+		if (fabsf(speed) >= 1.0f)	//Speedの値が１以上5未満の時
 		{
 			PlayerState = PLAYER_STATE::DASH;		//プレイヤーの状態をダッシュにする
-			AnimInterval = ANIMATION_INTERVAL + 3;	//
+			anim_interval = ANIMATION_INTERVAL + 3;	//
 		}
-		else if (fabsf(Speed) < 1)					//Speedの値が１以下の時
+		else if (fabsf(speed) < 0)					//Speedの値が１以下の時
 		{
-			AnimTimer = 0;
-			AnimType = 0;
+			anim_timer = 0;
+			anim_type = 0;
 			PlayerState = PLAYER_STATE::IDOL;
-			Image = ImageStand;
-			Speed = 0;
+			image = image_stand;
+			speed = 0;
 		}
 	}
 }
@@ -127,41 +130,41 @@ void PLAYER::Update() //キャラクターの移動と状態の更新
 	switch(PlayerState)
 	{
 	case PLAYER_STATE::IDOL:
-		if (CheckSoundMem(WalkSE) == 1)
+		if (CheckSoundMem(walk_se) == 1)
 		{
-			StopSoundMem(WalkSE);
+			StopSoundMem(walk_se);
 		}
-		if (CheckSoundMem(DashSE) == -1)
+		if (CheckSoundMem(dash_se) == -1)
 		{
-			StopSoundMem(DashSE);
+			StopSoundMem(dash_se);
 		}
 		break;
 	case PLAYER_STATE::DASH:
-		if (CheckSoundMem(DashSE) == 1)
+		if (CheckSoundMem(dash_se) == 1)
 		{
-			PlaySoundMem(WalkSE, DX_PLAYTYPE_BACK, TRUE);
+			PlaySoundMem(walk_se, DX_PLAYTYPE_BACK, TRUE);
 		}
-		if (CheckSoundMem(DashSE) == 1)
+		if (CheckSoundMem(dash_se) == 1)
 		{
-			StopSoundMem(DashSE);
+			StopSoundMem(dash_se);
 		}
 		DashAnimation();
-		location.x += Speed;
+		location.x += speed;
 
 	}
 }
 
 void PLAYER::DashAnimation()
 {
-	if (AnimTimer++ % AnimInterval == 0)
+	if (anim_timer++ % anim_interval == 0)
 	{
-		Image = ImagesDash[AnimType++ % 6];
+		image = images_dash[anim_type++ % 6];
 	}
 }
 
 void PLAYER::Draw()const
 {
-	DrawRotaGraph(location.x, location.y, 1.0, 0, Image, TRUE, TurnFlag);	//画面にプレイヤーの表示
+	DrawRotaGraph((int)location.x, (int)location.y, 1.0, 0, image, TRUE, TurnFlag);	//画面にプレイヤーの表示
 }
 
 void PLAYER::Reset()
@@ -169,10 +172,10 @@ void PLAYER::Reset()
 	TurnFlag = false;
 	location.x = 100;
 	location.y = 500;
-	Speed = 0;
-	AnimTimer = 0;
-	AnimInterval = 0;
-	AnimType = 0;
+	speed = 0;
+	anim_timer = 0;
+	anim_interval = 0;
+	anim_type = 0;
 	PlayerState = PLAYER_STATE::IDOL;
-	Image = ImageStand;
+	image = image_stand;
 }

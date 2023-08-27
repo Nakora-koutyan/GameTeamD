@@ -39,7 +39,7 @@ enum mode {
 /**************************************
 *　変数の宣言(グローバル変数)
 ***************************************/
-//int gGameMode = E_TITLE;    // ゲームモード
+int gGameMode = E_TITLE;    // ゲームモード
 
 int gTitlebgm;         // 
 
@@ -81,6 +81,21 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ゲームループ
 	while (ProcessMessage() == 0 ) {
 
+		switch (gGameMode)
+		{
+		case E_MAIN:
+			GameMain();
+			break;
+		case E_HELP:
+			HELP;
+			break;
+		case E_RANKING:
+			Ranking();
+			break;
+		case E_END:
+			END;
+			break;
+		}
 
 		// 画面の初期化
 		ClearDrawScreen();
